@@ -1,0 +1,1 @@
+# A0722I1-NguyenDinhPhuc git init git add README.md git commit -m first commit git branch -M main git remote add origin https://github.com/dinhphuc1404/A0722I1-NguyenDinhPhuc.git git push -u origin main
