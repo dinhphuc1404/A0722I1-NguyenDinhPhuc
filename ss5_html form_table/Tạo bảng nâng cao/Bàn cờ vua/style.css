@@ -1,0 +1,11 @@
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+th {
+    background-color: orange;
+}
+th,td {
+    padding: 40px;
+
+}
