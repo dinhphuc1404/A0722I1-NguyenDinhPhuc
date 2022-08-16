@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="" name="cdtt">
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="o1" size="20"></td>
+            <td>
+                <select id="from">
+                    <option value="vnd">VietNam</option>
+                    <option value="usd">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="to">
+                    <option value="usd">USD</option>
+                    <option value="vnd">VietNam</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="a()"  id="nut">Convert</button>
+            </td>
+        <tr>
+            <td>
+                <p >Kết quả:<span id="ketqua">0</span></p>
+            </td>
+        </tr>
+        </tr>
+    </table>
+</form>
+<script src="main.js"></script>
+</body>
+</html>
