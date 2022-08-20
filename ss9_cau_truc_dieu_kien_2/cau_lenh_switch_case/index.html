@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" name="thang"  id="t">
+    <button type="button" onclick="tim()">Tinh so ngay </button>
+    <br>
+    <label id="ngay" for=""></label>
+</form>
+<script>
+    var thang=document.getElementById('t');
+    var ngay=document.getElementById('ngay');
+    function tim() {
+        var temp = parseInt(thang.value);
+
+        switch (temp) {
+
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                ngay.innerHTML =  "Tháng có 31 ngày";
+                break;
+            case 2:
+                ngay.innerHTML =  "Tháng có 28 hoặc 29 ngày";
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+
+                ngay.innerHTML =  "Tháng có 30 ngày";
+                break;
+
+        }
+    }
+</script>
+</body>
+</html>
