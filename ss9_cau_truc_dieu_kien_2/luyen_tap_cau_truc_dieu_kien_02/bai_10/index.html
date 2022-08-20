@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <script>
+         let sodien = parseFloat(prompt("Nhap vao so dien"));
+         document.write("So dien cua ban la: "+sodien+"<br>");
+         let bac1 = 1678;
+         let bac2 = 1734;
+         let bac3 = 2014;
+         let bac4 = 2536;
+         let bac5 = 2834;
+         let bac6 = 2927;
+         if(sodien<0){
+             document.write("Vui long nhap lai so dien");
+         } else if(sodien<=50){
+              tiendien = sodien*bac1;
+             document.write("Ban da dung dien trong khoang 0 - 50 kWh so tien ban phai tra la: "+tiendien);
+         } else if(sodien<=100){
+             tiendien=50*bac1+((sodien-50)*bac2);
+             document.write("Ban da dung dien trong khoang 51 - 100 kWh so tien ban phai tra la: "+tiendien);
+         } else if(sodien<=200){
+             tiendien=50*bac1+(50*bac2)+((sodien-100)*bac3);
+             document.write("Ban da dung dien trong khoang 101 - 200 kWh so tien ban phai tra la: "+tiendien);
+         } else if (sodien<=300) {
+             tiendien = 50 * bac1 + (50 * bac2) + (100 * bac3) + ((sodien - 200) * bac4);
+             document.write("Ban da dung dien trong khoang 201 - 300 kWh so tien ban phai tra la: " + tiendien);
+         } else if(sodien<=400){
+             tiendien=50*bac1+(50*bac2)+(100*bac3)+(100*bac4)+((sodien-300)*bac5);
+             document.write("Ban da dung dien trong khoang 301 - 400 kWh so tien ban phai tra la: "+tiendien);
+         } else if(sodien>400){
+             tiendien=50*bac1+(50*bac2)+(100*bac3)+(100*bac4)+(100*bac5)+((sodien-400)*bac6);
+             document.write("Ban da dung dien tren 400 kWh so tien ban phai tra la: "+tiendien);
+
+         }
+
+     </script>
+</body>
+</html>
