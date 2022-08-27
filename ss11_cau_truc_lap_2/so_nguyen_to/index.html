@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <script>
+          // let number = +prompt("Nhap so can kiem tra");
+          // let count = 0;
+          // if(number < 2){
+          //     alert("k p snt");
+          // }else {
+          //     //number = 2
+          //     for (let i = 2; i <= number; i++) {
+          //         if (number % i === 0) {
+          //             count++;
+          //             break;
+          //         }
+          //     }
+          //     if (count !== 0) {
+          //         alert("kp snt");
+          //     } else {
+          //         alert("snt");
+          //     }
+          // }
+
+          let startNumber = 2;
+          let count2 = 0;
+          while(count2 < 20){
+              let count = 0;
+              for (let i = 2; i <= Math.sqrt(startNumber) ; i++) {
+                  if(startNumber % i === 0) {
+                      count++;
+                      break;
+                  }
+              }
+              if(count === 0){
+                  document.write(startNumber + "<br>");
+                  count2++;
+              }
+              startNumber++;
+          }
+
+
+      </script>
+
+
+</body>
+
+</html>
