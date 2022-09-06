@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputArray = [];
+        for (let i = 0; i < 10; i++) {
+            inputArray[i] = prompt("Nhập số nguyên " + (i+1));
+        }
+        document.write("Mảng khởi tạo là: [" + inputArray + "]" + "<br>" + "<br>");
+        let erase = prompt("Nhập số cần xóa : ");
+        let check = 0;
+        document.write("Số cần xóa: " + erase + "<br>" + "<br>");
+        for (let i = 0; i < 10; i++) {
+            if (inputArray.includes(erase)) {
+                inputArray.splice(inputArray.indexOf(erase), 1,0);
+                check++;
+            }
+        }
+        if (check) {
+            document.write("Mảng sau khi xóa :[" + inputArray + "]");
+        } else
+            document.write("không có số "+erase+" trong mảng");
+    </script>
+</body>
+</html>
