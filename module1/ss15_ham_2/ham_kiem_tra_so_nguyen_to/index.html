@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+       function prime(a) {
+           let num = parseInt(a);
+           let count = 0;
+           if (num >= 2) {
+               for (let i = 2; i < a; i++) {
+                   if (a % 2 === 0) {
+                       count++;
+                       break;
+                   }
+               }
+           }
+           if (!(num >= 2) || (count !== 0)) {
+               alert("Không phải so nguyen to");
+           } else {
+               alert("snt");
+           }
+
+       }
+       let a = prompt("Nhap vao so");
+       prime(a);
+    </script>
+</body>
+</html>

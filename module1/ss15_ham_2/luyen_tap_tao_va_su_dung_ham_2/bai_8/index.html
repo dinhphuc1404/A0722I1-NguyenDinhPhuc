@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var arr =[];
+        let n = parseInt(prompt("Nhap vao so luong mang"));
+        for (let i=0;i<n;i++){
+            let b = parseInt(prompt("Phan tu thu "+(i+1)));
+            arr.push(b);
+        }
+        function sortArr(array) {
+            document.write("Mảng trước khi sắp xếp: "+array+"<br>");
+            array.reverse();
+            document.write("Mảng sau khi đảo ngược: " +array);
+
+        }
+        sortArr(arr);
+    </script>
+</body>
+</html>

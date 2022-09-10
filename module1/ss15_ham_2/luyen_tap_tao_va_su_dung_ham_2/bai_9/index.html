@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        let n=parseInt(prompt("Nhap vao so luong mang"));
+        for (let i=0;i<n;i++) {
+            let b = prompt("phan tu " + i);
+            arr.push(b);
+        }
+        let m=prompt("Nhap vao phan tu muon tim");
+        function findNum(arr) {
+            let count=0;
+            for (let j=0;j<arr.length;j++){
+                if (arr[j]==m){
+                    count++;
+                }
+            }
+            return count;
+        }
+        document.write("Mang: "+ arr+"<br>");
+        document.write(" "+"Gia tri "+m+ " xuat hien :"+findNum(arr));
+    </script>
+</body>
+</html>

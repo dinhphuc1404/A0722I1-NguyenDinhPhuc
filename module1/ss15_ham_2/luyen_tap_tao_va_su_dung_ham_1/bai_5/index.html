@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const name= [ "Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus" ];
+        var star = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" , "Leo"];
+        var search=prompt("nhap vao ten")
+        function searchArr() {
+            let result = "";
+            let key=search;
+            let index = name.indexOf(key);
+            console.log(index);
+            if(index != -1){
+                result =star[index];
+            } else {
+                result = "Không tìm thấy!";
+            }
+            return result;
+        }
+        document.write(searchArr());
+    </script>
+</body>
+</html>
