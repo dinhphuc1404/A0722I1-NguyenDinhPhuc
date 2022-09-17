@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class Temperature {
+            constructor(celsius) {
+                this.celsius = celsius;
+            }
+
+            CtoF() {
+                document.write("Chuyển từ độ C sang F: " + (9 / 5 * this.celsius + 32) + "<br>");
+            }
+            CtoK(){
+                document.write("Chuyển từ độ C sang độ K: "+(this.celsius+273.15));
+            }
+
+        }
+        let temperature1 = new Temperature(25);
+        temperature1.CtoF();
+        temperature1.CtoK();
+    </script>
+</body>
+</html>

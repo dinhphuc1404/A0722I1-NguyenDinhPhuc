@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <script>
+
+            /**
+             * Khai báo class Student với các thuộc tính và hành vi
+             */
+
+            class Student {
+                constructor(name, age, clazz, type) {
+                    this.name = name;
+                    this.age = age;
+                    this.clazz = clazz;
+                    this.type = type;
+                }
+
+                goToSchool(phuongTien) {
+                    document.writeln("Sinh viên này đi học bằng " + phuongTien);
+                }
+
+                goToPicnic() {
+                    document.writeln("Sinh viên đi chơi bằng xe bus");
+                }
+
+                displayStudentInformation() {
+                    document.writeln("Tên sinh viên là: " + this.name);
+                    document.writeln("<br>");
+                    document.writeln("Tuổi sinh viên là: " + this.age);
+                    document.writeln("<br>");
+                    document.writeln("Lớp sinh viên là: " + this.clazz);
+                    document.writeln("<br>");
+                    document.writeln("Xếp loại của sinh viên là: " + this.type);
+                    document.writeln("<br>");
+                    document.writeln("<br>");
+                }
+
+                ketban(student2){
+                    document.writeln("Bạn sinh viên " + this.name + " Kết bạn với "+ student2.name);
+                }
+            }
+
+            let studentA = new Student("Lương Minh Hoàng", 25, "A0722I1", "Trung Bình");
+            let studentB = new Student("Vân", 18, "A0722I1", "Khá");
+            // studentA.goToSchool("oto");
+            studentA.displayStudentInformation();
+
+            studentB.displayStudentInformation();
+            // studentA.ketban(studentB);
+            // alert(studentA instanceof Student);
+
+        </script>
+</body>
+</html>

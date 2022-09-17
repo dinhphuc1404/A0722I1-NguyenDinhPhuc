@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let str = prompt("Nhập vào xâu kí tự");
+        document.write("Xâu kí tự: "+str+"<br>");
+        newStr = str.toLocaleLowerCase();
+        arr = [...new Set([...newStr])];
+        document.write("Số lượng kí tự khác nhau trong xâu: "+arr.length);
+    </script>
+</body>
+</html>

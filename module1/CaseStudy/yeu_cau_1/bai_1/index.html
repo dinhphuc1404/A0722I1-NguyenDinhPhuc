@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let n = prompt("Nhập chiều dài");
+        let m = prompt("Nhập chiều rộng");
+        for(let i =1;i<=n;i++){
+            for (let k=1;k<=m;k++){
+                if(i == 1 || k == 1 || i == n || k == m){
+                    document.write("*");
+                } else {
+                    document.write(" ");
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
