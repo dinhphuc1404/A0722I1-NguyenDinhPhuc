@@ -6,17 +6,17 @@
 </head>
 <body>
     <script>
-        let n = prompt("Nhập chiều dài");
-        let m = prompt("Nhập chiều rộng");
-        for(let i =1;i<=n;i++){
-            for (let k=1;k<=m;k++){
-                if(i == 1 || k == 1 || i == n || k == m){
-                    document.write("*");
+        let lenght = parseInt(prompt('Nhap chieu dai cua hinh chu nhat'));
+        let width = parseInt(prompt('Nhap chieu rong cua hinh chu nhat'));
+        for (let i = 1; i <= lenght; i++) {
+            for (let j = 1; j <= width; j++) {
+                if(i==1  || i == lenght  || j == 1 || j== width){
+                    document.write('*');
                 } else {
-                    document.write(" ");
+                    document.write('&nbsp;'+ '&nbsp');
                 }
             }
-
+            document.write('<br>');
         }
     </script>
 </body>
