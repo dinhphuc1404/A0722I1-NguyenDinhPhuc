@@ -15,8 +15,24 @@
     </ol>
     <script>
         while (true){
-            let drink = parseInt(prompt("Nhập đồ uống (1-6)"));
-            let count = 0;
+            let x =parseInt(prompt(" nhập đồ uống (từ 1 -> 6) "));
+            let count =0;
+            switch (x) {
+                case 1:  count = 10; alert("cafe có giá là:10k "); break;
+                case 2 : count = 20; alert("Cam vắt có giá là:20k "); break;
+                case 3:  count = 25; alert("nước ép cà rốt có giá là:25k "); break;
+                case 4:  count = 25 ; alert(" nước ép cà chua có giá là: 25k "); break;
+                case 5:  count = 5 ; alert("nước loc có giá là: 5k "); break;
+                case 6:  count = 15 ; alert("Nước dừa có giá là: 15k "); break;
+                default:break;
+            }
+            if (x===7) break;
+            if (x>7){
+                alert(" Vui lòng nhập lại !");
+            }else{
+                var soLuong = parseInt(prompt(" Nhập số luong "));
+                alert("Tổng tiền :"+soLuong * count+ "000 VNĐ");
+            }
         }
     </script>
 
