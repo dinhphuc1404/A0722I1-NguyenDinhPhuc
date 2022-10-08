@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var  arr = [];
+        var arrNguyenTo = [];
+        let a = parseInt(prompt("Nhap a: "));
+        let b = parseInt(prompt("Nhap b: "));
+        var  count = 0;
+        function check(z) {
+            let count = 0;
+            for (let i=0; i<=z;i++)
+                if(z%i==0) count++;
+                return count==2;
+        }
+        if(a<=50){
+            for (let i=0; i<a;i++){
+                for (let j =0; j<b;j++){
+                    arr = parseInt(prompt("Nhap a["+i+"]["+j+"]"));
+                    document.write(arr);
+                    if (check(arr)){
+                        count++;
+                        arrNguyenTo.push(arr);
+                    }
+                }
+            }
+        } else {
+            document.write("Vui lòng nhập số nhỏ hơn hoặc bằng 50");
+        }
+        document.write(" Co "+arrNguyenTo.length+" so nguyen to la: "+ arrNguyenTo.join());
+
+
+
+    </script>
+</body>
+</html>

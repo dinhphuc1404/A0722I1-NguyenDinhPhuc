@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    do {
+        var so = prompt("Nhập vào số phần tử của mảng");
+    } while (isNaN(so) || so === "" || so > 50);
+    let arraya = [];
+    for (let i = 0; i < so; i++ ){
+        do {
+            var dem = prompt("Nhập vào phần tử của mảng "+(i+1));
+        } while (isNaN(dem) || dem === "");
+        arraya.push(dem)
+    }
+    // arraya.reverse().join();
+    document.write("Mảng a bao gồm: " + arraya);
+    let arrayb = []
+    document.writeln("<br>")
+    for (let j = 0; j<= arraya.length; j++){
+        var flag = true;
+        if (arraya[j] < 2){
+            flag = false;
+        }
+        else{
+            for (var h = 2; h < arraya[j]-1; h++)
+            {
+                if (arraya[j] % h == 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        if (flag == true){
+            arrayb.push(arraya[j])
+        }
+    }
+    document.writeln("Các số nguyên tố có trong mảng a là: " + arrayb);
+</script>
+</html>

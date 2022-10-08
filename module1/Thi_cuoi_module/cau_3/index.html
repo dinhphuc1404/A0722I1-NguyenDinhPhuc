@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="display"></p>
+    <script>
+        class SoTietKiem{
+            constructor(maSo, loaiTietKiem, HoTenKhachHang, chungMinhNhanDan, ngayMoSo, soTienGui) {
+                this.maSo = maSo;
+                this.loaiTietKiem = loaiTietKiem;
+                this.HoTenKhachHang = HoTenKhachHang;
+                this.chungMinhNhanDan = chungMinhNhanDan;
+                this.ngayMoSo = ngayMoSo;
+                this.soTienGui = soTienGui;
+            }
+            getMaSo(){
+                return this.maSo;
+            }
+            getLoaiTietKiem(){
+                return this.loaiTietKiem;
+            }
+            getHoTenKhachHang(){
+                return this.HoTenKhachHang;
+            }
+            getChungMinhNhanDan(){
+                return this.chungMinhNhanDan;
+            }
+            getNgayMoSo(){
+                return this.ngayMoSo;
+            }
+            getSoTienGui(){
+                return this.soTienGui;
+            }
+
+
+        }
+        let khacHangA = new SoTietKiem('001', 'VIP', 'Phuc',2564,"25/10/2002",20000);
+        let khacHangB = new SoTietKiem('002', 'VIP', 'Hau',2564,"26/10/2002",30000);
+        let arr = [khacHangA, khacHangB];
+
+        function display() {
+            str = '<table border="1px">\n' +
+                '<tr>\n' +
+                '<th>MaSo</th>\n' +
+                '<th>Loai</th>\n' +
+                '<th>HoTen</th>\n' +
+                '<th>CMND</th>\n' +
+                '<th>NgayMoSo</th>\n' +
+                '<th>SoTienGui</th>\n' +
+                '</tr>\n';
+            for (let i = 0; i < arr.length; i++) {
+                str +=
+                    '<tr>\n' +
+                    '<td>' + arr[i].getMaSo() + '</td>\n' +
+                    '<td>' + arr[i].getLoaiTietKiem() + '</td>\n' +
+                    '<td>' + arr[i].getHoTenKhachHang() + '</td>\n' +
+                    '<td>' + arr[i].getChungMinhNhanDan() + '</td>\n' +
+                    '<td>' + arr[i].getNgayMoSo()+ '</td>\n' +
+                    '<td>' + arr[i].getSoTienGui()+ '</td>\n' +
+                    '<td>' +
+                    '<button onclick="edit(' + i + ' )">Edit</button>' +
+                    '<button onclick="remove(' + i + ' )">Remove</button>' +
+                    '<button onclick="add(' + i + ' )">Add</button>' +
+                    '</td>\n' +
+                    '</tr>\n'
+            }
+            str += '</table>'
+            document.getElementById('display').innerHTML = str;
+        }
+
+        display();
+
+        function edit(value) {
+            alert(value);
+            let maSo = prompt('Nhập mã sổ');
+            let loaiTietKiem = prompt('Nhập loại tiết kiệm');
+            let HoTenKhachHang = prompt('Nhập họ tên');
+            let chungMinhNhanDan = prompt('Nhập CMND');
+            let ngayMoSo = prompt("Ngày mở sổ");
+            let soTienGui = prompt("Số tiền gửi");
+
+            let newKhacHang = new SoTietKiem(maSo, loaiTietKiem, HoTenKhachHang, chungMinhNhanDan, ngayMoSo, soTienGui)
+            arr[value] = newKhacHang;
+            display();
+        }
+
+        function remove(value) {
+            if (confirm('Bạn có muốn xóa nó không')) {
+                arr.splice(value, 1);
+            }
+            display();
+        }
+        function add(value) {
+            alert(value);
+            let maSo = prompt('Nhập mã sổ');
+            let loaiTietKiem = prompt('Nhập loại tiết kiệm');
+            let HoTenKhachHang = prompt('Nhập họ tên');
+            let chungMinhNhanDan = prompt('Nhập CMND');
+            let ngayMoSo = prompt("Ngày mở sổ");
+            let soTienGui = prompt("Số tiền gửi");
+            let newKhacHang = new SoTietKiem(maSo, loaiTietKiem, HoTenKhachHang, chungMinhNhanDan, ngayMoSo, soTienGui)
+            arr.push(newKhacHang);
+            display();
+
+
+        }
+    </script>
+</body>
+</html>
