@@ -23,8 +23,7 @@ public class bt_ung_dung_doc_so_thanh_chu {
 
             }
         } else if(number<20){
-            int unit = number-10;
-            switch (unit){
+            switch (number-10){
                 case 0 : System.out.println("Mười"); break;
                 case 1 : System.out.println("Mười một"); break;
                 case 2 : System.out.println("Mười hai"); break;
@@ -53,8 +52,7 @@ public class bt_ung_dung_doc_so_thanh_chu {
             System.out.print(" mươi");
             // number % 10
             switch (number%10){
-                case 1 :
-                    System.out.println(" mốt"); break;
+                case 1 : System.out.println(" mốt"); break;
                 case 2 : System.out.print(" hai"); break;
                 case 3 : System.out.print(" ba"); break;
                 case 4 : System.out.print(" bốn"); break;
@@ -64,9 +62,41 @@ public class bt_ung_dung_doc_so_thanh_chu {
                 case 8 : System.out.print(" tám"); break;
                 case 9 : System.out.print(" chín"); break;
             }
-        } else {
+        } else if(number>=100){
             switch (number/100){
-
+                case 1 : System.out.print("Một"); break;
+                case 2 : System.out.print("Hai"); break;
+                case 3 : System.out.print("Ba"); break;
+                case 4 : System.out.print("Bốn"); break;
+                case 5 : System.out.print("Năm"); break;
+                case 6 : System.out.print("Sáu"); break;
+                case 7 : System.out.print("Bảy"); break;
+                case 8 : System.out.print("Tám"); break;
+                case 9 : System.out.print("Chín"); break;
+            }
+            switch ((number%100)/10){
+                case 0 : System.out.print(" không"); break;
+                case 1 : System.out.print(" một"); break;
+                case 2 : System.out.print(" hai"); break;
+                case 3 : System.out.print(" ba"); break;
+                case 4 : System.out.print(" bốn"); break;
+                case 5 : System.out.print(" năm"); break;
+                case 6 : System.out.print(" sáu"); break;
+                case 7 : System.out.print(" bảy"); break;
+                case 8 : System.out.print(" tám"); break;
+                case 9 : System.out.print(" chín"); break;
+            }
+            switch (number%10){
+                case 0 : System.out.print(" không"); break;
+                case 1 : System.out.print(" một"); break;
+                case 2 : System.out.print(" hai"); break;
+                case 3 : System.out.print(" ba"); break;
+                case 4 : System.out.print(" bốn"); break;
+                case 5 : System.out.print(" lăm"); break;
+                case 6 : System.out.print(" sáu"); break;
+                case 7 : System.out.print(" bảy"); break;
+                case 8 : System.out.print(" tám"); break;
+                case 9 : System.out.print(" chín"); break;
             }
 
         }
