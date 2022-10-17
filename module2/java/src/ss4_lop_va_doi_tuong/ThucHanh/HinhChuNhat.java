@@ -9,4 +9,13 @@ public class HinhChuNhat {
         this.dai = dai;
         this.rong = rong;
     }
+    public double getDienTich(){
+        return this.dai * this.rong;
+    }
+    public  double getChuVi(){
+        return (this.dai+this.rong)*2;
+    }
+    public String xuat(){
+        return "HinhChuNhat{" + "width=" + dai + ", height=" + rong + "}";
+    }
 }

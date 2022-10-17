@@ -19,16 +19,16 @@ public class TimPhanTuLonNhatTrongMangHaiChieu {
         }
         System.out.println("Mang da nhap la: ");
         for (float[] floats : arr) {
-            for (float aFloat : floats) {
-                System.out.print(aFloat + "\t");
+            for (float itums : floats) {
+                System.out.print(itums + "\t");
             }
             System.out.println();
         }
         float max = arr[0][0];
         for (float[] floats : arr) {
-            for (float aFloat : floats) {
-                if (aFloat > max) {
-                    max = aFloat;
+            for (float itums : floats) {
+                if (itums > max) {
+                    max = itums;
                 }
             }
         }

@@ -19,8 +19,8 @@ public class TinhTongCacSoOMotCotXacDinh {
         }
         System.out.println("Mảng: ");
         for (float[] floats : arr) {
-            for (float aFloat : floats) {
-                System.out.print(aFloat + "\t");
+            for (float itums : floats) {
+                System.out.print(itums + "\t");
             }
             System.out.println();
         }
