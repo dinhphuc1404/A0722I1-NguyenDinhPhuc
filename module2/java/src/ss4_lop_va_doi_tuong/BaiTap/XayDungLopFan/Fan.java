@@ -2,7 +2,7 @@ package ss4_lop_va_doi_tuong.BaiTap.XayDungLopFan;
 
 public class Fan {
 
-    private static final int SlOW = 1;
+    private static final int SLOW = 1;
     private static final int MEDIUM = 2;
     private static final int FAST = 3;
     private int speed;
