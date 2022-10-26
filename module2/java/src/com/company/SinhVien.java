@@ -23,6 +23,8 @@ public class SinhVien extends Person{
     public String toString() {
         return "SinhVien{" +
                 "maSV='" + this.maSV + '\'' +
+                "ten='" + this.getTen() + '\'' +
+                ", tuoi=" + this.getTuoi() +
                 '}';
     }
 }
