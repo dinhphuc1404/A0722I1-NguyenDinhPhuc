@@ -1,16 +1,16 @@
 package ss6_ke_thua.BaiTap.Bt2;
 
-public class Point3D extends Point2D{
+public class PointThreeD extends PointTwoD {
     private float z =0.0f;
-      Point3D(){
+      PointThreeD(){
 
     }
 
-    public Point3D(float z) {
+    public PointThreeD(float z) {
         this.z = z;
     }
 
-    public Point3D(float x, float y, float z) {
+    public PointThreeD(float x, float y, float z) {
         super(x, y);
         this.z = z;
     }

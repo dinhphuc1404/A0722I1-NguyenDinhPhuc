@@ -1,13 +1,13 @@
 package ss6_ke_thua.BaiTap.Bt2;
 
-public class Point2D {
+public class PointTwoD {
     private float x = 0.0f;
     private float y = 0.0f;
-    public Point2D(){
+    public PointTwoD(){
 
     }
 
-    public Point2D(float x, float y) {
+    public PointTwoD(float x, float y) {
         this.x = x;
         this.y = y;
     }
