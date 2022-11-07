@@ -78,6 +78,7 @@ public class EmployeeServiceImpl implements EmployeeService{
                 System.out.println("Chức vụ: ");
                 String position = input.nextLine();
                 list.set(i, new Employee(inputID,name,age,address,idCard,email,level,salary,position));
+                display();
             }
         }
         if(!check) {
