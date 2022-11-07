@@ -1,7 +1,7 @@
 package CaseStudy.models;
 
 public abstract class Person {
-    private int id;
+    private String id;
     private String name;
     private int age;
     private String address;
@@ -11,7 +11,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, int age, String address, int idCard, String email) {
+    public Person(String id, String name, int age, String address, int idCard, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -20,11 +20,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,7 +71,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +

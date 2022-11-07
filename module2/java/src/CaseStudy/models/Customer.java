@@ -10,7 +10,7 @@ public class Customer extends  Person{
         this.tyle = tyle;
     }
 
-    public Customer(int id, String name, int age, String address, int idCard, String email, String tyle) {
+    public Customer(String id, String name, int age, String address, int idCard, String email, String tyle) {
         super(id, name, age, address, idCard, email);
         this.tyle = tyle;
     }

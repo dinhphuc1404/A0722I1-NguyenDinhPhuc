@@ -1,10 +1,13 @@
 package CaseStudy.controllers;
 
+import CaseStudy.services.EmployeeServiceImpl;
+
 import java.util.Scanner;
 
 public class FuramaController {
     public static void main(String[] args) {
         displayMainMenu();
+
     }
     public static void displayMainMenu(){
         Scanner input = new Scanner(System.in);
@@ -22,11 +25,7 @@ public class FuramaController {
             choice = input.nextInt();
             switch (choice){
                 case 1 :
-                    System.out.println("1 Display list employees");
-                    System.out.println("2 Add new employee");
-                    System.out.println("3 Edit employee");
-                    System.out.println("4 Return main menu");
-                    break;
+                    displayEmployeeMenu();
                 case 2 :
                     System.out.println("1 Display list customers");
                     System.out.println("2 Add new customer");
@@ -60,6 +59,37 @@ public class FuramaController {
             }
         }
 
+
+        }
+    public static void displayEmployeeMenu() {
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        boolean check = true;
+        while (check) {
+            System.out.println("1. Display list employees");
+            System.out.println("2. Add new employee");
+            System.out.println("3. Edit employee");
+            System.out.println("4. Return main menu");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()) {
+                case 1: {
+                    employeeService.display();
+                    break;
+                }
+                case 2: {
+                    employeeService.addNew();
+                    break;
+                }
+                case 3: {
+                    employeeService.edit();
+                    break;
+                }
+                case 4:
+                    return;
+            }
+            scanner.nextLine();
+        }
+
     }
+
 
 }
