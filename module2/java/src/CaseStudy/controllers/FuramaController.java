@@ -1,5 +1,6 @@
 package CaseStudy.controllers;
 
+import CaseStudy.services.CustomerServiceImpl;
 import CaseStudy.services.EmployeeServiceImpl;
 
 import java.util.Scanner;
@@ -27,11 +28,7 @@ public class FuramaController {
                 case 1 :
                     displayEmployeeMenu();
                 case 2 :
-                    System.out.println("1 Display list customers");
-                    System.out.println("2 Add new customer");
-                    System.out.println("3 Edit customer");
-                    System.out.println("4 Return main menu");
-                    break;
+                    displayCustomerMenu();
                 case 3 :
                     System.out.println("1 Display list facility");
                     System.out.println("2 Add new facility");
@@ -65,10 +62,10 @@ public class FuramaController {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         boolean check = true;
         while (check) {
-            System.out.println("1. Display list employees");
-            System.out.println("2. Add new employee");
-            System.out.println("3. Edit employee");
-            System.out.println("4. Return main menu");
+            System.out.println("1 Display list customers");
+            System.out.println("2 Add new customer");
+            System.out.println("3 Edit customer");
+            System.out.println("4 Return main menu");
             Scanner scanner = new Scanner(System.in);
             switch (scanner.nextInt()) {
                 case 1: {
@@ -81,6 +78,35 @@ public class FuramaController {
                 }
                 case 3: {
                     employeeService.edit();
+                    break;
+                }
+                case 4:
+                    return;
+            }
+            scanner.nextLine();
+        }
+
+    }
+    public static void displayCustomerMenu(){
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
+        boolean check = true;
+        while (check) {
+            System.out.println("1. Display list employees");
+            System.out.println("2. Add new employee");
+            System.out.println("3. Edit employee");
+            System.out.println("4. Return main menu");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()) {
+                case 1: {
+                    customerService.display();
+                    break;
+                }
+                case 2: {
+                    customerService.addNew();
+                    break;
+                }
+                case 3: {
+                    customerService.edit();
                     break;
                 }
                 case 4:
