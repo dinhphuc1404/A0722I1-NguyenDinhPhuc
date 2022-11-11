@@ -13,7 +13,7 @@ public class ProductManager {
         productManager.add(products);
         productManager.edit(products);
         productManager.remove(products);
-        productManager.search1(products);
+        productManager.search(products);
 
 
     }
@@ -75,7 +75,7 @@ public class ProductManager {
     public void sort(List<Product> products){
 
     }
-    public void search1(List<Product> products) {
+    public void search(List<Product> products) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập tên cần tìm kiếm :");
         String name = input.nextLine();
