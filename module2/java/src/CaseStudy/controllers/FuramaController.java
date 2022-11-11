@@ -1,7 +1,10 @@
 package CaseStudy.controllers;
 
+import CaseStudy.models.Facility;
 import CaseStudy.services.CustomerServiceImpl;
 import CaseStudy.services.EmployeeServiceImpl;
+import CaseStudy.services.FacilityService;
+import CaseStudy.services.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -30,11 +33,7 @@ public class FuramaController {
                 case 2 :
                     displayCustomerMenu();
                 case 3 :
-                    System.out.println("1 Display list facility");
-                    System.out.println("2 Add new facility");
-                    System.out.println("3 Display list facility maintenance");
-                    System.out.println("4 Return main menu");
-                    break;
+                    displayFacilityMenu();
                 case 4 :
                     System.out.println("1 Add new booking");
                     System.out.println("2 Display list booking");
@@ -55,8 +54,6 @@ public class FuramaController {
 
             }
         }
-
-
         }
     public static void displayEmployeeMenu() {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
@@ -108,6 +105,51 @@ public class FuramaController {
                 case 3: {
                     customerService.edit();
                     break;
+                }
+                case 4:
+                    return;
+            }
+            scanner.nextLine();
+        }
+    }
+    public static void displayFacilityMenu(){
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
+        boolean check = true;
+        while (check) {
+            System.out.println("1 Display list facility");
+            System.out.println("2 Add new facility");
+            System.out.println("3 Display list facility maintenance");
+            System.out.println("4 Return main menu");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()) {
+                case 1: {
+                    facilityService.display();
+                }
+                case 2: {
+                    while (check){
+                        System.out.println("1 Add New Villa");
+                        System.out.println("2 Add New House");
+                        System.out.println("3 Add New Room");
+                        System.out.println("4 Back to menu");
+                        switch (scanner.nextInt()){
+                            case 1:{
+                                facilityService.addNewVilla();
+                            }
+                            case 2: {
+                                facilityService.addNewHouse();
+                            }
+                            case 3: {
+                                facilityService.addNewRoom();
+                            }
+                            case 4: {
+                                return;
+                            }
+                        }
+                    }
+                }
+                case 3: {
+                    facilityService.edit();
+
                 }
                 case 4:
                     return;
