@@ -1,8 +1,6 @@
 package ss12_java_collection_framework.BaiTap;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManager {
     public static void main(String[] args) {
@@ -15,6 +13,8 @@ public class ProductManager {
         productManager.add(products);
         productManager.edit(products);
         productManager.remove(products);
+        productManager.search1(products);
+
 
     }
     public void display(List<Product> products){
@@ -71,8 +71,24 @@ public class ProductManager {
         if(!check){
             System.out.println("Không tìm thấy id");
         }
+    }
+    public void sort(List<Product> products){
 
-
-
+    }
+    public void search1(List<Product> products) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhập tên cần tìm kiếm :");
+        String name = input.nextLine();
+        Product producter = null;
+        for (Product product : products){
+            if (product.getName().equals(name)){
+                producter = product;
+                break;
+            }
+        }if (producter!=null){
+            System.out.println("Sản phầm bạn tìm kiếm: "+producter);
+        }else {
+            System.out.println("Không có sản phẩm :" + name);
+        }
     }
 }

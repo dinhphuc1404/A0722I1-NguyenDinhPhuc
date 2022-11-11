@@ -1,6 +1,8 @@
 package ss12_java_collection_framework.BaiTap;
 
-public class Product {
+import java.util.Comparator;
+
+public class Product implements Comparator<Product> {
     private int id;
     private String name;
     private double price;
@@ -45,5 +47,11 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+
+    @Override
+    public int compare(Product o1, Product o2) {
+        return 0;
     }
 }

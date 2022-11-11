@@ -1,11 +1,17 @@
 package CaseStudy.services;
 
+import CaseStudy.models.Facility;
+import CaseStudy.models.Villa;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class FacilityServiceImpl implements FacilityService{
-    LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+    Map<Integer,Facility> map = new LinkedHashMap<>();
+    static {
+
+    }
     @Override
     public void display() {
 
