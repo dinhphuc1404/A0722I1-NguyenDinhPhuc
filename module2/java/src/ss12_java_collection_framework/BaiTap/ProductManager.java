@@ -11,8 +11,8 @@ public class ProductManager {
         products.add(new Product(3,"May quat", 500000));
         productManager.display(products);
         productManager.add(products);
-        productManager.edit(products);
-        productManager.remove(products);
+//        productManager.edit(products);
+//        productManager.remove(products);
         productManager.search(products);
 
 

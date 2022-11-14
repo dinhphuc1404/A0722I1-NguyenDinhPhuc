@@ -3,7 +3,7 @@ package ss11_stack_queue.BaiTap.ChuyenDoiThapPhanSangNhiPhan;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class ChuyenDoiThapPhanSangNhiPhan {
+public class DecimalToBinary {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Stack<Integer> stack = new Stack();

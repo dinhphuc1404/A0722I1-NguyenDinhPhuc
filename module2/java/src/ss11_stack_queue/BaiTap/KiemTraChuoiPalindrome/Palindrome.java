@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class KiemTraChuoiPalindrome {
+public class Palindrome {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap chuoi can kiem tra: ");

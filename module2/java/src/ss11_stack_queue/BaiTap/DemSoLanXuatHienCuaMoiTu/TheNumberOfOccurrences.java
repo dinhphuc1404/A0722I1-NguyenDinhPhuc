@@ -2,7 +2,7 @@ package ss11_stack_queue.BaiTap.DemSoLanXuatHienCuaMoiTu;
 
 import java.util.*;
 
-public class DemSoLanXuatHienCuaMoiTu {
+public class TheNumberOfOccurrences {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Map<String, Integer> map = new HashMap<>();

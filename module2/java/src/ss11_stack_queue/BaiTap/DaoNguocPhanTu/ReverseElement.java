@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class DaoNguocPhanTu {
+public class ReverseElement {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // số
