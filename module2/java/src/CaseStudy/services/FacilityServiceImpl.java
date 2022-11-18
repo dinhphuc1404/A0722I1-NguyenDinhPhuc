@@ -8,26 +8,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class FacilityServiceImpl implements FacilityService{
-    Map<Integer,Facility> map = new LinkedHashMap<>();
+    private static final Map<Facility, Integer> FACILITY_INTEGER_MAP;
     static {
-
+        FACILITY_INTEGER_MAP =new LinkedHashMap<>();
     }
+
     @Override
     public void display() {
+        for (int i=0;i<FACILITY_INTEGER_MAP.size();i++){
+            System.out.println(FACILITY_INTEGER_MAP.get(i));
+        }
 
     }
 
     @Override
     public void addNew() {
-
-    }
-    public void addNewVilla(){
-
-    }
-    public void addNewHouse(){
-
-    }
-    public void addNewRoom(){
 
     }
 

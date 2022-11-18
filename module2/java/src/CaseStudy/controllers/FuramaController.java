@@ -125,28 +125,28 @@ public class FuramaController {
                 case 1: {
                     facilityService.display();
                 }
-                case 2: {
-                    while (check){
-                        System.out.println("1 Add New Villa");
-                        System.out.println("2 Add New House");
-                        System.out.println("3 Add New Room");
-                        System.out.println("4 Back to menu");
-                        switch (scanner.nextInt()){
-                            case 1:{
-                                facilityService.addNewVilla();
-                            }
-                            case 2: {
-                                facilityService.addNewHouse();
-                            }
-                            case 3: {
-                                facilityService.addNewRoom();
-                            }
-                            case 4: {
-                                return;
-                            }
-                        }
-                    }
-                }
+//                case 2: {
+//                    while (check){
+//                        System.out.println("1 Add New Villa");
+//                        System.out.println("2 Add New House");
+//                        System.out.println("3 Add New Room");
+//                        System.out.println("4 Back to menu");
+//                        switch (scanner.nextInt()){
+//                            case 1:{
+//                                facilityService.addNewVilla();
+//                            }
+//                            case 2: {
+//                                facilityService.addNewHouse();
+//                            }
+//                            case 3: {
+//                                facilityService.addNewRoom();
+//                            }
+//                            case 4: {
+//                                return;
+//                            }
+//                        }
+//                    }
+//                }
                 case 3: {
                     facilityService.edit();
 
