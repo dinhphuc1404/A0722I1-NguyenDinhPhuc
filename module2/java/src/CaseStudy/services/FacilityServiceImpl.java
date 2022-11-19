@@ -15,9 +15,6 @@ public class FacilityServiceImpl implements FacilityService{
 
     @Override
     public void display() {
-        for (int i=0;i<FACILITY_INTEGER_MAP.size();i++){
-            System.out.println(FACILITY_INTEGER_MAP.get(i));
-        }
 
     }
 
