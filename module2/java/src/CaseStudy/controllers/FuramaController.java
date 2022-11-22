@@ -125,7 +125,7 @@ public class FuramaController {
                 case 1: {
                     facilityService.display();
                 }
-//                case 2: {
+                case 2: {
 //                    while (check){
 //                        System.out.println("1 Add New Villa");
 //                        System.out.println("2 Add New House");
@@ -142,11 +142,12 @@ public class FuramaController {
 //                                facilityService.addNewRoom();
 //                            }
 //                            case 4: {
-//                                return;
+//                                return ;
 //                            }
 //                        }
 //                    }
-//                }
+                    facilityService.addNew();
+                }
                 case 3: {
                     facilityService.edit();
 

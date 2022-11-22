@@ -1,11 +1,10 @@
 package CaseStudy.models;
 
 public abstract class Facility {
-    private String name;
+    private String name; // tên dịch vụ
     private double price; //giá
     private String rentalType; //kiểu cho thuê
     private String usableArea; //diện tích sử dụng được
-
     public Facility() {
     }
 
@@ -46,5 +45,14 @@ public abstract class Facility {
 
     public void setUsableArea(String usableArea) {
         this.usableArea = usableArea;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+                ", Price: " + price +
+                ", RentalType: " + rentalType  +
+                ", UsableArea: " + usableArea
+                ;
     }
 }
