@@ -13,7 +13,7 @@ public class CopyFileText {
                     throw new FileNotFoundException();
                 }
                 BufferedReader reader= new BufferedReader(new FileReader(file));
-                String line= null;
+                String line = null;
                 while ((line=reader.readLine())!=null){
                     stringList.add(line);
 
@@ -45,7 +45,7 @@ public class CopyFileText {
     public static void main(String[] args) {
         CopyFileText copyFileText = new CopyFileText();
         List<String> string = copyFileText.readFile("E:\\Codegym\\6 module\\module2\\java\\src\\ss16_IO_text_file\\BaiTap\\CopyFileText\\phuc.txt");
-        copyFileText.copyFile("copyFileText",string);
+        copyFileText.copyFile("E:\\Codegym\\6 module\\module2\\java\\src\\ss16_IO_text_file\\BaiTap\\CopyFileText\\coppy.txt",string);
     }
 
 }
