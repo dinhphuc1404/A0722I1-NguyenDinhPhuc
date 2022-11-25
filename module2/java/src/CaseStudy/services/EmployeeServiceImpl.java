@@ -12,10 +12,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 
     static {
-        list.add(new Employee("1", "Phuc", 21,"Đà Nẵng",001,"phuc@gmail.com","Quản lí","10000000","Giám đốc"));
-        list.add(new Employee("2", "A", 20,"Hà Nội",002,"a@gmail.com","Quản lí","5000000","Phó giám đốc"));
-        list.add(new Employee("3", "B", 22,"Bình Dương",003,"b@gmail.com","Quản lí","7000000","Trưởng phòng"));
-        list.add(new Employee("4", "C", 23,"Quảng Nam",004,"c@gmail.com","Quản lí","8000000","Phó trường phòng"));
+        list.add(new Employee("1", "Phuc", 21,"nam","Đà Nẵng",001,"phuc@gmail.com","Quản lí","10000000","Giám đốc"));
+        list.add(new Employee("2", "A", 20,"nam","Hà Nội",002,"a@gmail.com","Quản lí","5000000","Phó giám đốc"));
+        list.add(new Employee("3", "B", 22,"nam","Bình Dương",003,"b@gmail.com","Quản lí","7000000","Trưởng phòng"));
+        list.add(new Employee("4", "C", 23,"nam","Quảng Nam",004,"c@gmail.com","Quản lí","8000000","Phó trường phòng"));
     }
 
     @Override
@@ -35,6 +35,23 @@ public class EmployeeServiceImpl implements EmployeeService{
         String name = input.nextLine();
         System.out.println("Nhập tuổi: ");
         int age = Integer.parseInt(input.nextLine());
+        // chọn giới tính
+        System.out.println("1. Nam");
+        System.out.println("2 Nữ");
+        String sex = null;
+        int choose;
+        do {
+            System.out.println("Chọn giới tính:");
+            choose=Integer.parseInt(input.nextLine());
+            switch (choose){
+                case 1:
+                    sex = "Nam";
+                    break;
+                case 2:
+                    sex = "Nữ";
+                    break;
+            }
+        }while (choose<1||choose>2);
         System.out.println("Nhập địa chỉ: ");
         String address = input.nextLine();
         System.out.println("Nhập cccd: ");
@@ -47,7 +64,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         String salary = input.nextLine();
         System.out.println("Chức vụ: ");
         String position = input.nextLine();
-        Employee employee = new Employee(id, name, age,address,idCard,email,level,salary,position);
+        Employee employee = new Employee(id, name, age,sex,address,idCard,email,level,salary,position);
         list.add(employee);
         display();
     }
@@ -65,6 +82,8 @@ public class EmployeeServiceImpl implements EmployeeService{
                 String name = input.nextLine();
                 System.out.println("Nhập tuổi: ");
                 int age = Integer.parseInt(input.nextLine());
+                System.out.println("Nhập giới tính");
+                String sex = input.nextLine();
                 System.out.println("Nhập địa chỉ: ");
                 String address = input.nextLine();
                 System.out.println("Nhập cccd: ");
@@ -77,7 +96,7 @@ public class EmployeeServiceImpl implements EmployeeService{
                 String salary = input.nextLine();
                 System.out.println("Chức vụ: ");
                 String position = input.nextLine();
-                list.set(i, new Employee(inputID,name,age,address,idCard,email,level,salary,position));
+                list.set(i, new Employee(inputID,name,age,sex,address,idCard,email,level,salary,position));
                 display();
             }
         }

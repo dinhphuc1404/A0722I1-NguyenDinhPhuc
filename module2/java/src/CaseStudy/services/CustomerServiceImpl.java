@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements CustomerService{
     private static LinkedList<Customer> list= new LinkedList<>();
     static {
-        list.add(new Customer("1", "Hi",23, "Đà Nẵng",123,"abc@gmail.com","Diamond"));
-        list.add(new Customer("2", "A",20, "Hà Nội",123,"ab1@gmail.com","Platinium"));
-        list.add(new Customer("3", "B",19, "TP HCM",123,"ab2@gmail.com","Gold"));
-        list.add(new Customer("4", "C",17, "Quảng Nam",123,"ab3@gmail.com","Silver"));
-        list.add(new Customer("5", "D",18, "Huế",123,"ab4@gmail.com","Member"));
+        list.add(new Customer("1", "Hi",23,"Nam", "Đà Nẵng",123,"abc@gmail.com","Diamond"));
+        list.add(new Customer("2", "A",20,"Nam", "Hà Nội",123,"ab1@gmail.com","Platinium"));
+        list.add(new Customer("3", "B",19,"Nam", "TP HCM",123,"ab2@gmail.com","Gold"));
+        list.add(new Customer("4", "C",17,"Nam", "Quảng Nam",123,"ab3@gmail.com","Silver"));
+        list.add(new Customer("5", "D",18, "Nam","Huế",123,"ab4@gmail.com","Member"));
 
     }
     @Override
@@ -32,6 +32,8 @@ public class CustomerServiceImpl implements CustomerService{
         String name = input.nextLine();
         System.out.println("Nhập tuổi: ");
         int age = Integer.parseInt(input.nextLine());
+        System.out.println("Nhập giới tính");
+        String sex = input.nextLine();
         System.out.println("Nhập địa chỉ: ");
         String address = input.nextLine();
         System.out.println("Nhập CMND: ");
@@ -40,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService{
         String email = input.nextLine();
         System.out.println("Nhập kiểu: ");
         String tyle = input.nextLine();
-        Customer customer = new Customer(id,name,age,address,idCard,email,tyle);
+        Customer customer = new Customer(id,name,age,sex,address,idCard,email,tyle);
         list.add(customer);
         display();
 
@@ -59,6 +61,8 @@ public class CustomerServiceImpl implements CustomerService{
                 String name = input.nextLine();
                 System.out.println("Nhập tuổi: ");
                 int age = Integer.parseInt(input.nextLine());
+                System.out.println("Nhập giới tính");
+                String sex = input.nextLine();
                 System.out.println("Nhập địa chỉ: ");
                 String address = input.nextLine();
                 System.out.println("Nhập CMND: ");
@@ -67,7 +71,7 @@ public class CustomerServiceImpl implements CustomerService{
                 String email = input.nextLine();
                 System.out.println("Nhập kiểu: ");
                 String tyle = input.nextLine();
-                list.set(i,new Customer(inputId,name,age,address,idCard,email,tyle));
+                list.set(i,new Customer(inputId,name,age,sex,address,idCard,email,tyle));
                 display();
 
             }

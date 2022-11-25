@@ -4,6 +4,7 @@ public abstract class Person {
     private String id;
     private String name;
     private int age;
+    private String sex;
     private String address;
     private int idCard;
     private String email;
@@ -11,10 +12,11 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String id, String name, int age, String address, int idCard, String email) {
+    public Person(String id, String name, int age, String sex, String address, int idCard, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.sex = sex;
         this.address = address;
         this.idCard = idCard;
         this.email = email;
@@ -68,12 +70,23 @@ public abstract class Person {
         this.email = email;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+
+
     @Override
     public String toString() {
         return "Person{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
                 ", idCard=" + idCard +
                 ", email='" + email + '\'' +

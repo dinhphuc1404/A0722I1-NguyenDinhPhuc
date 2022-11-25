@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,17 +9,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-    public static void main(String args[]) {
-        try {
-            FileWriter fw = new FileWriter("E:\\file\\hi.txt");
-            fw.write("Welcome to java.");
-            fw.write("hihi");
-            fw.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        System.out.println("Success...");
-    }
+//    public static void main(String args[]) {
+//        try {
+//            FileWriter fw = new FileWriter("E:\\file\\hi.txt");
+//            fw.write("Welcome to java.");
+//            fw.write("hihi");
+//            fw.close();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        System.out.println("Success...");
+//    }
 //    public static void main(String args[]) throws FileNotFoundException {
 //        String url = "E:\\file\\hi.txt";
 //        // Đọc dữ liệu từ File với Scanner

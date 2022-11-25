@@ -1,7 +1,7 @@
 package CaseStudy.models;
 
 public class Employee extends Person{
-    private String level;
+    private String level; // trình độ
     private String salary; //lương
     private String position; //chức vụ
 
@@ -14,8 +14,8 @@ public class Employee extends Person{
         this.position = position;
     }
 
-    public Employee(String id, String name, int age, String address, int idCard, String email, String level, String salary, String position) {
-        super(id, name, age, address, idCard, email);
+    public Employee(String id, String name, int age, String sex, String address, int idCard, String email, String level, String salary, String position) {
+        super(id, name, age, sex, address, idCard, email);
         this.level = level;
         this.salary = salary;
         this.position = position;
@@ -44,6 +44,7 @@ public class Employee extends Person{
     public void setPosition(String position) {
         this.position = position;
     }
+
 
     @Override
     public String toString() {

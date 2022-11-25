@@ -3,14 +3,16 @@ package CaseStudy.models;
 public abstract class Facility {
     private String name; // tên dịch vụ
     private double price; //giá
+    private int numberOfPeople; // số lượng người
     private String rentalType; //kiểu cho thuê
-    private String usableArea; //diện tích sử dụng được
+    private double usableArea; //diện tích sử dụng được
     public Facility() {
     }
 
-    public Facility(String name, double price, String rentalType, String usableArea) {
+    public Facility(String name, double price, int numberOfPeople, String rentalType, double usableArea) {
         this.name = name;
         this.price = price;
+        this.numberOfPeople = numberOfPeople;
         this.rentalType = rentalType;
         this.usableArea = usableArea;
     }
@@ -39,20 +41,30 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
-    public String getUsableArea() {
+    public double getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(String usableArea) {
+    public void setUsableArea(double usableArea) {
         this.usableArea = usableArea;
+    }
+
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
+
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
     @Override
     public String toString() {
-        return "Name: " + name +
-                ", Price: " + price +
-                ", RentalType: " + rentalType  +
-                ", UsableArea: " + usableArea
+        return
+                "name=" + name +
+                ", price=" + price +
+                ", numberOfPeople=" + numberOfPeople +
+                ", rentalType=" + rentalType +
+                ", usableArea=" + usableArea
                 ;
     }
 }
