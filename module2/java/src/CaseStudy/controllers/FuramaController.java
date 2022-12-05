@@ -6,14 +6,15 @@ import CaseStudy.services.EmployeeServiceImpl;
 import CaseStudy.services.FacilityService;
 import CaseStudy.services.FacilityServiceImpl;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FuramaController {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         displayMainMenu();
 
     }
-    public static void displayMainMenu(){
+    public static void displayMainMenu() throws IOException {
         Scanner input = new Scanner(System.in);
         int choice = -1;
         while (choice!=0){
@@ -112,7 +113,7 @@ public class FuramaController {
             scanner.nextLine();
         }
     }
-    public static void displayFacilityMenu(){
+    public static void displayFacilityMenu() throws IOException {
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         boolean check = true;
         while (check) {

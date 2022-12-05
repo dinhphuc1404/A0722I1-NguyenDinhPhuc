@@ -1,20 +1,22 @@
 package CaseStudy.models;
 
+import java.time.LocalDate;
+
 public class Employee extends Person{
     private String level; // trình độ
-    private String salary; //lương
+    private double salary; //lương
     private String position; //chức vụ
 
     public Employee() {
     }
 
-    public Employee(String level, String salary, String position) {
+    public Employee(String level, double salary, String position) {
         this.level = level;
         this.salary = salary;
         this.position = position;
     }
 
-    public Employee(String id, String name, int age, String sex, String address, int idCard, String email, String level, String salary, String position) {
+    public Employee(String id, String name, LocalDate age, String sex, String address, String idCard, String email, String level, double salary, String position) {
         super(id, name, age, sex, address, idCard, email);
         this.level = level;
         this.salary = salary;
@@ -29,11 +31,11 @@ public class Employee extends Person{
         this.level = level;
     }
 
-    public String getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 

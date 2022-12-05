@@ -1,5 +1,7 @@
 package CaseStudy.models;
 
+import java.time.LocalDate;
+
 public class Customer extends  Person{
     private String tyle;
 
@@ -10,7 +12,7 @@ public class Customer extends  Person{
         this.tyle = tyle;
     }
 
-    public Customer(String id, String name, int age, String sex, String address, int idCard, String email, String tyle) {
+    public Customer(String id, String name, LocalDate age, String sex, String address, String idCard, String email, String tyle) {
         super(id, name, age, sex, address, idCard, email);
         this.tyle = tyle;
     }

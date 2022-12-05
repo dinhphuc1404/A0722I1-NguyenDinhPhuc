@@ -1,18 +1,20 @@
 package CaseStudy.models;
 
+import java.time.LocalDate;
+
 public abstract class Person {
     private String id;
     private String name;
-    private int age;
+    private LocalDate age;
     private String sex;
     private String address;
-    private int idCard;
+    private String idCard;
     private String email;
 
     public Person() {
     }
 
-    public Person(String id, String name, int age, String sex, String address, int idCard, String email) {
+    public Person(String id, String name, LocalDate age, String sex, String address, String idCard, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -38,13 +40,7 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public String getAddress() {
         return address;
@@ -54,11 +50,19 @@ public abstract class Person {
         this.address = address;
     }
 
-    public int getIdCard() {
+    public LocalDate getAge() {
+        return age;
+    }
+
+    public void setAge(LocalDate age) {
+        this.age = age;
+    }
+
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 

@@ -4,31 +4,55 @@ import CaseStudy.models.Facility;
 import CaseStudy.models.House;
 import CaseStudy.models.Room;
 import CaseStudy.models.Villa;
+import CaseStudy.untils.ReadAndWriteHouse;
+import CaseStudy.untils.ReadAndWriteRoom;
+import CaseStudy.untils.ReadAndWriteVilla;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService{
-     private static LinkedHashMap<Facility,Integer> facility = new LinkedHashMap<>();
-    static {
-        facility.put(new Villa("Villa",5000000,6,"Tháng",500,"Thường",3,"200m"),0);
-        facility.put(new House("House",500000,3,"Ngày", 1000,"VIP", 2),0);
-        facility.put(new Room("Room",150000,2,"Ngày",200,"Sân thượng"),0);
+     private static LinkedHashMap<Facility,Integer> facilities = new LinkedHashMap<>();
+//    static {
+//        facility.put(new Villa("Villa",5000000,6,"Tháng",500,"Thường",3,200),0);
+//        facility.put(new House("House",500000,3,"Ngày", 1000,"VIP", 2),0);
+//        facility.put(new Room("Room",150000,2,"Ngày",200,"Sân thượng"),0);
+//
+//    }
 
-    }
 
     @Override
     public void display() {
-        for(Map.Entry<Facility,Integer> item : facility.entrySet()){
-            System.out.printf("%s - %s",item.getKey(),item.getValue());
-            System.out.println();
-
+        facilities = new LinkedHashMap<>();
+        try {
+            LinkedHashMap<Facility, Integer> list = ReadAndWriteVilla.readCSV();
+            for (Facility villa : list.keySet()) {
+                facilities.put(villa, list.get(villa));
+            }
+            list = ReadAndWriteHouse.readCSV();
+            for (Facility house : list.keySet()) {
+                facilities.put(house, list.get(house));
+            }
+            list = ReadAndWriteRoom.readCSV();
+            for (Facility room : list.keySet()) {
+                facilities.put(room, list.get(room));
+            }
+            for (Facility facility : facilities.keySet()) {
+                System.out.println(facility + ", " + facilities.get(facility));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+//        for(Map.Entry<Facility,Integer> item : facility.entrySet()){
+//            System.out.printf("%s - %s",item.getKey(),item.getValue());
+//            System.out.println();
+//
+//        }
     }
     @Override
-    public void addNew() {
+    public void addNew() throws IOException {
+        facilities = new LinkedHashMap<>();
         Scanner input = new Scanner(System.in);
         int choice;
         do {
@@ -41,17 +65,19 @@ public class FacilityServiceImpl implements FacilityService{
             switch (choice) {
                 case 1:
                     Villa tempVilla = addNewVilla();
-                    facility.put(tempVilla,0);
+                    facilities.put(tempVilla,0);
+                    ReadAndWriteVilla.writeCSV(facilities);
                     display();
                     break;
                 case 2:
                     House tempHouse = addNewHouse();
-                    facility.put(tempHouse,0);
+                    facilities.put(tempHouse,0);
                     display();
                     break;
                 case 3:
                     Room tempRoom = addNewRoom();
-                    facility.put(tempRoom,0);
+                    facilities.put(tempRoom,0);
+                    ReadAndWriteRoom.writeCSV(facilities);
                     display();
                     break;
                 case 4:break;
@@ -59,9 +85,22 @@ public class FacilityServiceImpl implements FacilityService{
         } while (choice < 4);
     }
     public Villa addNewVilla(){
+        facilities = new LinkedHashMap<>();
+        try {
+            LinkedHashMap<Facility, Integer> list = ReadAndWriteVilla.readCSV();
+            for (Facility villa : list.keySet()) {
+                facilities.put(villa, list.get(villa));
+            }
+            for (Facility facility : facilities.keySet()) {
+                System.out.println(facility + ", " + facilities.get(facility));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập tên dịch vụ: ");
         String name = input.nextLine();
+        // giá
         double price = 0;
         do {
             try {
@@ -74,20 +113,22 @@ public class FacilityServiceImpl implements FacilityService{
                 System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
             }
         }while (price<0);
+        // số lượng
         int numberr = 0;
         do {
             try {
                 System.out.println("Nhập số lượng : ");
                 numberr = Integer.parseInt(input.nextLine());
-                if(numberr<0 || numberr>30){
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                if(numberr<0 || numberr>20){
+                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
                 }
             }catch (NumberFormatException e){
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
             }
-        }while (numberr<0 || numberr>30);
+        }while (numberr<0 || numberr>20);
         System.out.println("Nhập kiểu: ");
         String type = input.nextLine();
+        // diện tích sử dụng được
         double usableArea =0;
         do {
             try {
@@ -103,14 +144,53 @@ public class FacilityServiceImpl implements FacilityService{
 
         System.out.println("Tiêu chuẩn phòng: ");
         String roomStandard = input.nextLine();
-        System.out.println("Số tầng: ");
-        int numberOfFloors = Integer.parseInt(input.nextLine());
-        System.out.println("Diện tích hồ bơi");
-        String poolArea = input.nextLine();
+        // số tầng
+        int numberOfFloors = 0;
+        do {
+            try {
+                System.out.println("Nhập số tầng : ");
+                numberOfFloors = Integer.parseInt(input.nextLine());
+                if(numberOfFloors<0){
+                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+            }
+        }while (numberOfFloors<0);
+        // diện tích hồ bơi
+        double poolArea  =0;
+        do {
+            try {
+                System.out.println("Diện tích hồ bơi: ");
+                poolArea  = Double.parseDouble(input.nextLine());
+                if(poolArea <30){
+                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+            }
+        }while (poolArea <30);
         return new Villa(name,price,numberr,type,usableArea,roomStandard,numberOfFloors,poolArea);
+
+
+
+
+
 
     }
     public Room addNewRoom(){
+        facilities = new LinkedHashMap<>();
+        try {
+            LinkedHashMap<Facility, Integer> list = ReadAndWriteRoom.readCSV();
+            for (Facility room : list.keySet()) {
+                facilities.put(room, list.get(room));
+            }
+            for (Facility facility : facilities.keySet()) {
+                System.out.println(facility + ", " + facilities.get(facility));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập tên dịch vụ: ");
         String name = input.nextLine();
@@ -131,13 +211,13 @@ public class FacilityServiceImpl implements FacilityService{
             try {
                 System.out.println("Nhập số lượng : ");
                 numberr = Integer.parseInt(input.nextLine());
-                if(numberr<0 || numberr>30){
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                if(numberr<0 || numberr>20){
+                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
                 }
             }catch (NumberFormatException e){
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
             }
-        }while (numberr<0 || numberr>30);
+        }while (numberr<0 || numberr>20);
         System.out.println("Nhập kiểu: ");
         String type = input.nextLine();
         double usableArea =0;
@@ -158,6 +238,8 @@ public class FacilityServiceImpl implements FacilityService{
     }
 
     public House addNewHouse(){
+        facilities = new LinkedHashMap<>();
+
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập tên dịch: ");
         String name = input.nextLine();
@@ -178,13 +260,13 @@ public class FacilityServiceImpl implements FacilityService{
             try {
                 System.out.println("Nhập số lượng : ");
                 numberr = Integer.parseInt(input.nextLine());
-                if(numberr<0 || numberr>30){
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                if(numberr<0 || numberr>20){
+                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
                 }
             }catch (NumberFormatException e){
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 30");
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
             }
-        }while (numberr<0 || numberr>30);
+        }while (numberr<0 || numberr>20);
         System.out.println("Nhập kiểu: ");
         String type = input.nextLine();
         double usableArea =0;
@@ -201,18 +283,29 @@ public class FacilityServiceImpl implements FacilityService{
         }while (usableArea<30);
         System.out.println("Tiêu chuẩn phòng: ");
         String roomStandard = input.nextLine();
-        System.out.println("Số tầng: ");
-        int numberOfFloors = Integer.parseInt(input.nextLine());
+        int numberOfFloors = 0;
+        do {
+            try {
+                System.out.println("Nhập số tầng : ");
+                numberOfFloors = Integer.parseInt(input.nextLine());
+                if(numberOfFloors<0){
+                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+            }
+        }while (numberOfFloors<0);
         return new House(name,price,numberr,type,usableArea,roomStandard,numberOfFloors);
     }
 
     @Override
     public void edit() {
-
+        facilities = new LinkedHashMap<>();
     }
 
     @Override
     public void delete() {
+        facilities = new LinkedHashMap<>();
 
     }
 
