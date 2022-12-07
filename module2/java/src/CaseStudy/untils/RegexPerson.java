@@ -75,7 +75,7 @@ public class RegexPerson {
     }
 
 
-    public static Double salary() {
+    public static double salary() {
         while (true) {
             try {
                 System.out.println("Nhập lương ");

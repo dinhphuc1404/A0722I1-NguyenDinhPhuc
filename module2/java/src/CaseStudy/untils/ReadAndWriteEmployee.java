@@ -32,7 +32,7 @@ public class ReadAndWriteEmployee {
             String idCard = temp[5];
             String email = temp[6];
             String level = temp[7];
-            double salary = Double.parseDouble(temp[6]);
+            double salary = Double.parseDouble(temp[8]);
             String position = temp[9];
 
             emp = new Employee(id,name,age,sex,address,idCard,email,level,salary,position);
