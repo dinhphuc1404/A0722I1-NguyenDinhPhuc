@@ -32,6 +32,8 @@ public class ReadAndWrite {
         }
         bufferedReader.close();
 
+
+
       return tietKiemList;
     }
     public static List<TaiKhoanThanhToan> ReadtaiKhoanThanhToan() throws IOException {

@@ -21,6 +21,8 @@ public class QuanLiTaiKhoan {
         for (TaiKhoanTietKiem taiKhoanTietKiem : taiKhoanTietKiemList){
             System.out.println(taiKhoanTietKiem.toString());
         }
+
+
     }
     public void displayThanhToan() throws IOException {
         List<TaiKhoanThanhToan> taiKhoanThanhToanList = ReadAndWrite.ReadtaiKhoanThanhToan();

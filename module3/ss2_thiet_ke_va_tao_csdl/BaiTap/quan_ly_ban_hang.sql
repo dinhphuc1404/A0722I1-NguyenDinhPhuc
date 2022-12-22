@@ -26,3 +26,39 @@ create table order_detail(
     foreign key (o_ID) references order_1(o_ID),
     foreign key (p_ID) references product(p_ID)
 );
+-- BÀI TẬP
+insert into customer(c_Name,c_Age)
+values ('Minh Quan',10),
+		('Ngoc Oanh',20),
+        ('Hong Hoa',50);
+select*from customer;
+insert into order_1(c_ID,o_Date,o_TotalPrice)
+ values (1,'2006-3-21',2300),
+		(2,'2006-3-23',2300),
+        (1,'2006-3-16',2300);
+select*from order_1;
+insert into product(p_Name,p_Price)
+values ('May Giat',3),
+		('Tu Lanh',5),
+        ('Dieu Hoa',7),
+        ('Quat',1),
+        ('Bep Dien',2);
+select*from product;
+insert into order_detail(o_ID,p_ID,od_QTY)
+values (1,1,3),
+		(1,3,7),
+        (1,4,2),
+        (2,1,1),
+        (3,1,8),
+        (2,5,4),
+        (2,3,3);
+select * from order_detail;
+-- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
+select o_ID,o_Date,o_TotalPrice from order_1;
+-- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
+select c_Name,p_Name from customer join order_1 using (c_ID) join order_detail using(o_ID)  join product using (p_ID);
+
+        
+        
+
+		
