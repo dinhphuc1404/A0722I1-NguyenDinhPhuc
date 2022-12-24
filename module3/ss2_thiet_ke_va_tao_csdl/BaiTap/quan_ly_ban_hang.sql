@@ -54,9 +54,9 @@ values (1,1,3),
         (2,3,3);
 select * from order_detail;
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
-select o_ID,o_Date,o_TotalPrice from order_1;
+select  o_ID,o_Date,o_TotalPrice from order_1;
 -- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
-select c_Name,p_Name from customer join order_1 using (c_ID) join order_detail using(o_ID)  join product using (p_ID);
+select distinct c_Name,p_Name from customer join order_1 using (c_ID) join order_detail using(o_ID)  join product using (p_ID) ;
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select c_Name from customer left join order_1 using (c_ID) where o_ID is null;
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn. 
