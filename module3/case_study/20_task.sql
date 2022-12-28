@@ -70,7 +70,7 @@ select
     hop_dong.ngay_lam_hop_dong,
     hop_dong.ngay_ket_thuc,
     sum(hop_dong.tien_dat_coc) tong_tien_coc,
-    IFNULL(sum(hop_dong_chi_tiet.so_luong), 0) so_luong_dich_vu_di_kem
+    ifnull(sum(hop_dong_chi_tiet.so_luong), 0) so_luong_dich_vu_di_kem
 from
     hop_dong 
     left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
@@ -90,7 +90,7 @@ where ten_loai_khach = 'Diamond' and ( dia_chi like '%Vinh%' or dia_chi like '%Q
 -- (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), 
 -- tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 
 -- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
-SELECT ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, ma_dich_vu, ten_dich_vu, sum(so_luong) so_luong_dich_vu_di_kem, sum(tien_dat_coc) tien_dat_coc
+select ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, ma_dich_vu, ten_dich_vu, sum(so_luong) so_luong_dich_vu_di_kem, sum(tien_dat_coc) tien_dat_coc
 from hop_dong
     left join nhan_vien nv using (ma_nhan_vien)
     left join dich_vu using (ma_dich_vu)
@@ -98,7 +98,7 @@ from hop_dong
     left join hop_dong_chi_tiet using (ma_hop_dong)
     left join dich_vu_di_kem using (ma_dich_vu_di_kem)
 where( ngay_lam_hop_dong between '2020-10-01' and '2020-12-30') and (ngay_lam_hop_dong not between '2021-01-01' and '2021-06-30')
-GROUP by ma_hop_dong;
+group by ma_hop_dong;
 
 -- 13.Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
