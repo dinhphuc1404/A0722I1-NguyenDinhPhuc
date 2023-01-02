@@ -118,6 +118,14 @@ where so_luong_dich_vu_di_kem = ( select max(so_luong_dich_vu_di_kem) from count
 -- 14.Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 -- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung
 --  (được tính dựa trên việc count các ma_dich_vu_di_kem).
+select  ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, count(ma_dich_vu_di_kem) as so_lan_su_dung from  hop_dong_chi_tiet
+	inner join dich_vu_di_kem using(ma_dich_vu_di_kem)
+	inner join hop_dong using(ma_hop_dong)
+	inner join dich_vu using(ma_dich_vu)
+	inner join loai_dich_vu using(ma_loai_dich_vu) where  hop_dong_chi_tiet.ma_dich_vu_di_kem in(select ma_dich_vu_di_kem from hop_dong_chi_tiet 
+	group by  ma_dich_vu_di_kem having count(ma_dich_vu_di_kem) = 1)
+group by hop_dong_chi_tiet.ma_hop_dong, hop_dong_chi_tiet.ma_hop_dong_chi_tiet
+order by ma_hop_dong;
 
 -- 15.Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi 
 -- mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
