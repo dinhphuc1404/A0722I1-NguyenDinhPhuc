@@ -144,7 +144,7 @@ select ma_nhan_vien as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi from
 union all
 select ma_khach_hang, ho_ten, email, so_dien_thoai, ngay_sinh,dia_chi from khach_hang;
 
-
+select*from khach_hang;
     
 
 
