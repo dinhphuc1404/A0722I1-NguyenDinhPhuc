@@ -1,0 +1,11 @@
+.header{
+    background-color: black;
+}
+.header ul li{
+    padding: 15px;
+    color: white;
+    display: inline-block;
+    padding-right: 20px;
+    padding-left: 20px;
+
+}
