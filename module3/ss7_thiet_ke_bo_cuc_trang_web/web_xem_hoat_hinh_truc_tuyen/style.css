@@ -1,10 +1,50 @@
-.link a {
-    text-decoration: none;
-    color: black;
+/*.container >div {*/
+/*    !*border: 1px solid;*!*/
+/*    !*padding: 0px;*!*/
+/*    !*font-size: 100px;*!*/
+/*}*/
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas:
+            'header header header'
+            'nav nav nav'
+            'section1 section2 section2 '
+            'footer footer footer '
 }
-a:hover{
-    color: #04fc43;
+header{
+    height: 50px;
+    grid-area: header;
+    background-color: #4a69bd;
+    position: sticky;
+    top: 0
 }
-#main{
-    display: inline;
+nav{
+    grid-area: nav;
+    background-color: #e55039;
+    position: sticky;
+    top:50px
 }
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+ul li{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+}
+.link1{
+    grid-area: section1;
+    background-color: orange
+}
+.link2{
+    grid-area:section2;
+    background-color: pink;
+}
+footer{
+    grid-area: footer;
+    background-color: aqua;
+    justify-content:center;
+    text-align: center}
