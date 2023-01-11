@@ -1,0 +1,51 @@
+img{
+    max-width: 5%;
+    margin-left: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: orange;
+}
+
+.container > div{
+    font-family: Tahoma;
+    border: black solid 1px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+
+#link{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    background-color: bisque;
+}
+
+#main{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#footer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    background-color: blanchedalmond;
+}
+
+#video{
+    margin: 5px;
+}
+
+#description{
+    margin: 5px;
+}
