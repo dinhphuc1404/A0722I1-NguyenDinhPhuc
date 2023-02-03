@@ -38,7 +38,9 @@
                     <td>${customer.name}</td>
                     <td>${customer.dateOfBirth}</td>
                     <td>${customer.addreess}</td>
-                    <td>${customer.image}</td>
+                    <td>
+                        <img src="/static/img/${customer.image}" width="50px">
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
