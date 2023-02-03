@@ -172,11 +172,6 @@ public class FacilityServiceImpl implements FacilityService{
         }while (poolArea <30);
         return new Villa(name,price,numberr,type,usableArea,roomStandard,numberOfFloors,poolArea);
 
-
-
-
-
-
     }
     public Room addNewRoom(){
         facilities = new LinkedHashMap<>();
