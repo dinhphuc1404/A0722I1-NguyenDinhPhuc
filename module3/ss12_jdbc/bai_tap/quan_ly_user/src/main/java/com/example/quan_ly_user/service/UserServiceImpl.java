@@ -34,4 +34,7 @@ public class UserServiceImpl implements IUserService{
     public List<User> sort(){
         return userRepository.sort();
     }
+    public List<User> search(String country){
+        return userRepository.search(country);
+    }
 }

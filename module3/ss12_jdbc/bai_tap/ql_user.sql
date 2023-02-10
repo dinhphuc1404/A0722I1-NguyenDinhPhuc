@@ -10,3 +10,4 @@ create table users(
 insert into users(name,email,country) values('Phuc','phuc@codegym.vn','Quang Nam');
 insert into users(name, email, country) values('Hi','hi@codegym.vn','Da Nang');
 select*from users;
+insert into users(name, email, country) values('Hoi Anh','hihi@codegym.vn','Quang Binh');

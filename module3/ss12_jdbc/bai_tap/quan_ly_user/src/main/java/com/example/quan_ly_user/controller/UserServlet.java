@@ -43,12 +43,12 @@ public class UserServlet extends HttpServlet {
 
     private void goSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String country = request.getParameter("country");
-        List<User> userListSearch = new ArrayList<>();
-        for(User user : userService.findAllUser()){
-            if(user.getCountry().equals(country)){
-                userListSearch.add(user);
-            }
-        }
+        List<User> userListSearch = userService.search(country);
+//        for(User user : userService.findAllUser()){
+//            if(user.getCountry().contains(country)){
+//                userListSearch.add(user);
+//            }
+//        }
         request.setAttribute("listUser", userListSearch);
         request.getRequestDispatcher("user/list.jsp").forward(request,response);
     }
