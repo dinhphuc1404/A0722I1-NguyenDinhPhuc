@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dinh Phuc
@@ -53,13 +54,13 @@
         <th>Địa chỉ</th>
         <th>Ảnh</th>
     </tr>
-    <c:forEach items="${customerList}" var="customer">
+    <c:forEach items="${list}" var="customer">
         <tr>
-            <td><c:out value="${customer.name}"/> </td>
-            <td><c:out value="${customer.dayOfBirth}"/> </td>
-            <td><c:out value="${customer.addreess}"/> </td>
+            <td><c:out value="${customer.name}" /></td>
+            <td><c:out value="${customer.dateOfBirth}" /></td>
+            <td><c:out value="${customer.addreess}" /></td>
             <td>
-                <img src="/static/img/${customer.image}" width="50px">
+                <img src="/static/img/${customer.image}" width=60px">
             </td>
         </tr>
     </c:forEach>

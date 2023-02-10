@@ -22,7 +22,7 @@
 <%--    <c:if test="${empty customerList}">--%>
 <%--        <h1>Không có danh sách khách hàng</h1>--%>
 <%--    </c:if>--%>
-    <h1>Danh sách khách hàng</h1>
+    <h1 style="">Danh sách khách hàng</h1>
         <table class="table">
             <thead>
             <tr>
@@ -35,9 +35,9 @@
             <tbody>
             <c:forEach items="${list}" var="customer">
                 <tr>
-                    <td>${customer.name}</td>
-                    <td>${customer.dateOfBirth}</td>
-                    <td>${customer.addreess}</td>
+                    <td><c:out value="${customer.name}" /></td>
+                    <td><c:out value="${customer.dateOfBirth}" /></td>
+                    <td><c:out value="${customer.addreess}" /></td>
                     <td>
                         <img src="/static/img/${customer.image}" width="50px">
                     </td>
@@ -59,3 +59,5 @@
 <%--        crossorigin="anonymous"></script>--%>
 </body>
 </html>
+
+
