@@ -2,10 +2,7 @@ package com.example.quan_ly_user.reponsitory;
 
 import com.example.quan_ly_user.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,63 +69,115 @@ public class UserRepositoryImpl implements IUserRepository{
 
     @Override
     public List<User> findAllUser() {
+//        List<User> users = new ArrayList<>();
+//        try (Connection connection = DBConnection.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)){
+//            System.out.println(preparedStatement);
+//            ResultSet rs = preparedStatement.executeQuery();
+//            while (rs.next()){
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                String email = rs.getString("email");
+//                String country = rs.getString("country");
+//                users.add(new User(id,name,email,country));
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return users;
+
+        // dùng Transaction
+        Connection connection = DBConnection.getConnection();
         List<User> users = new ArrayList<>();
-        try (Connection connection = DBConnection.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)){
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
+        try {
+            if(connection!=null){
+                CallableStatement callableStatement = connection.prepareCall("call find_all_users()");
+                ResultSet rs = callableStatement.executeQuery();
+                while (rs.next()){
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
                 String country = rs.getString("country");
                 users.add(new User(id,name,email,country));
+                }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return users;
+
     }
 
     @Override
     public boolean deleteUser(int id) {
+//        boolean rowDelete = false;
+//        try {
+//            PreparedStatement statement = this.baseRepositories.getConnection().prepareStatement(DELETE_USERS_SQL);
+//            statement.setInt(1, id);
+//            rowDelete = statement.executeUpdate() > 0;
+//        }catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return rowDelete;
+        Connection connection = DBConnection.getConnection();
         boolean rowDelete = false;
         try {
-            PreparedStatement statement = this.baseRepositories.getConnection().prepareStatement(DELETE_USERS_SQL);
-            statement.setInt(1, id);
-            rowDelete = statement.executeUpdate() > 0;
-        }catch (SQLException e) {
-            e.printStackTrace();
+            if(connection!=null){
+                CallableStatement callableStatement = connection.prepareCall(" call delete_users(?)");
+                callableStatement.setInt(1,id);
+                rowDelete = callableStatement.executeUpdate()>0;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return rowDelete;
     }
 
     @Override
     public boolean updateUser(User user) {
-        boolean rowUpdate = false;
-        try {
-            PreparedStatement statement = this.baseRepositories.getConnection().prepareStatement(UPDATE_USERS_SQL);
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getCountry());
-            statement.setInt(4, user.getId());
+//        boolean rowUpdate = false;
+//        try {
+//            PreparedStatement statement = this.baseRepositories.getConnection().prepareStatement(UPDATE_USERS_SQL);
+//            statement.setString(1, user.getName());
+//            statement.setString(2, user.getEmail());
+//            statement.setString(3, user.getCountry());
+//            statement.setInt(4, user.getId());
+//
+//            rowUpdate = statement.executeUpdate() > 0;
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//        return rowUpdate;
 
-            rowUpdate = statement.executeUpdate() > 0;
-        } catch (SQLException e){
-            e.printStackTrace();
+
+        //Transaction
+        Connection connection = DBConnection.getConnection();
+        boolean rowUpdate =false;
+        try {
+               if(connection!=null){
+                   CallableStatement callableStatement = connection.prepareCall("call update_users(?,?,?,?)");
+                   callableStatement.setInt(1, user.getId());
+                   callableStatement.setString(2, user.getName());
+                   callableStatement.setString(3, user.getEmail());
+                   callableStatement.setString(4, user.getCountry());
+
+                   rowUpdate = callableStatement.executeUpdate() > 0;
+               }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return rowUpdate;
+
     }
 
     public List<User> search(String country) {
         List<User> users = new ArrayList<>();
-
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_COUNTRY)) {
             preparedStatement.setString(1, "%" + country + "%");
             System.out.println(preparedStatement);
 
             ResultSet rs = preparedStatement.executeQuery();
-
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
