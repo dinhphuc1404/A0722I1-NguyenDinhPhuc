@@ -14,7 +14,7 @@ public class PhoneRepositoryImpl implements IPhoneRepository{
     private static final String SELECT_ALL_Phone = "select phone.id, phone.name, phone.price, danh_muc.ten_danh_muc  from phone  " +
             "join danh_muc on phone.id_danh_muc = danh_muc.id_danh_muc ;";
     private static final String INSERT_PHONE_SQL = "INSERT INTO phone" + " (name,price,id_danh_muc)VALUES"+" (?, ?, ?);";
-    private static final String SELECT_PHONE_BY_ID = "select id, name, price, id_danh_muc from phone where id = ?;";
+    private static final String SELECT_PHONE_BY_ID = "select phone.id, phone.name, phone.price, danh_muc.ten_danh_muc from phone join danh_muc on phone.id_danh_muc = danh_muc.id_danh_muc where phone.id=?; ";
     private static final String DELETE_PHONE_SQL = "delete from phone where id=?;";
     private static final String UPDATE_PHONE_SQL = "update phone set name = ?, price = ?, id_danh_muc = ? where id = ?;";
 //private static final String UPDATE_PHONE_SQL = "update phone join danh_muc on phone.id_danh_muc = danh_muc.id_danh_muc\n"+
@@ -56,10 +56,9 @@ public class PhoneRepositoryImpl implements IPhoneRepository{
             while (rs.next()){
                 String name = rs.getString("name");
                 double price = rs.getDouble("price");
-                int id_danh_muc = rs.getInt("id_danh_muc");
-                phone = new Phone(id,name,price,id_danh_muc);
+                String ten_danh_muc = rs.getString("ten_danh_muc");
+                phone = new Phone(id,name,price,ten_danh_muc);
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

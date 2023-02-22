@@ -10,7 +10,6 @@ public class DBConnection {
     private static final String HOST = "localhost";
     private static final String DATABASE = "ql_user";
     private static final String PORT = "3306";
-
     private static Connection connection;
 
     public static Connection getConnection () {
