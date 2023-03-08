@@ -89,7 +89,6 @@ public class PhoneRepositoryImpl implements IPhoneRepository{
             statement.setDouble(2,phone.getPrice());
             statement.setInt(3,phone.getId_danh_muc());
             statement.setInt(4,phone.getId());
-
              row = statement.executeUpdate()>0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();

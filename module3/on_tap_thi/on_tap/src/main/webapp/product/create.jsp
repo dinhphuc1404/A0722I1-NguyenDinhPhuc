@@ -16,6 +16,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
@@ -32,49 +46,60 @@
                 <input type="hidden" name="action" value="create">
                 <h2 class="text-center">Thêm mới sản phẩm</h2>
                 <div class="form-group form_input row ">
-                    <label for="inputName" class="col-sm-2 col-form-label">Ten sản phẩm</label>
+                    <label for="inputName" class="col-sm-2 col-form-label">Ten SP</label>
                     <div class="col">
                         <input type="text" name="name" class="form-control" id="inputName"
                                placeholder="Nhập tên sản phẩm ...">
                     </div>
                 </div>
                 <div class="form-group form_input row ">
-                    <label for="inputPrice" class="col-sm-2 col-form-label">Giá</label>
+                    <label  class="col-sm-2 col-form-label">Giá</label>
                     <div class="col">
-                        <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Nhập giá">
+                        <input type="text" name="price" class="form-control"  placeholder="Nhập giá">
                     </div>
                 </div>
                 <div class="form-group form_input row ">
-                    <label for="inputSoLuong" class="col-sm-2 col-form-label">Số lượng</label>
+                    <label  class="col-sm-2 col-form-label">Số lượng</label>
                     <div class="col">
-                        <input type="text" name="soluong" class="form-control" id="inputSoLuong"
+                        <input type="text" name="soluong" class="form-control"
                                placeholder="Nhập số lượng">
                     </div>
                 </div>
                 <div class="form-group form_input row ">
-                    <label for="color" class="col-sm-2 col-form-label">Màu sắc</label>
+                    <label class="col-sm-2 col-form-label">Màu sắc</label>
                     <div class="col">
-                        <input type="text" name="color" class="form-control" id="color" placeholder="Nhập màu">
+                        <input type="text" name="color" class="form-control"  placeholder="Nhập màu">
                     </div>
                 </div>
                 <div class="form-group form_input row ">
-                    <label for="des" class="col-sm-2 col-form-label">Mô tả</label>
+                    <label  class="col-sm-2 col-form-label">Ngày ra mắt</label>
                     <div class="col">
-                        <input name="des" class="form-control" id="des" placeholder="Nhập mô tả">
+                        <input name="day" type="date" class="form-control"  >
                     </div>
                 </div>
                 <div class="form-group form_input row ">
-                    <label for="category" class="col-sm-2 col-form-label">Loại</label>
+                    <label  class="col-sm-2 col-form-label">Mô tả</label>
                     <div class="col">
-                        <select name="category" class="form-control" id="category">
+                        <input name="des" class="form-control"  placeholder="Nhập mô tả">
+                    </div>
+                </div>
+                <div class="form-group form_input row ">
+                    <label  class="col-sm-2 col-form-label">Loại</label>
+                    <div class="col">
+                        <select name="category" class="form-control" >
                             <option value="1">Laptop</option>
                             <option value="2">Điện thoại</option>
                             <option value="3">Phụ kiện</option>
-<%--                            <c:forEach items="${listCategory}" var="sanpham">--%>
-<%--                                <option value="${sanpham.getTen_danh_muc()}">${sanpham.getTen_danh_muc()}</option>--%>
-<%--                            </c:forEach>--%>
                         </select>
                     </div>
+<%--                    <div class="form-group col-md-6">--%>
+<%--                        <label>Chon ngay nhap vien</label>--%>
+<%--                        <input name="ngayNV" type="date" class="form-control"  >--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group col-md-6">--%>
+<%--                        <label>Chon ngay xuat vien</label>--%>
+<%--                        <input name="ngayRV" type="date" class="form-control"  >--%>
+<%--                    </div>--%>
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

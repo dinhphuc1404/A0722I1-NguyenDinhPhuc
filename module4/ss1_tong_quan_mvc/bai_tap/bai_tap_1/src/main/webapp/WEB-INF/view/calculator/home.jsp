@@ -7,10 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+<h1>Calculator</h1>
+<form action="result" method="post" >
+    <table>
+        <tr>
+            <td>Tỉ giá: </td>
+            <td><input type="text" name="rate" placeholder="tỉ giá"></td>
+        </tr>
+        <tr>
+            <td>USD: </td>
+            <td><input type="text" name="usd" placeholder="USD"></td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Chuyển đổi">
+</form>
+</body>
 </html>
+
+

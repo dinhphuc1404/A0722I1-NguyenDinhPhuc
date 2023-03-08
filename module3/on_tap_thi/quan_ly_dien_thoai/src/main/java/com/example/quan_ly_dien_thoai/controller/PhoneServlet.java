@@ -88,7 +88,6 @@ public class PhoneServlet extends HttpServlet {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         int id_danh_muc = Integer.parseInt(request.getParameter("id_danh_muc"));
-
         Phone phone = new Phone(name,price,id_danh_muc);
         phoneService.addNewPhone(phone);
         RequestDispatcher dispatcher =request.getRequestDispatcher("/phone/create.jsp");

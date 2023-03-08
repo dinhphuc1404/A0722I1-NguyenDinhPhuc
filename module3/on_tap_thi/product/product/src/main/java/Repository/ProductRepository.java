@@ -105,8 +105,6 @@ public class ProductRepository {
             ps.setInt(6, product.getId_category());
             ps.setInt(7, product.getId_product());
             ps.executeUpdate();
-
-
         } catch (SQLException e) {
             System.out.println("lỗi rồi a ơiii");
             e.printStackTrace();

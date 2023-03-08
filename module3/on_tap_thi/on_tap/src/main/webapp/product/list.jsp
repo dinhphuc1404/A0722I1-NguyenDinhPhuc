@@ -18,10 +18,14 @@
     <link rel="stylesheet" href="/static/bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="/static/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap4.css.css">
+    <link rel="stylesheet" href="/static/datatables/css/jquery.dataTables.css">
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 <body>
+<div> <h2 class="text-center">Danh sách sản phẩm</h2></div>
 <div class="app">
     <c:if test="${mess !=null}">
     <p class="text-danger">${mess}</p>
@@ -37,6 +41,10 @@
                     <button type="button" class="btn btn-add btn-outline-success ">
                         List sản phẩm </button>
                 </a>
+<%--                <a href="/product?action=sort" >--%>
+<%--                    <button type="submit" class="btn btn-add btn-outline-success ">--%>
+<%--                        Sort </button>--%>
+<%--                </a>--%>
                 <form class="d-flex col-4"  method="get">
                     <input hidden name="action" value="search" placeholder="Nhập tên">
                     <input type="text" style="border-radius: 6px" name="name" placeholder="Nhập tên">
@@ -46,7 +54,6 @@
             </div>
 
             <c:if test="${!empty listProduct}">
-                <h2 class="text-center">Danh sách sản phẩm</h2>
                 <table id="myTable" class="table">
                     <thead class="thead-dark">
                     <tr>
@@ -55,6 +62,7 @@
                         <th scope="col">Giá</th>
                         <th scope="col">Số lượng</th>
                         <th scope="col">Màu sắc</th>
+                        <th scope="col">Ngày ra mắt</th>
                         <th scope="col">Mô Tả</th>
                         <th scope="col">Loại</th>
                         <th scope="col"></th>
@@ -69,6 +77,7 @@
                             <td>${c.gia}</td>
                             <td>${c.soLuong}</td>
                             <td>${c.color}</td>
+                            <td>${c.day}</td>
                             <td>${c.moTa}</td>
                             <td>${c.tenDanhMuc}</td>
                             <td>   <!-- Button trigger modal -->
@@ -134,12 +143,12 @@
     <script>
         $(document).ready(function() {
             $('#myTable').dataTable( {
+                // "oder" : [],
                 "dom": 'lrtip',
                 "searching": false,
-                "pageLength": 5
+                "pageLength": 10
             } );
         } );
     </script>
-
 </body>
 </html>

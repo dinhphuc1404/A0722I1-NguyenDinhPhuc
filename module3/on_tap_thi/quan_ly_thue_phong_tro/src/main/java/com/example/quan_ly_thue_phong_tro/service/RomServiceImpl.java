@@ -35,6 +35,6 @@ public class RomServiceImpl implements IRomService{
 
     @Override
     public List<Room> search(String name) {
-        return search(name);
+        return repository.search(name);
     }
 }

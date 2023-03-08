@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Result</title>
+</head>
+<body>
+<h1>Result: ${calculator.result} USD</h1>
+</body>
 </html>

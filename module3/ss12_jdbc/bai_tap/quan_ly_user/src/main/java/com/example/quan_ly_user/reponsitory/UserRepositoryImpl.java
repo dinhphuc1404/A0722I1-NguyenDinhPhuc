@@ -18,7 +18,8 @@ public class UserRepositoryImpl implements IUserRepository{
 
     public List<User> sort(){
         List<User> users = new ArrayList<>();
-       try (Connection connection = DBConnection.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS_SORT)){
+       try (Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS_SORT)){
            System.out.println(preparedStatement);
            ResultSet rs = preparedStatement.executeQuery();
            while (rs.next()){

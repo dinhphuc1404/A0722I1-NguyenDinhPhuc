@@ -1,16 +1,31 @@
 package com.example.on_tap.model;
 
+import java.sql.Date;
+
 public class Product {
     private int id;
     private String name;
     private double gia;
     private int soLuong;
     private String color;
+    private Date day;
     private String moTa;
     private int idDanhMuc;
     private String tenDanhMuc;
 
     public Product() {
+    }
+
+    public Product(int id, String name, double gia, int soLuong, String color, Date day, String moTa, int idDanhMuc, String tenDanhMuc) {
+        this.id = id;
+        this.name = name;
+        this.gia = gia;
+        this.soLuong = soLuong;
+        this.color = color;
+        this.day = day;
+        this.moTa = moTa;
+        this.idDanhMuc = idDanhMuc;
+        this.tenDanhMuc = tenDanhMuc;
     }
 
     public Product(int id, String name, double gia, int soLuong, String color, String moTa, int idDanhMuc, String tenDanhMuc) {
@@ -61,6 +76,27 @@ public class Product {
         this.color = color;
         this.moTa = moTa;
         this.idDanhMuc = idDanhMuc;
+    }
+
+    public Product(int id, String name, double gia, int soLuong, String color, Date day, String moTa, String tenDanhMuc) {
+        this.id = id;
+        this.name = name;
+        this.gia = gia;
+        this.soLuong = soLuong;
+        this.color = color;
+        this.day = day;
+        this.moTa = moTa;
+        this.tenDanhMuc = tenDanhMuc;
+    }
+
+    public Product(String name, Double gia, int soLuong, String color, Date day, String moTa, String tenDanhMuc) {
+        this.name = name;
+        this.gia = gia;
+        this.soLuong = soLuong;
+        this.color = color;
+        this.day = day;
+        this.moTa = moTa;
+        this.tenDanhMuc = tenDanhMuc;
     }
 
     public int getId() {
@@ -125,5 +161,13 @@ public class Product {
 
     public void setTenDanhMuc(String tenDanhMuc) {
         this.tenDanhMuc = tenDanhMuc;
+    }
+
+    public Date getDay() {
+        return day;
+    }
+
+    public void setDay(Date day) {
+        this.day = day;
     }
 }

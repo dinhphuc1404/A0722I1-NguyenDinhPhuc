@@ -23,9 +23,10 @@ public class ProductServiceImpl implements IProductService{
     }
 
     @Override
-    public void update(Product product) {
-        repository.update(product);
+    public boolean update(Product product) {
+        return repository.update(product);
     }
+
 
     @Override
     public Product findById(int id) {
@@ -35,5 +36,10 @@ public class ProductServiceImpl implements IProductService{
     @Override
     public List<Product> search(String name) {
         return repository.search(name);
+    }
+
+    @Override
+    public List<Product> sort() {
+        return repository.sort();
     }
 }

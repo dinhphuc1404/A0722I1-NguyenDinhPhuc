@@ -5,6 +5,6 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1>END</h1>
+
 </body>
 </html>

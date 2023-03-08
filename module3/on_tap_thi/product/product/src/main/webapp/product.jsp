@@ -192,6 +192,7 @@
 
 
     </div>
+
     <script>
         function onDelete(id) {
             document.getElementById("id").value = id;
@@ -206,15 +207,15 @@
     <script src="datatables/js/jquery.dataTables.min.js"></script>
     <script src="datatables/js/dataTables.bootstrap4.min.js"></script>
 
-    <%--<script>--%>
-    <%--    $(document).ready(function() {--%>
-    <%--        $('#myTable').dataTable( {--%>
-    <%--            "dom": 'lrtip',--%>
-    <%--            "lengthChange": false,--%>
-    <%--            "pageLength": 7--%>
-    <%--        } );--%>
-    <%--    } );--%>
-    <%--</script>--%>
+<%--    <script>--%>
+<%--        $(document).ready(function() {--%>
+<%--            $('#myTable').dataTable( {--%>
+<%--                "dom": 'lrtip',--%>
+<%--                "lengthChange": false,--%>
+<%--                "pageLength": 7--%>
+<%--            } );--%>
+<%--        } );--%>
+<%--    </script>--%>
 
     <footer class="footer">
         <div class="container-fluid">

@@ -4,6 +4,7 @@ public class Category {
     private int id_danh_muc;
     private String ten_danh_muc;
 
+
     public Category() {
     }
 
