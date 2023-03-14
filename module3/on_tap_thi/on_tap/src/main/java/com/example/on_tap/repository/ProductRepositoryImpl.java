@@ -9,7 +9,8 @@ import java.util.Collection;
 import java.util.List;
 
 public class ProductRepositoryImpl implements IProductRepository{
-    private static final String SELECT_ALL_PRODUCT = "select san_pham.id, san_pham.name, san_pham.gia, san_pham.so_luong, san_pham.color, san_pham.day,san_pham.mo_ta, danh_muc.ten_danh_muc " +
+    private static final String SELECT_ALL_PRODUCT = "select san_pham.id, san_pham.name, san_pham.gia, san_pham.so_luong, " +
+            "san_pham.color, san_pham.day,san_pham.mo_ta, danh_muc.ten_danh_muc " +
             "from san_pham join\n" +
             "danh_muc on san_pham.id_danh_muc = danh_muc.id_danh_muc;";
     private static final String INSERT_SANPHAM = "INSERT INTO san_pham" + " (name,gia,so_luong,color,day,mo_ta,id_danh_muc)VALUES"+" (?, ?, ?,?, ?, ?,?);";
@@ -122,7 +123,6 @@ public class ProductRepositoryImpl implements IProductRepository{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return product;
     }
 
