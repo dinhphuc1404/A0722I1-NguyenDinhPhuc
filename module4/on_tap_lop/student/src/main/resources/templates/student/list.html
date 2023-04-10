@@ -1,0 +1,123 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div >
+    <img src="/static/img/header.jpg">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="form_search">
+            <a th:href="@{/student/create}">
+                <button type="button" class="btn btn-add btn-outline-success ">
+                    Thêm mới student </button>
+            </a>
+            <a th:href="@{/student/list}">
+                <button type="button" class="btn btn-add btn-outline-success ">
+                    List sản phẩm </button>
+            </a>
+            <br><br>
+
+            <form th:action="@{/student/search}">
+<!--                <div class="form-group">-->
+<!--                    <label for="name">Name</label>-->
+<!--                    <input type="text" th:value="${name}" class="form-control" placeholder="Name" id="name" name="name" style="width: 30%">-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="email">Email</label>-->
+<!--                    <input type="text" th:value="${email}" class="form-control" placeholder="Email" id="email" name="email" style="width: 30%">-->
+<!--                </div>-->
+                <div class="form-group">
+                    <label for="searchAll">Search </label>
+                    <input type="text" th:value="${searchAll}" class="form-control" placeholder="nhập vào ..." id="searchAll" name="searchAll" style="width: 100%">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <br>
+
+        </div>
+            <form th:action="@{/student/deleteAll}">
+            <table  class="table" >
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Birthdate</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">view</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">delete</th>
+                    <th scope="col">Chọn</th>
+                </tr>
+                </thead>
+                <tbody th:each="st, iterStat: ${students}">
+
+                    <tr th:object="${st}">
+                        <td th:text="*{id}"></td>
+                        <td th:text="*{name}"></td>
+                        <td th:text="*{className.className}"></td>
+                        <td th:text="*{email}"></td>
+                        <td th:text="*{phoneNumber}"></td>
+                        <td th:text="*{birthdate}"></td>
+                        <!--<td th:text="*{#dates.format(birthdate, 'yyyy-MM-dd')}"></td>-->
+                        <td th:text="*{sex ? 'Nam' : 'Nữ'}"></td>
+                        <td>
+                            <a th:href="@{/student/view(id=*{id})}">View</a>
+                        </td>
+                        <td>
+                            <a th:href="@{/student/update/{id}(id=*{id})}">Update</a>
+                        </td>
+                        <td>
+                            <a th:href="@{/student/delete/{id}(id=*{id})}">Delete</a>
+                        </td>
+                        <td><input type="checkbox" th:value="*{id}" name="ids"></td>
+                    </tr>
+                </tbody>
+            </table>
+                <button type="submit" class="btn btn-default" style="margin-left: 94%;">Xóa</button>
+            <div class="pagination">
+                <a th:if="${page.hasPrevious()}" th:href="@{/student/list(size=${page.size}, page=${page.getNumber()})}"
+                   th:text="${page.getNumber()}"></a>
+                <a th:if="${page.hasNext() || page.hasPrevious()}" th:href="@{/student/list(size=${page.size}, page=${page.getNumber() + 1})}"
+                   th:text="${page.getNumber() + 1}"></a>
+                <a th:if="${page.hasNext()}" th:href="@{/student/list(size=${page.size}, page=${page.getNumber() + 2})}"
+                   th:text="${page.getNumber() + 2}"></a>
+            </div>
+            </form>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="/static/img/header.jpg" class="card-img-bottom" >
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
