@@ -1,5 +1,7 @@
 package com.example.student.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -25,6 +27,7 @@ public class Student {
     private String note;
 
     //    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @FutureOrPresent(message = "Vui lòng không nhập ngày quá khứ")
     private Date birthdate;
 
     public Student() {
@@ -90,4 +93,5 @@ public class Student {
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
+
 }

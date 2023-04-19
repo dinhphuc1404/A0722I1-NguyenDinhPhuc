@@ -58,8 +58,6 @@ public class StudentController {
     @PostMapping("/create")
     public String create(@Valid @ModelAttribute("student") Student student,
                          BindingResult bindingResult, Model model) {
-//        StudentValidate validate = new StudentValidate();
-//        validate.setService(service);
         validate.validate(student, bindingResult);
         if (bindingResult.hasErrors()) {
             List<ClassName> classNames = classNameService.findAll();
@@ -70,6 +68,28 @@ public class StudentController {
             return "/student/create";
         }
         service.create(student);
+        return "redirect:/student/list";
+    }
+
+    @GetMapping("/update/{student_id}")
+    public String updateStudent(@PathVariable("student_id") Student student, Model model) {
+        List<ClassName> classNames = classNameService.findAll();
+        model.addAttribute("classNames", classNames);
+        model.addAttribute("student", student);
+        return "/student/update";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute("student")  Student student,BindingResult bindingResult,Model model){
+//        validate.validate(student, bindingResult);
+//        if (bindingResult.hasErrors()) {
+//            List<ClassName> classNames = classNameService.findAll();
+//            model.addAttribute("classNames", classNames);
+//            if (student.getClassName() == null) {
+//                student.setClassName(new ClassName());
+//            }
+//            return "/student/update";
+//        }
+        service.update(student);
         return "redirect:/student/list";
     }
 }

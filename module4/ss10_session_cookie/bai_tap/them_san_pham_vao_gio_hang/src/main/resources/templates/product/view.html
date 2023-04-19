@@ -28,7 +28,7 @@
         <a th:href="@{/cart/add-to-cart/__${product.getIdProduct()}__}"><button>Thêm vào giỏ hàng</button></a>
     </div>
     <div class="description">
-
+        <h4 th:text="${'Mô tả: ' + product.getDescription() }"></h4>
     </div>
 </div>
 </body>

@@ -82,6 +82,7 @@
 
             <div class="description">
                 <h4 th:text="${product.getNameProduct()}"></h4>
+                <h4 th:text="${product.getDescription()}"></h4>
                 <div>
                     <del th:text="${product.getOldPrice().toString() + ' đ'}" class="old-price"></del>
                     <span7 th:text="${product.getNewPrice().toString() + ' đ'}" class="new-price"></span7>

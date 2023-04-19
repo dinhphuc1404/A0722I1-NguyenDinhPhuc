@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.util.Date;
+
 @Component
 public class StudentValidate implements Validator {
     @Autowired
@@ -26,6 +28,9 @@ public class StudentValidate implements Validator {
         if (service.findById(student.getId()) != null) {
             errors.rejectValue("id", "create.duplicateId", new String[]{student.getId()}, "ID bị trùng lặp");
         }
+//        if ((student.getBirthdate()!=null && student.getBirthdate().before(new Date()))){
+//            errors.rejectValue("birthdate","birthdate","Vui lòng nhập ngày tương lai");
+//        }
 
         if (student.getPhoneNumber().length() != 10) {
             errors.rejectValue("phoneNumber", "phonenumber", new String[]{"10"}, "Số điện thoại không đúng định dạng");
