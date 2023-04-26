@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        th, td {
+            text-align: left;
+            padding: 1rem;
+        }
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a th:href="@{/room/create}">
+        <button type="button">Thêm mới</button>
+    </a>
+    <a th:href="@{/room/list}">
+        <button>List</button>
+    </a>
+    <br><br>
+    <form th:action="@{/room/search}">
+        <div>
+            <input type="text" th:value="${searchAll}" placeholder="nhập vào ..." id="searchAll" name="searchAll" >
+            <button type="submit" >Search</button>
+        </div>
+    </form>
+</div>
+<br><br>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Số điện thoại</th>
+            <th>Ngày bắt đầu</th>
+            <th>Hình thức thanh toán</th>
+            <th>Ghi chú</th>
+        </tr>
+        </thead>
+        <tbody th:each="st, iterStat: ${motelRooms}">
+        <tr th:object="${st}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="*{getId}"></td>
+            <td th:text="*{getName}"></td>
+            <td th:text="*{getPhoneNumber}"></td>
+            <td th:text="*{getFirstDay}"></td>
+            <td th:text="*{getPayName.getPayName}"></td>
+            <td th:text="*{getNote}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <a th:if="${page.hasPrevious()}" th:href="@{/room/list(size=${page.size}, page=${page.getNumber()})}"
+           th:text="${page.getNumber()}"></a>
+        <a th:if="${page.hasNext() || page.hasPrevious()}" th:href="@{/room/list(size=${page.size}, page=${page.getNumber() + 1})}"
+           th:text="${page.getNumber() + 1}"></a>
+        <a th:if="${page.hasNext()}" th:href="@{/room/list(size=${page.size}, page=${page.getNumber() + 2})}"
+           th:text="${page.getNumber() + 2}"></a>
+    </div>
+</div>
+</body>
+</html>

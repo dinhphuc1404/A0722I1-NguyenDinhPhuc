@@ -27,7 +27,7 @@ public class Student {
     private String note;
 
     //    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @FutureOrPresent(message = "Vui lòng không nhập ngày quá khứ")
+//    @FutureOrPresent(message = "Vui lòng không nhập ngày quá khứ")
     private Date birthdate;
 
     public Student() {

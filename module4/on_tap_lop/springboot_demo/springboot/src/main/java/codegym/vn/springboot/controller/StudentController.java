@@ -40,8 +40,7 @@ public class StudentController {
         return "student/list";
     }
 
-    @GetMapping(value = "/search"
-    )
+    @GetMapping(value = "/search")
     public String search(@RequestParam("name") String name, @RequestParam("email") String email,
                          @RequestParam("searchAll") String searchAll , Model model) {
 //        List<Student> students = service.findAllByNameAndEmail(name, email);

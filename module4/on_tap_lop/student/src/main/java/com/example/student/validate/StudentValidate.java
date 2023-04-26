@@ -7,10 +7,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Component
 public class StudentValidate implements Validator {
+    LocalDate localDate = LocalDate.now();
+
     @Autowired
     private StudentService service;
 
@@ -28,7 +32,7 @@ public class StudentValidate implements Validator {
         if (service.findById(student.getId()) != null) {
             errors.rejectValue("id", "create.duplicateId", new String[]{student.getId()}, "ID bị trùng lặp");
         }
-//        if ((student.getBirthdate()!=null && student.getBirthdate().before(new Date()))){
+//        if ((student.getBirthdate()==null && student.getBirthdate().toInstant().isAfter(Instant.from(localDate)))){
 //            errors.rejectValue("birthdate","birthdate","Vui lòng nhập ngày tương lai");
 //        }
 

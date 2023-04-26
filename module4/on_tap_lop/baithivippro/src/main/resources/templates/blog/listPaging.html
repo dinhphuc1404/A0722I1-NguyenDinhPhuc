@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#" style=" float:right">Link</a>
+</div>
+
+<div class="row">
+    <div class="rightcolumn">
+        <div class="card">
+            <h3>Menu</h3>
+            <ul>
+                <li>
+                    <a th:href="@{/blog/list}">
+                        <button type="button" class="btn btn-warning text-light">List All</button>
+                    </a>
+                </li>
+                <li>
+                    <form th:action="@{/blog/search}" method="get" class="form-inline" >
+                        <div class="form-group mr-3" >
+                            <input type="text"
+                                   class="form-control" name="search" placeholder="search name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </li>
+                <li>
+                    <h4 th:if="${message != null}" th:text="${message}"></h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="leftcolumn">
+        <div class="card">
+        </div>
+
+        <div class="card">
+            <!-- Table -->
+            <form th:action="@{/blog/delete}" method="post">
+                <div class="form-group">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <!-- Create -->
+                            <a th:href="@{/blog/create}" class="btn btn-primary btn-custom">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add new
+                            </a>
+                            <!-- Button trigger modal -->
+
+                            <!-- Button trigger modal -->
+                            <a type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#modelId">
+                                <i class="fa-solid fa-trash-can"></i> Delete All
+                            </a>
+
+
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" onclick="selects()" id="check"></th>
+                            <th>blogName</th>
+                            <th>blogContent</th>
+                            <th>categoryName</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody th:if="${blogs}">
+                        <tr th:each="row,rowStat : ${blogs}" th:object="${row}">
+                            <td>
+                                <input type="checkbox" th:name="checkbox" th:value="*{blogId}">
+                            </td>
+<!--                            <td>-->
+<!--                                <a th:href="@{/blog/view(blogId=*{blogId})}"-->
+<!--                                   th:text="*{blogId}"></a>-->
+<!--                            </td>-->
+                            <td th:text="*{blogName}"></td>
+                            <td th:text="*{blogContent}"></td>
+                            <td th:text="*{category.categoryName}"></td>
+                            <td>
+                                <a th:href="@{/blog/update(blogId=*{blogId})}">
+                                    <button type="button" class="btn btn-warning text-light">Update</button>
+                                </a>
+
+                                <a th:href="@{/blog/view(blogId=*{blogId})}">
+                                    <button type="button" class="btn btn-warning text-light">View</button>
+                                </a>
+
+<!--                                <a>-->
+<!--                                    <button type="button" class="btn btn-danger" data-toggle="modal"-->
+<!--                                            data-target="#modelId">-->
+<!--                                        Delete-->
+<!--                                    </button>-->
+<!--                                </a>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Paging -->
+                    <div>
+                        <a th:if="${blogs.hasPrevious()}"
+                           th:href="@{'/blog'(page=${blogs.number})}">Previous</a>
+                        <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+                        <a th:if="${blogs.hasNext()}"
+                           th:href="@{'/blog'(page=${blogs.number + 2})}">Next</a>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Confirm Delete</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure confirm delete?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Jquery 3.2.1  -->
+<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<!-- Bootstrap JS -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- Custom JS -->
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

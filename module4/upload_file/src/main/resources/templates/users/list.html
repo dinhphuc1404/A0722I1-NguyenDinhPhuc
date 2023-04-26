@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div th:each="u: ${userList}">
+  <h1 th:text="*{u.getName}"></h1>
+  <img style="height: 300px" th:src="*{'/getImg/'+u.image}">
+</div>
+
+</body>
+</html>

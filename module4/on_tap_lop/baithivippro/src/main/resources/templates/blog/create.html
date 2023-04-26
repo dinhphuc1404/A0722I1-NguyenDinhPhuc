@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#" style="float:right">Link</a>
+</div>
+
+<div class="row">
+    <div class="rightcolumn">
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+        </div>
+    </div>
+    <div class="leftcolumn">
+        <div class="card">
+        </div>
+
+
+        <div class="card">
+            <form th:action="@{/blog/create}" th:object="${blog}" method="post" novalidate="novalidate"
+                  id="form-register">
+                <h3>Create new entry</h3>
+                <hr>
+
+                <label>blogName <span style="color: red;"> *</span></label>
+                <div class="form-group">
+                    <input type="text" class="form-control" th:field="*{blogName}"/>
+                    <span th:if="${#fields.hasErrors('blogName')}" th:errors="*{blogName}" style="color: red;"></span>
+                </div>
+
+                <label>blogContent<span style="color: red;"> *</span></label>
+                <div class="form-group">
+                    <input type="text" class="form-control" th:field="*{blogContent}"/>
+                    <span th:if="${#fields.hasErrors('blogContent')}" th:errors="*{blogContent}" style="color: red;"></span>
+                </div>
+
+                <label>categoryName<span style="color: red;"> *</span></label>
+                <div class="form-group">
+                    <select th:field="*{category}" >
+                        <option th:each="pro : ${categorys}"
+                                th:value="${pro.categoryId}"
+                                th:text="${pro.categoryName}"></option>
+                    </select>
+                </div>
+
+                <button class="btn btn-danger btn-custom"><a th:href="@{/blog}" style="color: #dddddd">Back to list</a>
+                </button>
+                <button type="submit" class="btn btn-primary btn-custom" tabindex="12"><i class="fa fa-check"
+                                                                                          aria-hidden="true"></i> Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Jquery 3.2.1  -->
+<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<!-- Bootstrap JS -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

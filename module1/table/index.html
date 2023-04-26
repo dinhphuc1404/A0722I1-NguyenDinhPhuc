@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        th, td {
+            text-align: left;
+            padding: 1rem;
+        }
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a>
+        <button>Thêm mới</button>
+    </a>
+    <a>
+        <button>List</button>
+    </a>
+    <br><br>
+    <form >
+        <!--                <div class="form-group">-->
+        <!--                    <label for="name">Name</label>-->
+        <!--                    <input type="text" th:value="${name}" class="form-control" placeholder="Name" id="name" name="name" style="width: 30%">-->
+        <!--                </div>-->
+        <!--                <div class="form-group">-->
+        <!--                    <label for="email">Email</label>-->
+        <!--                    <input type="text" th:value="${email}" class="form-control" placeholder="Email" id="email" name="email" style="width: 30%">-->
+        <!--                </div>-->
+        <div>
+            <input type="text" placeholder="nhập vào ..." id="searchAll" name="searchAll" >
+            <button type="submit" >Search</button>
+        </div>
+
+    </form>
+</div>
+<br><br>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Row 1, Column 1</td>
+            <td>Row 1, Column 2</td>
+            <td>Row 1, Column 3</td>
+            <td>Row 1, Column 4</td>
+        </tr>
+        <tr>
+            <td>Row 2, Column 1</td>
+            <td>Row 2, Column 2</td>
+            <td>Row 2, Column 3</td>
+            <td>Row 2, Column 4</td>
+        </tr>
+        <tr>
+            <td>Row 3, Column 1</td>
+            <td>Row 3, Column 2</td>
+            <td>Row 3, Column 3</td>
+            <td>Row 3, Column 4</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
