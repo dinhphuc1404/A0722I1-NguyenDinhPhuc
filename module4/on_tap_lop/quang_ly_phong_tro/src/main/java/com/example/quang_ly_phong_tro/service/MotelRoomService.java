@@ -17,5 +17,5 @@ public interface MotelRoomService {
     public Slice<MotelRoom> findAllWithSlice(Pageable pageable);
     List<MotelRoom> findAllByNameAndEmail(String name, String email);
     void deleteAll(Integer[] ids);
-    List<MotelRoom> findAllBySearchAll( String name, String phoneNumber);
+    Slice<MotelRoom> findAllBySearchAll( String name, String phoneNumber, Pageable pageable);
 }

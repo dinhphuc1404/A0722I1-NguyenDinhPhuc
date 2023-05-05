@@ -1,10 +1,7 @@
 package com.example.quang_ly_phong_tro.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.sql.Date;
 
 
@@ -13,21 +10,37 @@ public class MotelRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @NotBlank(message = "Tên không được để trống")
-    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Tên không được nhập số và kí tự đặc biệt")
+    @Pattern(regexp = "([\\p{L}\\s]+)", message = "Tên không được nhập số và kí tự đặc biệt")
     @Size(min = 5,max = 50, message = "Kí tự đối đa là 50 tối thiểu 5")
     private String name;
+
     @NotBlank(message = "Số điện thoại không được để trống")
 //    @Pattern(regexp = "^(0)[0-9]{9}$",message = "Điện thoại phải có 10 số và bắt đầu bằng số 0.")
     private String phoneNumber;
+
+    private boolean sex;
+
     private Date firstDay;
     @ManyToOne
     @JoinColumn(name = "payId", referencedColumnName = "payId")
+    @NotNull(message = "Không được để trống")
     private Pay payName;
+
     @Size(min = 0, max = 200, message = "Không nhập quá 200 kí tự")
     private String note;
 
     public MotelRoom() {
+    }
+
+
+    public boolean isSex() {
+        return sex;
+    }
+
+    public void setSex(boolean sex) {
+        this.sex = sex;
     }
 
     public MotelRoom(Integer id, String name, String phoneNumber, Date firstDay, Pay payName, String note) {

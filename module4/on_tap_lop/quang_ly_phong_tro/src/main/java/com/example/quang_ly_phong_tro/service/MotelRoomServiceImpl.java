@@ -7,9 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
+@Transactional
 public class MotelRoomServiceImpl implements MotelRoomService{
     @Autowired
     MotelRoomRepository motelRoomRepository;
@@ -60,7 +62,7 @@ public class MotelRoomServiceImpl implements MotelRoomService{
     }
 
     @Override
-    public List<MotelRoom> findAllBySearchAll( String name, String phoneNumber) {
-        return motelRoomRepository.findAllByNameContainsOrPhoneNumberContains(name,phoneNumber);
+    public Slice<MotelRoom> findAllBySearchAll( String name, String phoneNumber, Pageable pageable) {
+        return motelRoomRepository.findAllByNameContainsOrPhoneNumberContains(name,phoneNumber,pageable);
     }
 }
