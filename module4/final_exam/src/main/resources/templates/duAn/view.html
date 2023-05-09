@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="card">
+    <table border="1" th:object="${duAn}">
+        <tr>
+            <td>Name</td>
+            <td th:text="*{maDuAn}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{tenDuAn}"></td>
+        </tr>
+        <tr>
+            <td>Thanh toán</td>
+            <td th:text="*{doanhNghiep.tenDanhNghiep}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{kinhPhi}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{moTa}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{thoiGianDangKy}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{ngayDangKy}"></td>
+        </tr>
+    </table>
+    <button><a th:href="@{/duAn/list}" >Back to list</a>
+
+</div>
+<!-- Jquery 3.2.1  -->
+<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<!-- Bootstrap JS -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

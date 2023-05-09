@@ -1,0 +1,124 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div>
+    <h2>Đăng kí</h2>
+</div>
+<div>
+    <form  th:action="@{/duAn/create}" method="post"  class="form-horizontal" th:object="${duAn}">
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Ma du an</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input th:field="*{maDuAn}" type="text" id="text-input" name="text-input" placeholder="Text" class="form-control">
+                <span th:if="${#fields.hasErrors('maDuAn')}" th:errors="*{maDuAn}" style="color: red"></span>
+                <small class="form-text text-muted">Nhap ma du an</small>
+
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="select" class=" form-control-label">Ten doanh nghiep</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <select  th:field="*{doanhNghiep}" name="select" id="select" class="form-control">
+                    <option th:each=" l: ${listDoanhNghiep} " th:text="${l.tenDanhNghiep}" th:value="${l.idDoanhNghiep}"></option>
+                </select>
+            </div>
+            <span th:if="${#fields.hasErrors('doanhNghiep')}" th:errors="*{doanhNghiep}" style="color: red"></span>
+        </div>
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Ten du an</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input th:field="*{tenDuAn}" type="text" name="text-input" placeholder="Text" class="form-control">
+                <span th:if="${#fields.hasErrors('tenDuAn')}" th:errors="*{tenDuAn}" style="color: red"></span>
+                <small class="form-text text-muted">Nhap ten du an</small>
+            </div>
+        </div>
+
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Kinh phi yeu cau</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input th:field="*{kinhPhi}" type="number" name="text-input" placeholder="Text" class="form-control">
+                <span th:if="${#fields.hasErrors('kinhPhi')}" th:errors="*{kinhPhi}" style="color: red"></span>
+                <small class="form-text text-muted">Nhap kinh phi</small>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Mo ta du an</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <textarea th:field="*{moTa}" type="text" name="text-input" placeholder="Text" class="form-control"></textarea>
+                <span th:if="${#fields.hasErrors('moTa')}" th:errors="*{moTa}" style="color: red"></span>
+                <small class="form-text text-muted">Nhap mo ta</small>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Thoi gian dang ki gioi thieu</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input th:field="*{thoiGianDangKy}" type="number" name="text-input" placeholder="Text" class="form-control">
+                <small class="form-text text-muted">Nhap thoi gian dang ki gioi thieu</small>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Ngay dang ki</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input th:field="*{ngayDangKy}" type="date" name="text-input" placeholder="Text" class="form-control" readonly>
+                <small class="form-text text-muted">Chon ngay dang ki</small>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+            <button type="reset" class="btn btn-danger btn-sm">
+                <a th:href="@{/duAn/list}" >Back to list</a>
+                <i class="fa fa-ban"></i> Reset
+            </button>
+        </div>
+
+    </form>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@ import com.example.quan_ly_san_pham.entity.Product;
 import com.example.quan_ly_san_pham.service.CategoryService;
 import com.example.quan_ly_san_pham.service.ProductService;
 import com.example.quan_ly_san_pham.validate.IdValidate;
+import com.example.quan_ly_san_pham.validate.ProductValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
@@ -31,6 +32,9 @@ public class ProductController {
     @Autowired
     private IdValidate validate;
 
+    @Autowired
+    private ProductValidate productValidate;
+
     @GetMapping("/list")
     public String listpagingslice(Model model, @RequestParam("page") Optional<Integer> page,
                                   @RequestParam("size") Optional<Integer> size) {
@@ -56,6 +60,7 @@ public class ProductController {
     public String create(@Valid @ModelAttribute("product") Product product,
                          BindingResult bindingResult, Model model) {
         validate.validate(product,bindingResult);
+        productValidate.validate(product,bindingResult);
         if (bindingResult.hasErrors()) {
             List<Category> categories = categoryService.findAll();
             model.addAttribute("categories", categories);
@@ -78,7 +83,10 @@ public class ProductController {
 
     @PostMapping("/update")
     public String update(@Valid@ModelAttribute("product")  Product product,BindingResult bindingResult,Model model){
+        productValidate.validate(product,bindingResult);
         if (bindingResult.hasErrors()) {
+
+
             List<Category> categories = categoryService.findAll();
             model.addAttribute("categories", categories);
             if (product.getCategory() == null) {

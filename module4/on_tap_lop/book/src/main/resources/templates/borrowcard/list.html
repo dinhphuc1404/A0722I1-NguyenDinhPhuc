@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách phiếu mượn sách</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+<div class="container mt-3">
+    <h2>Danh sách phiếu mượn sách</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Mã phiếu mượn sách</th>
+            <th>Mã sách</th>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Ngày mượn</th>
+            <th>Ngày trả</th>
+            <th>Trạng thái</th>
+            <th>Họ tên người mượn</th>
+            <th>Lớp</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="borrowCard : ${borrowCards}">
+            <td th:text="${borrowCard.id}"></td>
+            <td th:text="${borrowCard.book.id}"></td>
+            <td th:text="${borrowCard.book.name}"></td>
+            <td th:text="${borrowCard.book.author}"></td>
+            <td th:text="${borrowCard.borrowDate}"></td>
+            <td th:text="${borrowCard.returnDate}"></td>
+            <td th:text="${borrowCard.borrowStatus == true ? 'Đang mượn' : 'Đã trả'}"></td>
+            <td th:text="${borrowCard.student.name}"></td>
+            <td th:text="${borrowCard.student.className}"></td>
+            <td>
+                <a th:href="@{/borrowcard/edit/{id}(id=${borrowCard.id})}" class="btn btn-sm btn-warning">Sửa</a>
+                <a th:href="@{/borrowcard/delete/{id}(id=${borrowCard.id})}" class="btn btn-sm btn-danger">Xóa</a>
+                <a th:if="${borrowCard.borrowStatus == true}" th:href="@{/borrowcard/return/{id}(id=${borrowCard.id})}" class="btn btn-sm btn-primary">Trả sách</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a th:href="@{/borrowcard/add}" class="btn btn-primary"> mượn sách mới</a>
+    </div>
+</div>
+</body>
+
+</html>
