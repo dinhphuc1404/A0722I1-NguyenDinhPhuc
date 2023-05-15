@@ -2,9 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--<div>-->
+<!--    <input type="text" id="text">-->
+<!--    <button onclick="callChatGPT()">add</button>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <p id="result"></p>-->
+<!--</div>-->
+<!--<script>-->
+<!--    const text = document.querySelector("#text");-->
+<!--    const resp = document.querySelector("#result");-->
+<!--    const callChatGPT = async ()=>{-->
+<!--        const url = "https://platform.openai.com/docs/api-reference/chat/create";-->
+<!--        const options = {-->
+<!--            method: "POST",-->
+<!--            header: {-->
+<!--                "content-type": "application/json",-->
+<!--                "X-RapiAPI-Key":-->
+<!--                    "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",-->
+<!--                "X-RapiAPI-Host": "platform.openai.com",-->
+<!--            },-->
+<!--            body: JSON.stringify({-->
+<!--                query: text.value,-->
+<!--            }),-->
+<!--        };-->
+<!--        try {-->
+<!--            const response = await fetch(url,{-->
+<!--                mode: "no-cors"-->
+<!--            },options);-->
+<!--            const result = await response.json();-->
+<!--            console.log(result)-->
+<!--            resp.innerText = result.reponse;-->
+<!--        }catch (error) {-->
+<!--            console.log(error);-->
+
+<!--        }-->
+<!--    };-->
+<!--</script>-->
+<h1>Chat with ChatGPT API</h1>
+<div id="chat">
+    <div id="chat-history"></div>
+    <form id="chat-form">
+        <input type="text" id="chat-input" />
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<script>
+    const apiKey = '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';
+    const chatHistory = document.getElementById('chat-history');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+
+    chatForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const inputText = chatInput.value.trim();
+        if (inputText !== '') {
+            getChatResponse(inputText).then(response => {
+                addChatMessage(response.response);
+            });
+            addChatMessage(inputText, true);
+            chatInput.value = '';
+        }
+    });
+
+    function getChatResponse(inputText) {
+        const url = `https://api.openai.com/v1/chatgpt/generate_answer?api_key=${apiKey}&text=${encodeURIComponent(
+            inputText
+        )}`;
+        return fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            });
+    }
+
+    function addChatMessage(message, isUserMessage = false) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.classList.add(isUserMessage ? 'user-message' : 'bot-message');
+        messageElement.textContent = message;
+        chatHistory.appendChild(messageElement);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+    }
+</script>
 </body>
 </html>
