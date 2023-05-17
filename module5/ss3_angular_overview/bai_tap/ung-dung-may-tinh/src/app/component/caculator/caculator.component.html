@@ -1,1 +1,17 @@
-<p>caculator works!</p>
+<div class="input-group mb-3">
+  <label for="first">First number</label>
+  <input #first
+    type="text" name="" id="first" class="form-control" placeholder="Nhập số ..." >
+</div>
+
+<div class="input-group mb-3">
+  <label for="second">Second number</label>
+  <input #second
+         type="text" name="" id="second" class="form-control" placeholder="Nhập số ..." >
+</div>
+
+<button type="button" class="btn btn-primary" (click)="cong(first.value,second.value)">+</button>
+<button type="button" class="btn btn-primary" (click)="tru(first.value,second.value)">-</button>
+<button type="button" class="btn btn-primary" (click)="nhan(first.value,second.value)">*</button>
+<button type="button" class="btn btn-primary" (click)="chia(first.value,second.value)">/</button>
+<p>Kết quả: {{result}}</p>
