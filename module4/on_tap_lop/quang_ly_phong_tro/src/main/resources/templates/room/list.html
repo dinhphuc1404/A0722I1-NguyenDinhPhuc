@@ -69,10 +69,10 @@
             <tr th:object="${st}">
                 <td th:text="${iterStat.count}"></td>
                 <td th:text="*{getId()}"></td>
-                <td th:text="*{getName}"></td>
-                <td th:text="*{getPhoneNumber}"></td>
+                <td th:text="*{getName()}"></td>
+                <td th:text="*{phoneNumber}"></td>
                 <td th:text="*{sex ? 'Nam' : 'Nữ'}"></td>
-                <td th:text="*{getFirstDay}"></td>
+                <td th:text="*{firstDay}"></td>
                 <td th:text="*{getPayName.getPayName}"></td>
                 <td th:text="*{getNote}"></td>
                 <td>
