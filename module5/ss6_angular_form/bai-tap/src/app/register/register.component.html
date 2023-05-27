@@ -1,0 +1,75 @@
+<h3 style="text-align: center">Form Đăng ký</h3>
+<form action="" [formGroup]="rfRegister">
+  <div class="input-group ">
+    <label for="email">Email: </label>
+    <input #email
+      type="text"
+       id="email" class="form-control"  formControlName="email">
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.email?.touched &&
+  rfRegister.controls.email?.errors?.required">Không được để trôống</p>
+  <p class="text-danger" *ngIf="rfRegister.controls.email?.touched &&
+  rfRegister.controls.email?.errors?.email">Email không đúng định dạng</p>
+
+  <div class="input-group ">
+    <label for="password">Password: </label>
+    <input #password
+           type="password"
+           id="password" class="form-control"  formControlName="password">
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.password?.touched &&
+  rfRegister.controls.password?.errors?.required">Không được để trống</p>
+  <p class="text-danger" *ngIf="rfRegister.controls.password?.touched &&
+  rfRegister.controls.password?.errors?.minlength">Mật khẩu tối thiểu 6 kí tự</p>
+
+  <div class="input-group ">
+    <label for="confirmPassword">Confirm password: </label>
+    <input #confirmPassword
+           type="password"
+           id="confirmPassword" class="form-control"  formControlName="confirmPassword">
+  </div>
+  <p class="text-danger" *ngIf="confirmPassword.value != password.value">Không trùng khớp</p>
+
+  <div class="input-group ">
+    <label for="country">Country: </label>
+    <select id="country" formControlName="country">
+      <option value="">Select a country</option>
+      <option *ngFor="let country of countries" [value]="country" #country>{{ country }}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.country?.touched &&
+                        rfRegister.controls.country?.errors?.required">Không được để tống</p>
+
+  <div class="input-group ">
+    <label for="age">Age: </label>
+    <input #age
+           type="number"
+           id="age" class="form-control"  formControlName="age">
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.age?.touched &&
+  rfRegister.controls.age?.errors?.required">Không được để trống</p>
+  <p class="text-danger" *ngIf="rfRegister.controls.age?.touched &&
+  rfRegister.controls.age?.errors?.min">Từ 18 tuổi trở lên</p>
+
+  <div class="input-group ">
+  <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male" formControlName="gender" #gender>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female" formControlName="gender" #gender>
+    <label for="female">Female</label>
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.gender?.touched &&
+  rfRegister.controls.gender?.errors?.required">Không được để trống</p>
+
+  <div class="input-group ">
+    <label for="phone">Phone: </label>
+    <input #phone
+           type="text"
+           id="phone" class="form-control"  formControlName="phone">
+  </div>
+  <p class="text-danger" *ngIf="rfRegister.controls.phone?.touched &&
+  rfRegister.controls.phone?.errors?.required">Không được để trống</p>
+  <p class="text-danger" *ngIf="rfRegister.controls.phone?.touched &&
+  rfRegister.controls.phone?.errors?.pattern">Số điện thoại không hợp lệ</p>
+  <button type="button" class="btn btn-primary">Đăng kí</button>
+</form>
