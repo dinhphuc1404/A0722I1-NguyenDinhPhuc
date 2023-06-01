@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
       country: new FormControl('', [ Validators.required]),
       age: new FormControl('', [Validators.required, Validators.min(18)]),
       gender: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.pattern( /^\+84\d{9,10}$/), Validators.required])
+      phone: new FormControl('', [Validators.pattern( /^\+84\d{9}$/), Validators.required])
     });
   }
 }

@@ -1,0 +1,50 @@
+<a routerLink="/employee/create">
+  <button type="button" class="btn btn-primary">Thêm mới nhân viên</button></a>
+<h1>Danh sách nhân viên</h1>
+<table border="1">
+  <tr>
+    <td>STT</td>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Vị trí</td>
+    <td>Trình độ</td>
+    <td>Bộ phận</td>
+    <td>Ngày sinh</td>
+    <td>CMND</td>
+    <td>Lương</td>
+    <td>SĐT</td>
+    <td>Email</td>
+    <td>Địa chỉ</td>
+  </tr>
+  <tr *ngFor="let e of employees; index as i">
+    <td>{{i+1}}</td>
+    <td>{{e.idEmployee}}</td>
+    <td>{{e.nameEmployee}}</td>
+    <td [ngSwitch]="e.viTriEmployee">
+      <span *ngSwitchCase="0">Lễ tân</span>
+      <span *ngSwitchCase="1">Phục vụ</span>
+      <span *ngSwitchCase="2">Chuyên viên</span>
+      <span *ngSwitchCase="3">Giám sát</span>
+      <span *ngSwitchCase="4">Quản lí</span>
+      <span *ngSwitchCase="5">Giám đốc</span>
+    </td>
+    <td [ngSwitch]="e.trinhDoEmployee">
+      <span *ngSwitchCase="0">Trung cấp</span>
+      <span *ngSwitchCase="1">Cao đẳng</span>
+      <span *ngSwitchCase="2">Đại học</span>
+      <span *ngSwitchCase="3">Sau đại học</span>
+    </td>
+    <td [ngSwitch]="e.boPhanEmployee">
+      <span *ngSwitchCase="0">Sale – Marketing</span>
+      <span *ngSwitchCase="1">Hành Chính</span>
+      <span *ngSwitchCase="2">Phục vụ</span>
+      <span *ngSwitchCase="3">Quản lý</span>
+    </td>
+    <td>{{e.dateEmployee}}</td>
+    <td>{{e.idCardEmployee}}</td>
+    <td>{{e.salaryEmployee}}</td>
+    <td>{{e.phoneEmployee}}</td>
+    <td>{{e.emailEmployee}}</td>
+    <td>{{e.addressEmployee}}</td>
+  </tr>
+</table>

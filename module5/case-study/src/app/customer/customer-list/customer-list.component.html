@@ -1,0 +1,42 @@
+<a routerLink="/customer/create">
+  <button type="button" class="btn btn-primary">Thêm mới khách hàng</button></a>
+<h1>Danh sách khách hàng</h1>
+
+<table border="1">
+  <tr>
+    <td>STT</td>
+    <td>ID</td>
+    <td>Tên khách hàng</td>
+    <td>Ngày sinh</td>
+    <td>Giới tính</td>
+    <td>CMND</td>
+    <td>SĐT</td>
+    <td>EMAIL</td>
+    <td>Loại khách hàng</td>
+    <td>Quê quán</td>
+    <td>Chỉnh sửa</td>
+  </tr>
+  <tr *ngFor="let cus of customers; index as i">
+    <td>{{i+1}}</td>
+    <td>{{cus.idCustomer}}</td>
+    <td>{{cus.nameCustomer}}</td>
+    <td>{{cus.dateCustomer}}</td>
+    <td [ngSwitch]="cus.genderCustomer">
+      <span *ngSwitchCase="0">Nam</span>
+      <span *ngSwitchCase="1">Nữ</span>
+      <span *ngSwitchCase="2">LGBT</span>
+    </td>
+    <td>{{cus.idCardCustomer}}</td>
+    <td>{{cus.phoneCustomer}}</td>
+    <td>{{cus.emailCustomer}}</td>
+    <td [ngSwitch]="cus.typeCustomer">
+      <span *ngSwitchCase="0">Gold</span>
+      <span *ngSwitchCase="1">Platinium</span>
+      <span *ngSwitchCase="2">Diamond</span>
+      <span *ngSwitchCase="3">Silver</span>
+      <span *ngSwitchCase="4">Member</span>
+    </td>
+    <td>{{ cus.addressCustomer}}</td>
+    <td><a routerLink="/customer/edit/{{cus.idCustomer}}">Edit</a></td>
+  </tr>
+</table>
