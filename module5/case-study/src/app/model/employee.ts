@@ -1,9 +1,13 @@
+import {Level} from './level';
+import {Position} from './position';
+import {Part} from './part';
+
 export interface Employee {
   idEmployee?: string;
   nameEmployee?: string;
-  viTriEmployee?: number;
-  trinhDoEmployee?: number;
-  boPhanEmployee?: number;
+  viTriEmployee?: Position;
+  trinhDoEmployee?: Level;
+  boPhanEmployee?: Part;
   dateEmployee?: string;
   idCardEmployee?: number;
   salaryEmployee?: number;

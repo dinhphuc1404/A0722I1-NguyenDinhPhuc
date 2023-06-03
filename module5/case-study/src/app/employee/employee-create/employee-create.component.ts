@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../../service/employee.service';
 import {Router} from '@angular/router';
+import {PositionService} from '../../service/position.service';
+import {PartService} from '../../service/part.service';
+import {LevelService} from '../../service/level.service';
+import {Position} from '../../model/position';
+import {Part} from '../../model/part';
+import {Level} from '../../model/level';
+
 
 @Component({
   selector: 'app-employee-create',
@@ -9,6 +16,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./employee-create.component.css']
 })
 export class EmployeeCreateComponent implements OnInit {
+  positions: Position[] = [];
+  parts: Part[] = [];
+  levels: Level[] = [];
   employeeForm: FormGroup = new FormGroup({
     idEmployee: new FormControl(),
     nameEmployee: new FormControl(),
@@ -23,7 +33,9 @@ export class EmployeeCreateComponent implements OnInit {
     addressEmployee: new FormControl(),
   });
 
-  constructor(private employeeService: EmployeeService, private router: Router) { }
+  constructor(private employeeService: EmployeeService, private router: Router,
+              private positionService: PositionService, private partService: PartService,
+              private levelService: LevelService) { }
 
   ngOnInit(): void {
     this.employeeForm = new FormGroup({
@@ -39,10 +51,16 @@ export class EmployeeCreateComponent implements OnInit {
       emailEmployee: new FormControl('', [Validators.required, Validators.email]),
       addressEmployee: new FormControl('', [Validators.required]),
     });
+    this.getAllLevel();
+    this.getAllPart();
+    this.getAllPosition();
   }
 
   submit() {
     const employee = this.employeeForm.value;
+    employee.viTriEmployee = this.positionService.findById(+employee.viTriEmployee);
+    employee.trinhDoEmployee = this.levelService.findById(+employee.trinhDoEmployee);
+    employee.boPhanEmployee = this.partService.findById(+employee.boPhanEmployee);
     this.employeeService.saveEmployee(employee);
     this.employeeForm.reset();
     this.router.navigateByUrl('/employee/list');
@@ -51,5 +69,14 @@ export class EmployeeCreateComponent implements OnInit {
   reset() {
   this.employeeForm.reset();
   this.router.navigateByUrl('/employee/create');
+  }
+  getAllPosition() {
+    this.positions = this.positionService.getAllPosition();
+  }
+  getAllPart() {
+    this.parts = this.partService.getAllPart();
+  }
+  getAllLevel() {
+    this.levels = this.levelService.getAllLevel();
   }
 }

@@ -8,6 +8,6 @@ export interface Customer {
   idCardCustomer?: number;
   phoneCustomer?: string;
   emailCustomer?: string;
-  typeCustomer?: number;
+  typeCustomer?: CustomerType;
   addressCustomer?: string;
 }

@@ -14,6 +14,10 @@ import { CustomerCreateComponent } from './customer/customer-create/customer-cre
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { EmployeeCreateComponent } from './employee/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import { BodyComponent } from './body/body.component';
+import { ServiceListComponent } from './serivcetable/service-list/service-list.component';
+import { CustomerTypeListComponent } from './customer-type/customer-type-list/customer-type-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { EmployeeCreateComponent } from './employee/employee-create/employee-cre
     CustomerCreateComponent,
     CustomerEditComponent,
     EmployeeListComponent,
-    EmployeeCreateComponent
+    EmployeeCreateComponent,
+    EmployeeEditComponent,
+    BodyComponent,
+    ServiceListComponent,
+    CustomerTypeListComponent
   ],
   imports: [
     BrowserModule,

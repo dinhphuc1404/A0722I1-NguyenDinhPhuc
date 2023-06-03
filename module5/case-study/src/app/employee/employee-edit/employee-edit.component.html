@@ -1,0 +1,102 @@
+<br>
+<h1 style="text-align: center; color: blue">Chỉnh sửa thông tin nhân viên</h1>
+<form [formGroup]="employeeForm" (ngSubmit)="updateemployee(id)">
+  <div class="container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Id</label>
+        <input type="text" class="form-control"  formControlName="idEmployee" readonly>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Name</label>
+        <input type="text" class="form-control"  formControlName="nameEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.nameEmployee?.touched &&
+  employeeForm.controls.nameEmployee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Vị trí</label>
+        <select class="form-control" formControlName="viTriEmployee">
+          <option >Choose...</option>
+          <option *ngFor="let p of positions" value="{{p.idPosition}}">{{p.namePositon}}</option>
+          <!--          <option value="1">Phục vụ</option>-->
+          <!--          <option value="2">Chuyên viên</option>-->
+          <!--          <option value="3">Giám sát</option>-->
+          <!--          <option value="4">Quản lý</option>-->
+          <!--          <option value="5">Giám đốc/option>-->
+        </select>
+        <p class="text-danger" *ngIf="employeeForm.controls.viTriEmployee?.touched &&
+  employeeForm.controls.viTriEmployee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Trình độ</label>
+        <select class="form-control" formControlName="trinhDoEmployee">
+          <option >Choose...</option>
+          <option *ngFor="let l of levels" value="{{l.idLevel}}">{{l.nameLevel}}</option>
+          <!--          <option value="1">Cao đẳng</option>-->
+          <!--          <option value="2">Đại học</option>-->
+          <!--          <option value="3">Sau đại học</option>-->
+        </select>
+        <p class="text-danger" *ngIf="employeeForm.controls.trinhDoEmployee?.touched &&
+  employeeForm.controls.trinhDoEmployee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Bộ phận</label>
+        <select class="form-control" formControlName="boPhanEmployee">
+          <option >Choose...</option>
+          <option *ngFor="let part of parts" value="{{part.idPart}}">{{part.namePart}}</option>
+          <!--          <option value="1">Hành Chính</option>-->
+          <!--          <option value="2">Phục vụ</option>-->
+          <!--          <option value="3">Quản lý</option>-->
+        </select>
+        <p class="text-danger" *ngIf="employeeForm.controls.boPhanEmployee?.touched &&
+  employeeForm.controls.boPhanEmployee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Ngày sinh</label>
+        <input type="date" class="form-control"  formControlName="dateEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.dateEmployee?.touched &&
+  employeeForm.controls.dateEmployee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >CMND</label>
+        <input type="number" class="form-control"  formControlName="idCardEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.idCardEmployee?.touched &&
+  employeeForm.controls.idCardEmployee?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="employeeForm.controls.idCardEmployee?.touched &&
+  employeeForm.controls.idCardEmployee?.errors?.pattern">CMND không hợp lệ</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Lương</label>
+        <input type="number" class="form-control"  formControlName="salaryEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.salaryEmployee?.touched &&
+  employeeForm.controls.salaryEmployee?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="employeeForm.controls.salaryEmployee?.touched &&
+  employeeForm.controls.salaryEmployee?.errors?.min">Lương phải là số dương</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >SĐT</label>
+        <input type="text" class="form-control"  formControlName="phoneEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.phoneEmployee?.touched &&
+  employeeForm.controls.phoneEmployee?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="employeeForm.controls.phoneEmployee?.touched &&
+  employeeForm.controls.phoneEmployee?.errors?.pattern">Số điện thoại không hợp lệ</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Email</label>
+        <input type="text" class="form-control"  formControlName="emailEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.emailEmployee?.touched &&
+  employeeForm.controls.emailEmployee?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="employeeForm.controls.emailEmployee?.touched &&
+  employeeForm.controls.emailEmployee?.errors?.email">Email không hợp lệ</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Địa chỉ</label>
+        <input type="text" class="form-control"  formControlName="addressEmployee">
+        <p class="text-danger" *ngIf="employeeForm.controls.addressEmployee?.touched &&
+  employeeForm.controls.addressEmployee?.errors?.required">Không được để trống</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="employeeForm.invalid" >Submit</button>
+    <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/employee/list">Back</a>
+  </div>
+</form>

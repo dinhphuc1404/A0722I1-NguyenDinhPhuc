@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CustomerService} from '../../service/customer.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CustomerTypeService} from '../../service/customer-type.service';
+import {CustomerType} from '../../model/customer-type';
 
 @Component({
   selector: 'app-customer-create',
@@ -9,6 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./customer-create.component.css']
 })
 export class CustomerCreateComponent implements OnInit {
+  customerTypes: CustomerType[];
   customerForm: FormGroup = new FormGroup({
     idCustomer: new FormControl(),
     nameCustomer: new FormControl(),
@@ -21,7 +24,7 @@ export class CustomerCreateComponent implements OnInit {
     addressCustomer:  new FormControl(),
   });
 
-  constructor(private customerService: CustomerService, private router: Router) { }
+  constructor(private customerService: CustomerService, private router: Router, private customerServiceType: CustomerTypeService) { }
 
   ngOnInit(): void {
     this.customerForm = new FormGroup({
@@ -35,9 +38,11 @@ export class CustomerCreateComponent implements OnInit {
       typeCustomer: new FormControl('', [Validators.required]),
       addressCustomer: new FormControl('', [Validators.required])
     });
+    this.getAllType();
   }
   submit() {
     const customer = this.customerForm.value;
+    customer.typeCustomer = this.customerServiceType.findById(customer.typeCustomer);
     this.customerService.saveCustomer(customer);
     this.customerForm.reset();
     this.router.navigateByUrl('customer/list');
@@ -46,5 +51,8 @@ export class CustomerCreateComponent implements OnInit {
   reset() {
     this.customerForm.reset();
     this.router.navigateByUrl('customer/create');
+  }
+  getAllType() {
+    this.customerTypes = this.customerServiceType.getAllType();
   }
 }

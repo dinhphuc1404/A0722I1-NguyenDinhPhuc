@@ -1,4 +1,5 @@
-<h1>Thêm mới nhân viên</h1>
+<br>
+<h1 style="text-align: center; color: blue">Thêm mới nhân viên</h1>
 <form [formGroup]="employeeForm" (ngSubmit)="submit()">
   <div class="container">
     <div class="form-row">
@@ -20,12 +21,12 @@
         <label >Vị trí</label>
         <select class="form-control" formControlName="viTriEmployee">
           <option >Choose...</option>
-          <option value="0">Lễ tân</option>
-          <option value="1">Phục vụ</option>
-          <option value="2">Chuyên viên</option>
-          <option value="3">Giám sát</option>
-          <option value="4">Quản lý</option>
-          <option value="5">Giám đốc/option>
+          <option *ngFor="let p of positions" value="{{p.idPosition}}">{{p.namePositon}}</option>
+<!--          <option value="1">Phục vụ</option>-->
+<!--          <option value="2">Chuyên viên</option>-->
+<!--          <option value="3">Giám sát</option>-->
+<!--          <option value="4">Quản lý</option>-->
+<!--          <option value="5">Giám đốc/option>-->
         </select>
         <p class="text-danger" *ngIf="employeeForm.controls.viTriEmployee?.touched &&
   employeeForm.controls.viTriEmployee?.errors?.required">Không được để trống</p>
@@ -34,10 +35,10 @@
         <label >Trình độ</label>
         <select class="form-control" formControlName="trinhDoEmployee">
           <option >Choose...</option>
-          <option value="0">Trung cấp</option>
-          <option value="1">Cao đẳng</option>
-          <option value="2">Đại học</option>
-          <option value="3">Sau đại học</option>
+          <option *ngFor="let l of levels" value="{{l.idLevel}}">{{l.nameLevel}}</option>
+<!--          <option value="1">Cao đẳng</option>-->
+<!--          <option value="2">Đại học</option>-->
+<!--          <option value="3">Sau đại học</option>-->
         </select>
         <p class="text-danger" *ngIf="employeeForm.controls.trinhDoEmployee?.touched &&
   employeeForm.controls.trinhDoEmployee?.errors?.required">Không được để trống</p>
@@ -46,10 +47,10 @@
         <label >Bộ phận</label>
         <select class="form-control" formControlName="boPhanEmployee">
           <option >Choose...</option>
-          <option value="0">Sale – Marketing</option>
-          <option value="1">Hành Chính</option>
-          <option value="2">Phục vụ</option>
-          <option value="3">Quản lý</option>
+          <option *ngFor="let part of parts" value="{{part.idPart}}">{{part.namePart}}</option>
+<!--          <option value="1">Hành Chính</option>-->
+<!--          <option value="2">Phục vụ</option>-->
+<!--          <option value="3">Quản lý</option>-->
         </select>
         <p class="text-danger" *ngIf="employeeForm.controls.boPhanEmployee?.touched &&
   employeeForm.controls.boPhanEmployee?.errors?.required">Không được để trống</p>
@@ -99,10 +100,9 @@
   employeeForm.controls.addressEmployee?.errors?.required">Không được để trống</p>
       </div>
     </div>
-    <button class="btn btn-primary" >Submit</button>
+    <button class="btn btn-primary" [disabled]="employeeForm.invalid">Submit</button>
     <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  (click)="reset()">Reset</a>
-    <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/customer/list">Back</a>
-
+    <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/employee/list">Back</a>
   </div>
 </form>
 

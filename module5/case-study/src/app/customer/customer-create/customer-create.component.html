@@ -1,4 +1,5 @@
-<h1>Thêm mới khách hàng</h1>
+<br>
+<h1 style="text-align: center; color: blue">Thêm mới khách hàng</h1>
 <form [formGroup]="customerForm" (ngSubmit)="submit()">
   <div class="container">
     <div class="form-row">
@@ -23,10 +24,13 @@
   customerForm.controls.dateCustomer?.errors?.required">Không được để trống</p>
       </div>
       <div class="form-group col-md-6">
-          <p>Gender</p>
-          <input type="radio" name="gender" formControlName="genderCustomer" value="0">Nam
-          <input type="radio" name="gender" formControlName="genderCustomer" value="1">Nữ
-          <input type="radio" name="gender" formControlName="genderCustomer" value="2">LGBT
+        <label >Giới tính</label>
+        <select class="form-control" formControlName="genderCustomer">
+          <option selected>Choose...</option>
+          <option value="0">Nam</option>
+          <option value="1">Nữ</option>
+          <option value="2">LGBT</option>
+        </select>
         <p class="text-danger" *ngIf="customerForm.controls.genderCustomer?.touched &&
   customerForm.controls.genderCustomer?.errors?.required">Không được để trống</p>
       </div>
@@ -58,11 +62,11 @@
         <label >Type</label>
         <select class="form-control" formControlName="typeCustomer">
           <option >Choose...</option>
-          <option value="0">Gold</option>
-          <option value="1">Platinium</option>
-          <option value="2">Diamond</option>
-          <option value="3">Silver</option>
-          <option value="4">Member</option>
+          <option *ngFor="let t of customerTypes" value="{{t.idCustomerType}}">{{t.nameCustomerType}}</option>
+<!--          <option value="1">Platinium</option>-->
+<!--          <option value="2">Diamond</option>-->
+<!--          <option value="3">Silver</option>-->
+<!--          <option value="4">Member</option>-->
         </select>
         <p class="text-danger" *ngIf="customerForm.controls.typeCustomer?.touched &&
   customerForm.controls.typeCustomer?.errors?.required">Không được để trống</p>
@@ -74,7 +78,7 @@
   customerForm.controls.addressCustomer?.errors?.required">Không được để trống</p>
       </div>
     </div>
-    <button class="btn btn-primary" >Submit</button>
+    <button class="btn btn-primary" [disabled]="customerForm.invalid">Submit</button>
     <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  (click)="reset()">Reset</a>
     <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/customer/list">Back</a>
 

@@ -8,62 +8,80 @@ export class CustomerService {
   customers: Customer[] = [{
     idCustomer: '1',
     nameCustomer: 'Phúc',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 0,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'dinhphuc14042001@gmail.com',
-    typeCustomer: 0,
+    typeCustomer: {
+      idCustomerType: '1',
+      nameCustomerType: 'Diamond'
+    },
     addressCustomer: 'Quảng Nam'
   }, {
     idCustomer: '2',
     nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 2,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: 2,
+    typeCustomer: {
+      idCustomerType: '2',
+      nameCustomerType: 'Platinium'
+    },
     addressCustomer: 'Đà Nẵng'
   }, {
     idCustomer: '3',
     nameCustomer: 'Nguyễn Thị B',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 1,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: 1,
+    typeCustomer: {
+      idCustomerType: '3',
+      nameCustomerType: 'Gold'
+    },
     addressCustomer: 'Đà Nẵng'
   }, {
     idCustomer: '4',
     nameCustomer: 'Nguyễn Văn C',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 1,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: 2,
+    typeCustomer: {
+      idCustomerType: '4',
+      nameCustomerType: 'Silver'
+    },
     addressCustomer: 'Đà Nẵng'
   }, {
     idCustomer: '5',
     nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 2,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: 2,
+    typeCustomer: {
+      idCustomerType: '5',
+      nameCustomerType: 'Member'
+    },
     addressCustomer: 'Đà Nẵng'
   }, {
     idCustomer: '6',
     nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '14-04-2001',
+    dateCustomer: '2001-04-14',
     genderCustomer: 2,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
     emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: 1,
+    typeCustomer: {
+      idCustomerType: '1',
+      nameCustomerType: 'Diamond'
+    },
     addressCustomer: 'Đà Nẵng'
   }];
   constructor() { }
