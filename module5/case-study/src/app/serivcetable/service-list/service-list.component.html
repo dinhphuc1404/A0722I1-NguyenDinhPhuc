@@ -1,8 +1,6 @@
 <br>
-<div style="text-align: center">
-  <a routerLink="/service/create">
-    <button type="button" class="btn btn-primary">Thêm mới dịch vụ</button></a>
-</div>
+<app-service-create></app-service-create>
+<br>
 <br>
 <div style="text-align: center">
   <input type="text" placeholder="Input name" >
@@ -21,6 +19,7 @@
     <td>Chi phí thuê</td>
     <td>Kiểu thuê</td>
     <td>Trạng thái</td>
+    <td></td>
   </tr>
   <tr *ngFor="let s of services; index as i">
     <td>{{i+1}}</td>
@@ -30,9 +29,11 @@
     <td>{{s.soTangService}}</td>
     <td>{{s.soNguoiToiDa}}</td>
     <td>{{s.chiPhiThue}}</td>
-    <td>{{s.rentalType.nameRentalType}}</td>
+    <td>{{s.rentalType?.nameRentalType}}</td>
     <td>{{s.trangThai}}</td>
+    <td><a routerLink="/service/edit/{{s.idService}}" class="btn btn-primary">Edit</a></td>
   </tr>
 </table>
+
 
 

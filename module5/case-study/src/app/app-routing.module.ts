@@ -7,6 +7,8 @@ import {EmployeeListComponent} from './employee/employee-list/employee-list.comp
 import {EmployeeCreateComponent} from './employee/employee-create/employee-create.component';
 import {EmployeeEditComponent} from './employee/employee-edit/employee-edit.component';
 import {ServiceListComponent} from './serivcetable/service-list/service-list.component';
+import {ServiceCreateComponent} from './serivcetable/service-create/service-create.component';
+import {ServiceEditComponent} from './serivcetable/service-edit/service-edit.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'employee/create', component: EmployeeCreateComponent},
   {path: 'employee/edit/:id', component: EmployeeEditComponent},
   {path: 'employee/delete/:id', component: EmployeeEditComponent},
-  {path: 'service/list', component: ServiceListComponent}
+  {path: 'service/list', component: ServiceListComponent},
+  {path: 'service/create', component: ServiceCreateComponent},
+  {path: 'service/edit/:id', component: ServiceEditComponent}
 ];
 
 @NgModule({

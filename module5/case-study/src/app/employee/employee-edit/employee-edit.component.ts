@@ -31,7 +31,7 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const employee: Employee = this.getCustomer(this.id);
+    const employee: Employee = this.getEmployee(this.id);
     this.employeeForm = new FormGroup({
       idEmployee: new FormControl(employee.idEmployee, [Validators.required]),
       nameEmployee: new FormControl(employee.nameEmployee, [Validators.required]),
@@ -49,7 +49,7 @@ export class EmployeeEditComponent implements OnInit {
     this.getAllPosition();
     this.getAllPart();
   }
-  getCustomer(id: string) {
+  getEmployee(id: string) {
     return this.emloyeeService.findById(id);
   }
   updateemployee(id: string) {

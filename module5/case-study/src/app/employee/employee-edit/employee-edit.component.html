@@ -16,7 +16,7 @@
       <div class="form-group col-md-6">
         <label >Vị trí</label>
         <select class="form-control" formControlName="viTriEmployee">
-          <option >Choose...</option>
+          <option [ngValue]="null" disabled>Choose...</option>
           <option *ngFor="let p of positions" value="{{p.idPosition}}">{{p.namePositon}}</option>
           <!--          <option value="1">Phục vụ</option>-->
           <!--          <option value="2">Chuyên viên</option>-->

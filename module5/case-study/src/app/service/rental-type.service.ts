@@ -22,4 +22,8 @@ export class RentalTypeService {
   getAllRentalType() {
     return this.rentalTypes;
   }
+
+  findById(id: number) {
+    return this.rentalTypes.find(rentalType => rentalType.idRentalType === id);
+  }
 }

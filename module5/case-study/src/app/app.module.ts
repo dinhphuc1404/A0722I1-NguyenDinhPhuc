@@ -18,6 +18,11 @@ import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.co
 import { BodyComponent } from './body/body.component';
 import { ServiceListComponent } from './serivcetable/service-list/service-list.component';
 import { CustomerTypeListComponent } from './customer-type/customer-type-list/customer-type-list.component';
+import { ServiceCreateComponent } from './serivcetable/service-create/service-create.component';
+import { ServiceEditComponent } from './serivcetable/service-edit/service-edit.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +38,9 @@ import { CustomerTypeListComponent } from './customer-type/customer-type-list/cu
     EmployeeEditComponent,
     BodyComponent,
     ServiceListComponent,
-    CustomerTypeListComponent
+    CustomerTypeListComponent,
+    ServiceCreateComponent,
+    ServiceEditComponent
   ],
   imports: [
     BrowserModule,
