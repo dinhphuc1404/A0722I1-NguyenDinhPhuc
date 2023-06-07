@@ -2,16 +2,20 @@
 <table border="1">
   <tr>
     <td>STT</td>
+    <td>Code</td>
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
+    <td>Loại</td>
     <td>Edit</td>
   </tr>
   <tr *ngFor="let product of products; index as i">
-    <td>{{i + 1}}</td>
+    <td>{{product.id}}</td>
+    <td>{{product.code}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td>{{product.category?.categoryName}}</td>
     <td><a routerLink="/product/edit/{{product.id}}">edit</a></td>
     <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
   </tr>

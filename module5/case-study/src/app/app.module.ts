@@ -20,6 +20,9 @@ import { ServiceListComponent } from './serivcetable/service-list/service-list.c
 import { CustomerTypeListComponent } from './customer-type/customer-type-list/customer-type-list.component';
 import { ServiceCreateComponent } from './serivcetable/service-create/service-create.component';
 import { ServiceEditComponent } from './serivcetable/service-edit/service-edit.component';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 
 
@@ -47,7 +50,8 @@ import { ServiceEditComponent } from './serivcetable/service-edit/service-edit.c
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

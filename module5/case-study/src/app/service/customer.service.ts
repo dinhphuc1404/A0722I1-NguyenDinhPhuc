@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Customer} from '../model/customer';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   customers: Customer[] = [{
-    idCustomer: '1',
-    nameCustomer: 'Phúc',
-    dateCustomer: '2001-04-14',
+    idCustomer: 'KH-1111',
+    nameCustomer: 'Nguyễn Đình Phúc',
+    dateCustomer: '2001/04/14',
     genderCustomer: 0,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
@@ -19,70 +21,57 @@ export class CustomerService {
     },
     addressCustomer: 'Quảng Nam'
   }, {
-    idCustomer: '2',
+    idCustomer: 'KH-1112',
     nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '2001-04-14',
-    genderCustomer: 2,
+    dateCustomer: '2001/04/14',
+    genderCustomer: 0,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
-    emailCustomer: 'nguyenvana@gmail.com',
+    emailCustomer: 'abc@gmail.com',
     typeCustomer: {
       idCustomerType: '2',
       nameCustomerType: 'Platinium'
     },
     addressCustomer: 'Đà Nẵng'
   }, {
-    idCustomer: '3',
+    idCustomer: 'KH-1113',
     nameCustomer: 'Nguyễn Thị B',
-    dateCustomer: '2001-04-14',
+    dateCustomer: '2001/04/14',
     genderCustomer: 1,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
-    emailCustomer: 'nguyenvana@gmail.com',
+    emailCustomer: 'thib@gmail.com',
     typeCustomer: {
       idCustomerType: '3',
       nameCustomerType: 'Gold'
     },
-    addressCustomer: 'Đà Nẵng'
+    addressCustomer: 'Hà Nội'
   }, {
-    idCustomer: '4',
-    nameCustomer: 'Nguyễn Văn C',
-    dateCustomer: '2001-04-14',
-    genderCustomer: 1,
+    idCustomer: 'KH-1114',
+    nameCustomer: 'Nguyễn Văn D',
+    dateCustomer: '2001/04/14',
+    genderCustomer: 2,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
-    emailCustomer: 'nguyenvana@gmail.com',
+    emailCustomer: 'vand@gmail.com',
     typeCustomer: {
       idCustomerType: '4',
       nameCustomerType: 'Silver'
     },
-    addressCustomer: 'Đà Nẵng'
+    addressCustomer: 'Quảng Bình'
   }, {
-    idCustomer: '5',
-    nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '2001-04-14',
-    genderCustomer: 2,
+    idCustomer: 'KH-1115',
+    nameCustomer: 'Võ H',
+    dateCustomer: '2001/04/14',
+    genderCustomer: 0,
     idCardCustomer: 206306357,
     phoneCustomer: '+84935338475',
-    emailCustomer: 'nguyenvana@gmail.com',
+    emailCustomer: 'h@gmail.com',
     typeCustomer: {
       idCustomerType: '5',
       nameCustomerType: 'Member'
     },
-    addressCustomer: 'Đà Nẵng'
-  }, {
-    idCustomer: '6',
-    nameCustomer: 'Nguyễn Văn A',
-    dateCustomer: '2001-04-14',
-    genderCustomer: 2,
-    idCardCustomer: 206306357,
-    phoneCustomer: '+84935338475',
-    emailCustomer: 'nguyenvana@gmail.com',
-    typeCustomer: {
-      idCustomerType: '1',
-      nameCustomerType: 'Diamond'
-    },
-    addressCustomer: 'Đà Nẵng'
+    addressCustomer: 'Lào cai'
   }];
   constructor() { }
 
@@ -90,8 +79,8 @@ export class CustomerService {
     return this.customers;
   }
 
-  saveCustomer(customer) {
-    this.customers.push(customer);
+  saveCustomer(customer: Customer) {
+   this.customers.push(customer);
   }
 
   findById(id: string) {

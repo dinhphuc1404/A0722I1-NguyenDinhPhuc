@@ -6,8 +6,6 @@ import {Customer} from '../model/customer';
   providedIn: 'root'
 })
 export class EmployeeService {
-  // @ts-ignore
-  // @ts-ignore
   employees: Employee [] = [{
     idEmployee: '1',
     nameEmployee: 'Nguyễn Đình Phúc',

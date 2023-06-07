@@ -1,78 +1,78 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelIdEdit"Edit>
-  Edit
-</button>
+<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelIdEdit">-->
+<!--  Edit-->
+<!--</button>-->
 
-<!-- Modal -->
-<div class="modal fade" id="modelIdEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <form [formGroup]="serviceForm" (ngSubmit)="updateService(id)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="modelTitleId">Chỉnh sửa thông tin dịch vụ</h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="id">ID</label>
-          <input
-            type="text"
-            class="form-control"  id="id" aria-describedby="helpId"  formControlName="idService">
-        </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"  id="name" aria-describedby="helpId"  formControlName="nameService">
-        </div>
-        <div class="form-group">
-          <label for="dienTich">Diện tích</label>
-          <input
-            type="number"
-            class="form-control"  id="dienTich" aria-describedby="helpId"  formControlName="dienTichService">
-        </div>
-        <div class="form-group">
-          <label for="soTang">Số tầng</label>
-          <input
-            type="number"
-            class="form-control"  id="soTang" aria-describedby="helpId"  formControlName="soTangService">
-        </div>
-        <div class="form-group">
-          <label for="soNguoiToiDa">Số người tối đa </label>
-          <input
-            type="number"
-            class="form-control"  id="soNguoiToiDa" aria-describedby="helpId"  formControlName="soNguoiToiDa">
-        </div>
-        <div class="form-group">
-          <label for="chiPhi">Chi phí thuê </label>
-          <input
-            type="number"
-            class="form-control"  id="chiPhi" aria-describedby="helpId"  formControlName="chiPhiThue">
-        </div>
-        <div class="form-group col-md-6">
-          <label >Kiểu thuê</label>
-          <select class="form-control" formControlName="rentalType">
-            <option [ngValue]="null" disabled>Choose...</option>
-            <option *ngFor="let r of rentalType" value="{{r?.idRentalType}}">{{r?.nameRentalType}}</option>
-          </select>
-          <!--          <p class="text-danger" *ngIf="employeeForm.controls.viTriEmployee?.touched &&-->
-          <!--  employeeForm.controls.viTriEmployee?.errors?.required">Không được để trống</p>-->
-        </div>
-        <div class="form-group">
-          <label for="trangThai">Trạng thái </label>
-          <input
-            type="text"
-            class="form-control"  id="trangThai" aria-describedby="helpId"  formControlName="trangThai">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" >Save</button>
-      </div>
-    </div>
-    </form>
-  </div>
-</div>
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="modelIdEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <form [formGroup]="serviceForm" (ngSubmit)="updateService(id)">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h1 class="modal-title" id="modelTitleId">Chỉnh sửa thông tin dịch vụ</h1>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <div class="form-group">-->
+<!--          <label for="id">ID</label>-->
+<!--          <input-->
+<!--            type="text"-->
+<!--            class="form-control"  id="id" aria-describedby="helpId"  formControlName="idService">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="name">Name</label>-->
+<!--          <input-->
+<!--            type="text"-->
+<!--            class="form-control"  id="name" aria-describedby="helpId"  formControlName="nameService">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="dienTich">Diện tích</label>-->
+<!--          <input-->
+<!--            type="number"-->
+<!--            class="form-control"  id="dienTich" aria-describedby="helpId"  formControlName="dienTichService">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="soTang">Số tầng</label>-->
+<!--          <input-->
+<!--            type="number"-->
+<!--            class="form-control"  id="soTang" aria-describedby="helpId"  formControlName="soTangService">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="soNguoiToiDa">Số người tối đa </label>-->
+<!--          <input-->
+<!--            type="number"-->
+<!--            class="form-control"  id="soNguoiToiDa" aria-describedby="helpId"  formControlName="soNguoiToiDa">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="chiPhi">Chi phí thuê </label>-->
+<!--          <input-->
+<!--            type="number"-->
+<!--            class="form-control"  id="chiPhi" aria-describedby="helpId"  formControlName="chiPhiThue">-->
+<!--        </div>-->
+<!--        <div class="form-group col-md-6">-->
+<!--          <label >Kiểu thuê</label>-->
+<!--          <select class="form-control" formControlName="rentalType">-->
+<!--            <option [ngValue]="null" disabled>Choose...</option>-->
+<!--            <option *ngFor="let r of rentalType" value="{{r?.idRentalType}}">{{r?.nameRentalType}}</option>-->
+<!--          </select>-->
+<!--          &lt;!&ndash;          <p class="text-danger" *ngIf="employeeForm.controls.viTriEmployee?.touched &&&ndash;&gt;-->
+<!--          &lt;!&ndash;  employeeForm.controls.viTriEmployee?.errors?.required">Không được để trống</p>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="trangThai">Trạng thái </label>-->
+<!--          <input-->
+<!--            type="text"-->
+<!--            class="form-control"  id="trangThai" aria-describedby="helpId"  formControlName="trangThai">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        <button type="submit" class="btn btn-primary" >Save</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->
 

@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
+      <td><input type="number" formControlName="code"></td>
     </tr>
     <tr>
       <td>Tên sản phẩm:</td>
@@ -18,8 +18,15 @@
       <td><input type="text" formControlName="description"></td>
     </tr>
     <tr>
+    <tr>
+      <td>Loại</td>
+      <td>
+        <select formControlName="category">
+          <option *ngFor="let c of categories" value="{{c.id}}">{{c.categoryName}}</option>
+        </select>
+      </td>
+    </tr>
       <td></td>
       <td><button>Tạo mới</button></td>
-    </tr>
   </table>
 </form>

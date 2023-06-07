@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "P1",
+      "name": "Iphone 7",
+      "price": 3000000,
+      "description": "Mới",
+      "category": {
+        "id": 1,
+        "code": "01",
+        "categoryName": "Điện thoại"
+      }
+    },
+    {
+      "id": 2,
+      "code": "P2",
+      "name": "LaptopGaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "code": "02",
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 3,
+      "code": "P3",
+      "name": "Iphone XsMax",
+      "price": 6000000,
+      "description": "Mới",
+      "category": {
+        "id": 3,
+        "categoryCode": "01",
+        "categoryName": "Điện thoại"
+      }
+    },
+    {
+      "id": 4,
+      "code": "P4",
+      "name": "Mouse",
+      "price": 500000,
+      "description": "Mới",
+      "category": {
+        "id": 3,
+        "categoryCode": "03",
+        "categoryName": "Phụ kiện"
+      }
+    },
+    {
+      "id": 5,
+      "code": "P5",
+      "name": "Laptop dell gaming",
+      "price": 25000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "code": "P5",
+      "name": "Laptop dell gaming 1",
+      "price": 25000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Laptop"
+      },
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "code": "01",
+      "categoryName": "Điện thoại"
+    },
+    {
+      "id": 2,
+      "code": "02",
+      "categoryName": "Laptop"
+    },
+    {
+      "id": 3,
+      "code": "03",
+      "categoryName": "Phụ kiện"
+    }
+  ]
+}
