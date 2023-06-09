@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerTypeService} from '../../service/customer-type.service';
 import {CustomerType} from '../../model/customer-type';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-customer-create',
   templateUrl: './customer-create.component.html',
@@ -42,10 +42,16 @@ export class CustomerCreateComponent implements OnInit {
   }
   submit() {
     const customer = this.customerForm.value;
-    customer.typeCustomer = this.customerServiceType.findById(customer.typeCustomer);
-    this.customerService.saveCustomer(customer);
-    this.customerForm.reset();
-    this.router.navigateByUrl('customer/list');
+    this.customerService.saveCustomer(customer).subscribe(() => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thêm mới thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.router.navigateByUrl('customer/list');
+    });
   }
 
   reset() {
@@ -53,6 +59,8 @@ export class CustomerCreateComponent implements OnInit {
     this.router.navigateByUrl('customer/create');
   }
   getAllType() {
-    this.customerTypes = this.customerServiceType.getAllType();
+    this.customerServiceType.getAllType().subscribe(type => {
+      this.customerTypes = type;
+    });
   }
 }

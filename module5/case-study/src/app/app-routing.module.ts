@@ -9,6 +9,8 @@ import {EmployeeEditComponent} from './employee/employee-edit/employee-edit.comp
 import {ServiceListComponent} from './serivcetable/service-list/service-list.component';
 import {ServiceCreateComponent} from './serivcetable/service-create/service-create.component';
 import {ServiceEditComponent} from './serivcetable/service-edit/service-edit.component';
+import {ContractCreateComponent} from './contract/contract-create/contract-create.component';
+import {ContractListComponent} from './contract/contract-list/contract-list.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'employee/delete/:id', component: EmployeeEditComponent},
   {path: 'service/list', component: ServiceListComponent},
   {path: 'service/create', component: ServiceCreateComponent},
-  {path: 'service/edit/:id', component: ServiceEditComponent}
+  {path: 'service/edit/:id', component: ServiceEditComponent},
+  {path: 'contract/create', component: ContractCreateComponent},
+  {path: 'contract/list', component: ContractListComponent}
 ];
 
 @NgModule({

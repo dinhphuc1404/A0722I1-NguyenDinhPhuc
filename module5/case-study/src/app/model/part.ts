@@ -1,4 +1,4 @@
 export interface Part {
-  idPart: number;
-  namePart: string;
+  id?: number;
+  namePart?: string;
 }

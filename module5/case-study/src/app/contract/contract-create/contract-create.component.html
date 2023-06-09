@@ -1,0 +1,72 @@
+<br>
+<h1 style="text-align: center; color: blue">Thêm mới hợp đồng</h1>
+<form [formGroup]="contractForm" (ngSubmit)="submit()">
+  <div class="container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label>Id</label>
+      <input type="text" class="form-control"  formControlName="code">
+      <p class="text-danger" *ngIf="contractForm.controls.code?.touched &&
+  contractForm.controls.code?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Employee</label>
+        <select class="form-control" formControlName="employee">
+          <option selected [value]="null" disabled>Choose...</option>
+          <option *ngFor="let l of employees" [ngValue]="l">{{l.nameEmployee}}</option>
+        </select>
+        <p class="text-danger" *ngIf="contractForm.controls.employee?.touched &&
+  contractForm.controls.employee?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Customer</label>
+        <select class="form-control" formControlName="customer">
+          <option selected [value]="null" disabled>Choose...</option>
+          <option *ngFor="let c of customers" [ngValue]="c">{{c.nameCustomer}}</option>
+        </select>
+        <p class="text-danger" *ngIf="contractForm.controls.customer?.touched &&
+  contractForm.controls.customer?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Service</label>
+        <select class="form-control" formControlName="service">
+          <option selected [value]="null" disabled>Choose...</option>
+          <option *ngFor="let s of services" [ngValue]="s">{{s.nameService}}</option>
+        </select>
+        <p class="text-danger" *ngIf="contractForm.controls.service?.touched &&
+  contractForm.controls.service?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Ngày làm hợp đồng</label>
+        <input type="date" class="form-control" formControlName="ngayLamHopDong">
+        <p class="text-danger" *ngIf="contractForm.controls.ngayLamHopDong?.touched &&
+  contractForm.controls.ngayLamHopDong?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Ngày kết thúc hợp đồng</label>
+        <input type="date" class="form-control" formControlName="ngayKetThuc">
+        <p class="text-danger" *ngIf="contractForm.controls.ngayKetThuc?.touched &&
+  contractForm.controls.ngayKetThuc?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Tiền đặt cọc</label>
+        <input type="number" class="form-control"  formControlName="tienDatCoc">
+        <p class="text-danger" *ngIf="contractForm.controls.tienDatCoc?.touched &&
+  contractForm.controls.tienDatCoc?.errors?.required">Không được để trống</p>
+      <p class="text-danger" *ngIf="contractForm.controls.tienDatCoc?.touched &&
+  contractForm.controls.tienDatCoc?.errors?.min">Tiền đặt cọc phải lớn hon 0</p>
+    </div>
+      <div class="form-group col-md-6">
+        <label >Tổng tiền</label>
+        <input type="number" class="form-control"  formControlName="tongTien">
+        <p class="text-danger" *ngIf="contractForm.controls.tongTien?.touched &&
+  contractForm.controls.tongTien?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="contractForm.controls.tongTien?.touched &&
+  contractForm.controls.tongTien?.errors?.min">Tổng tiền lớn hơn 0</p>
+      </div>
+      <button class="btn btn-primary" [disabled]="contractForm.invalid">Submit</button>
+      <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  (click)="reset()">Reset</a>
+      <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/contract/list">Back</a>
+    </div>
+  </div>
+</form>

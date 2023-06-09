@@ -5,8 +5,9 @@
 </div>
 <br>
 <div style="text-align: center">
-  <input type="text" placeholder="Input name" >
-  <button >Search</button>
+  <input #inputSerach
+    type="text" placeholder="Input name" >
+  <button (click)="search(inputSerach)">Search</button>
 </div>
 <br>
 <h1 style="text-align: center; color: blue">Danh sách khách hàng</h1>
@@ -24,11 +25,11 @@
       <td>EMAIL</td>
       <td>Loại khách hàng</td>
       <td>Quê quán</td>
-      <td>Chỉnh sửa</td>
+      <td></td>
       <td></td>
       <td></td>
     </tr>
-    <tr *ngFor="let cus of customers; index as i">
+    <tr *ngFor="let cus of customers | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
       <td>{{i+1}}</td>
       <td>{{cus.idCustomer}}</td>
       <td>{{cus.nameCustomer}}</td>
@@ -42,23 +43,19 @@
       <td>{{cus.phoneCustomer}}</td>
       <td>{{cus.emailCustomer}}</td>
       <td>{{cus.typeCustomer.nameCustomerType}}</td>
-<!--      <td [ngSwitch]="cus.typeCustomer">-->
-<!--        <span *ngSwitchCase="1">Gold</span>-->
-<!--        <span *ngSwitchCase="2">Platinium</span>-->
-<!--        <span *ngSwitchCase="3">Diamond</span>-->
-<!--        <span *ngSwitchCase="4">Silver</span>-->
-<!--        <span *ngSwitchCase="5">Member</span>-->
-<!--      </td>-->
       <td>{{ cus.addressCustomer}}</td>
-      <td><a routerLink="/customer/edit/{{cus.idCustomer}}" class="btn btn-primary">Edit</a></td>
-      <td><a class=" btn btn-primary" data-toggle="modal" data-target="#exam1" (click)=getCustomer(cus.idCustomer) >Delete</a></td>
-      <td><a type="button" class="btn btn-primary" data-toggle="modal" (click)=getCustomer(cus.idCustomer) data-target="#modelId">View</a></td>
+      <td><a routerLink="/customer/edit/{{cus.id}}" class="btn btn-primary" style="background: none"><i class="fa-solid fa-pen-to-square" style="color: #57cb74;"></i></a></td>
+      <td><a class=" btn btn-primary" data-toggle="modal" data-target="#delete" (click)=getCustomer(cus.id)  style="background: none"><i class="fa-solid fa-trash" style="color: #d41616;"></i></a></td>
+      <td><a type="button" class="btn btn-primary" data-toggle="modal" (click)=getCustomer(cus.id) data-target="#view" style="background: none"><i class="fa-solid fa-circle-info" style="color: #145ddb;"></i></a></td>
     </tr>
   </table>
+  <p *ngIf="mgs" style="font-weight: bold; text-align: center; font-size: 20px">Không có kết quả</p>
+  <pagination-controls (pageChange)="p = $event" previousLabel="Trước"
+                       nextLabel="Sau" style="text-align: center"></pagination-controls>
 </div>
 
 <!-- Modal delete-->
-<div class="modal fade" id="exam1" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -89,7 +86,7 @@
 </div>
 
 <!-- Modal view-->
-<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

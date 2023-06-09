@@ -3,68 +3,31 @@ import {Service} from '../model/service';
 import {RentalType} from '../model/rentalType';
 import {RentalTypeService} from './rental-type.service';
 import {Customer} from '../model/customer';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
-  services: Service[] = [{
-    idService: 'DV-1234',
-    nameService: 'Villa',
-    dienTichService: 500,
-    soTangService: 2,
-    soNguoiToiDa: 10,
-    chiPhiThue: 5000000,
-    rentalType: {
-      idRentalType: 1,
-      nameRentalType: 'Ngày',
-      cost: 50000
-    },
-    trangThai: 'Đã thuê'
-  }, {
-    idService: 'DV-1236',
-    nameService: 'House',
-    dienTichService: 1500,
-    soTangService: 3,
-    soNguoiToiDa: 10,
-    chiPhiThue: 5000000,
-    rentalType: {
-      idRentalType: 1,
-      nameRentalType: 'Năm',
-      cost: 500000
-    },
-    trangThai: 'Đã thuê'
-  }, {
-    idService: 'DV-1235',
-    nameService: 'Room',
-    dienTichService: 500,
-    soTangService: 1,
-    soNguoiToiDa: 5,
-    chiPhiThue: 5000000,
-    rentalType: {
-      idRentalType: 1,
-      nameRentalType: 'Tháng',
-      cost: 50000
-    },
-    trangThai: 'Đã đặt'
-  }];
-  constructor() { }
-  getAll() {
-    return this.services;
+  API = 'http://localhost:3000/services';
+  constructor(private httpClient: HttpClient) { }
+  getAll(): Observable<Service[]> {
+    return this.httpClient.get<Service[]>(this.API);
   }
-  saveService(service) {
-    this.services.push(service);
+  saveService(service): Observable<Service> {
+    return this.httpClient.post<Service>(this.API, service);
   }
 
-  findById(id: string) {
-    return this.services.find(service => service.idService === id);
+  findById(id: number): Observable<Service> {
+    return this.httpClient.get<Service>(this.API + '/' + id);
   }
 
-  updateService(id: string, service: Service) {
-    for (let i = 0; i < this.services.length; i++) {
-      if (this.services[i].idService === id) {
-        this.services[i] = service;
-      }
-    }
+  updateService(id: number, service: Service): Observable<Service> {
+    return this.httpClient.put<Service>(this.API + '/' + id, service);
+  }
+
+  deleteService(id: number): Observable<Service> {
+    return this.httpClient.delete<Service>(this.API + '/' + id);
   }
 }

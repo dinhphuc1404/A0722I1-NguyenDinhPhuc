@@ -22,7 +22,6 @@ export class ProductEditComponent implements OnInit {
     category: new FormControl()
   });
   categories: Category[];
-  category: Category;
   id: number;
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
@@ -57,7 +56,7 @@ export class ProductEditComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Update thành công',
+          title: 'Update thành công'  ,
           showConfirmButton: false,
           timer: 1500
         });

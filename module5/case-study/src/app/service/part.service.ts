@@ -1,29 +1,19 @@
 import { Injectable } from '@angular/core';
 import {Part} from '../model/part';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PartService {
-  parts: Part[] = [{
-    idPart: 1,
-    namePart: 'Sale – Marketing'
-  }, {
-    idPart: 2,
-    namePart: 'Hành chính'
-  }, {
-    idPart: 3,
-    namePart: 'Phục vụ'
-  }, {
-    idPart: 4,
-    namePart: 'Quản lý'
-  }];
-  constructor() { }
-  getAllPart() {
-    return this.parts;
+  API = 'http://localhost:3000/parts';
+  constructor(private httpClient: HttpClient) { }
+  getAllPart(): Observable<Part[]> {
+    return this.httpClient.get<Part[]>(this.API);
   }
 
-  findById(id: number) {
-    return this.parts.find(part => part.idPart === id);
+  findById(id: number): Observable<Part> {
+    return this.httpClient.get<Part>(this.API + '/' + id);
   }
 }

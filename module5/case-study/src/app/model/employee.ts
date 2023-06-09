@@ -3,6 +3,7 @@ import {Position} from './position';
 import {Part} from './part';
 
 export interface Employee {
+  id?: number;
   idEmployee?: string;
   nameEmployee?: string;
   viTriEmployee?: Position;

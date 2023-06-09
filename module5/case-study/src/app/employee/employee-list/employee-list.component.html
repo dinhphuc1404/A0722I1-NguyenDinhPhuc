@@ -28,7 +28,7 @@
     <td></td>
     <td></td>
   </tr>
-  <tr *ngFor="let e of employees; index as i">
+  <tr *ngFor="let e of employees | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
     <td>{{i+1}}</td>
     <td>{{e.idEmployee}}</td>
     <td>{{e.nameEmployee}}</td>
@@ -41,11 +41,13 @@
     <td>{{e.phoneEmployee}}</td>
     <td>{{e.emailEmployee}}</td>
     <td>{{e.addressEmployee}}</td>
-    <td><a routerLink="/employee/edit/{{e.idEmployee}}" class="btn btn-primary">Edit</a></td>
-    <td><a class=" btn btn-primary" data-toggle="modal" data-target="#exam1" (click)=getEmployee(e.idEmployee) >Delete</a></td>
-    <td><a type="button" class="btn btn-primary" data-toggle="modal" (click)=getEmployee(e.idEmployee) data-target="#modelId">View</a></td>
+    <td><a routerLink="/employee/edit/{{e.id}}" class="btn btn-primary" style="background: none"><i class="fa-solid fa-pen-to-square" style="color: #57cb74;"></i></a></td>
+    <td><a class=" btn btn-primary" data-toggle="modal" data-target="#exam1" (click)=getEmployee(e.id)  style="background: none"><i class="fa-solid fa-trash" style="color: #d41616;"></i></a></td>
+    <td><a type="button" class="btn btn-primary" data-toggle="modal" (click)=getEmployee(e.id) data-target="#modelId" style="background: none"><i class="fa-solid fa-circle-info" style="color: #145ddb;"></i></a></td>
   </tr>
 </table>
+<pagination-controls (pageChange)="p = $event" previousLabel="Trước"
+                     nextLabel="Sau" style="text-align: center"></pagination-controls>
 
 <!-- Modal delete-->
 <div class="modal fade" id="exam1" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -53,7 +55,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title text-danger" id="exampleModalLabel" >Bạn có muốn xóa khách hàng này?</h1>
+        <h1 class="modal-title text-danger" id="exampleModalLabel" >Bạn có muốn xóa nhân viên này?</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -62,7 +64,7 @@
         <table class="table">
           <tr>
             <td>Id:</td>
-            <td>{{employee?.idEmployee}}</td>
+            <td>{{employee?.id}}</td>
           </tr>
           <tr>
             <td>Tên:</td>

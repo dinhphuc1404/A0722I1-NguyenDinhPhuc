@@ -1,39 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "code": "P1",
-      "name": "Iphone 7plus  ",
-      "price": 3000000,
-      "description": "Mới",
-      "category": {
-        "id": 1,
-        "categoryName": "Điện thoại"
-      }
-    },
-    {
-      "id": 2,
-      "code": "P2",
-      "name": "Iphone 8 plus",
-      "price": 5000000,
-      "description": "99%",
-      "category": {
-        "id": 1,
-        "categoryName": "Điện thoại"
-      }
-    },
-    {
-      "id": 3,
-      "code": "P3",
-      "name": "Laptop Asus gaming",
-      "price": 20000000,
-      "description": "Mới",
-      "category": {
-        "id": 2,
-        "categoryName": "Laptop"
-      }
-    },
-    {
       "id": 4,
       "code": "P4",
       "name": "Tai nghe không dây ",
@@ -59,6 +26,94 @@
       "id": 7,
       "code": "P7",
       "name": "Laptop dell 2",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 8,
+      "code": "P1",
+      "name": "Iphone 7",
+      "price": 3000000,
+      "description": "99%",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
+      "price": 20000000,
+      "description": "Mới",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      }
+    },
+    {
+      "id": 9,
+      "code": "P2",
+      "name": "Laptop dell Gaming",
       "price": 20000000,
       "description": "Mới",
       "category": {

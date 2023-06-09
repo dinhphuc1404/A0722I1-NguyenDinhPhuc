@@ -1,4 +1,4 @@
 export interface Level {
-  idLevel: number;
-  nameLevel: string;
+  id?: number;
+  nameLevel?: string;
 }

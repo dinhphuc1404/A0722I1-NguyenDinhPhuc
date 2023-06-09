@@ -7,6 +7,7 @@ import {Level} from '../../model/level';
 import {PositionService} from '../../service/position.service';
 import {PartService} from '../../service/part.service';
 import {LevelService} from '../../service/level.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,6 +17,7 @@ import {LevelService} from '../../service/level.service';
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   employee: Employee;
+  p = 1;
   constructor(private employeeService: EmployeeService,
               private positionService: PositionService, private partService: PartService,
               private levelService: LevelService) { }
@@ -25,16 +27,29 @@ export class EmployeeListComponent implements OnInit {
   }
 
   getAll() {
-    this.employees = this.employeeService.getAll();
+    this.employeeService.getAll().subscribe(data => {
+      this.employees = data;
+    });
   }
 
-  getEmployee(idEmployee: string) {
-    this.employee = this.employeeService.findById(idEmployee);
+
+
+  getEmployee(id: number) {
+    this.employeeService.findById(id).subscribe(data => {
+      this.employee = data;
+    });
   }
 
   delete() {
-    this.employee = this.employeeService.findById(this.employee.idEmployee);
-    this.employeeService.deleteEmployee(this.employee.idEmployee);
-    this.employees = this.employeeService.getAll();
+    this.employeeService.deleteEmployee(this.employee.id).subscribe(() => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Xóa thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.getAll();
+    });
   }
 }

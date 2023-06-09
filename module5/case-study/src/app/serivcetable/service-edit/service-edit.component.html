@@ -1,78 +1,80 @@
-<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelIdEdit">-->
-<!--  Edit-->
-<!--</button>-->
+<br>
+<h1 style="text-align: center; color: blue">Thêm mới dịch vụ</h1>
+<form [formGroup]="serviceForm" (ngSubmit)="update(id)" >
+  <div class="container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Id</label>
+        <input type="text" class="form-control"  formControlName="idService" readonly>
+        <p class="text-danger" *ngIf="serviceForm.controls.idService?.touched &&
+  serviceForm.controls.idService?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="serviceForm.controls.idService?.touched &&
+  serviceForm.controls.idService?.errors?.pattern">Không hợp lệ định dạng DV-xxxx</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Name</label>
+        <input type="text" class="form-control"  formControlName="nameService">
+        <p class="text-danger" *ngIf="serviceForm.controls.nameService?.touched &&
+  serviceForm.controls.nameService?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Diện tích</label>
+        <input type="number" class="form-control"  formControlName="dienTichService">
+        <p class="text-danger" *ngIf="serviceForm.controls.dienTichService?.touched &&
+  serviceForm.controls.dienTichService?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="serviceForm.controls.dienTichService?.touched &&
+  serviceForm.controls.dienTichService?.errors?.min">Diện tích phải lớn hơn 0</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Số tầng</label>
+        <input type="number" class="form-control"  formControlName="soTangService">
+        <p class="text-danger" *ngIf="serviceForm.controls.soTangService?.touched &&
+  serviceForm.controls.soTangService?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="serviceForm.controls.soTangService?.touched &&
+  serviceForm.controls.soTangService?.errors?.min">Số tầng phải lớn hơn 0</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Số người tối đa</label>
+        <input type="number" class="form-control"  formControlName="soNguoiToiDa">
+        <p class="text-danger" *ngIf="serviceForm.controls.soNguoiToiDa?.touched &&
+  serviceForm.controls.soNguoiToiDa?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="serviceForm.controls.soNguoiToiDa?.touched &&
+  serviceForm.controls.soNguoiToiDa?.errors?.min">Số người phải lớn hơn 0</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Chi phí thuê</label>
+        <input type="number" class="form-control"  formControlName="chiPhiThue">
+        <p class="text-danger" *ngIf="serviceForm.controls.chiPhiThue?.touched &&
+  serviceForm.controls.chiPhiThue?.errors?.required">Không được để trống</p>
+        <p class="text-danger" *ngIf="serviceForm.controls.chiPhiThue?.touched &&
+  serviceForm.controls.chiPhiThue?.errors?.min">Chi phí phải lớn hơn 0</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Kiểu thuê</label>
+        <select class="form-control" formControlName="rentalType">
+          <option selected [value]="null" disabled>Choose...</option>
+          <option *ngFor="let t of rentalTypes" value="{{t.id}}">{{t.nameRentalType}}</option>
+        </select>
+        <p class="text-danger" *ngIf="serviceForm.controls.rentalType?.touched &&
+  serviceForm.controls.rentalType?.errors?.required">Không được để trống</p>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Trạng thái</label>
+        <input type="text" class="form-control"  formControlName="trangThai">
+        <p class="text-danger" *ngIf="serviceForm.controls.trangThai?.touched &&
+  serviceForm.controls.trangThai?.errors?.required">Không được để trống</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="serviceForm.invalid">Submit</button>
+    <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  (click)="reset()">Reset</a>
+    <a class="btn btn-outline-info" style="margin-left: 50px ;margin-top: 0px"  routerLink="/service/list">Back</a>
+  </div>
+</form>
 
-<!--&lt;!&ndash; Modal &ndash;&gt;-->
-<!--<div class="modal fade" id="modelIdEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">-->
-<!--  <div class="modal-dialog" role="document">-->
-<!--    <form [formGroup]="serviceForm" (ngSubmit)="updateService(id)">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h1 class="modal-title" id="modelTitleId">Chỉnh sửa thông tin dịch vụ</h1>-->
-<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        <div class="form-group">-->
-<!--          <label for="id">ID</label>-->
-<!--          <input-->
-<!--            type="text"-->
-<!--            class="form-control"  id="id" aria-describedby="helpId"  formControlName="idService">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="name">Name</label>-->
-<!--          <input-->
-<!--            type="text"-->
-<!--            class="form-control"  id="name" aria-describedby="helpId"  formControlName="nameService">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="dienTich">Diện tích</label>-->
-<!--          <input-->
-<!--            type="number"-->
-<!--            class="form-control"  id="dienTich" aria-describedby="helpId"  formControlName="dienTichService">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="soTang">Số tầng</label>-->
-<!--          <input-->
-<!--            type="number"-->
-<!--            class="form-control"  id="soTang" aria-describedby="helpId"  formControlName="soTangService">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="soNguoiToiDa">Số người tối đa </label>-->
-<!--          <input-->
-<!--            type="number"-->
-<!--            class="form-control"  id="soNguoiToiDa" aria-describedby="helpId"  formControlName="soNguoiToiDa">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="chiPhi">Chi phí thuê </label>-->
-<!--          <input-->
-<!--            type="number"-->
-<!--            class="form-control"  id="chiPhi" aria-describedby="helpId"  formControlName="chiPhiThue">-->
-<!--        </div>-->
-<!--        <div class="form-group col-md-6">-->
-<!--          <label >Kiểu thuê</label>-->
-<!--          <select class="form-control" formControlName="rentalType">-->
-<!--            <option [ngValue]="null" disabled>Choose...</option>-->
-<!--            <option *ngFor="let r of rentalType" value="{{r?.idRentalType}}">{{r?.nameRentalType}}</option>-->
-<!--          </select>-->
-<!--          &lt;!&ndash;          <p class="text-danger" *ngIf="employeeForm.controls.viTriEmployee?.touched &&&ndash;&gt;-->
-<!--          &lt;!&ndash;  employeeForm.controls.viTriEmployee?.errors?.required">Không được để trống</p>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="trangThai">Trạng thái </label>-->
-<!--          <input-->
-<!--            type="text"-->
-<!--            class="form-control"  id="trangThai" aria-describedby="helpId"  formControlName="trangThai">-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--        <button type="submit" class="btn btn-primary" >Save</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</div>-->
+
+
+
+
+
+
 

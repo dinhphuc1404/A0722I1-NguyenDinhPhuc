@@ -19,23 +19,22 @@
     <td></td>
   </tr>
   <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
-    <td>{{product.id}}</td>
+    <td>{{i+1}}</td>
     <td>{{product.code}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
     <td>{{product.category.categoryName}}</td>
-    <td><a class="btn btn-warning" role="button" routerLink="/product/edit/{{product.id}}">Update</a></td>
+    <td><a class="btn btn-warning" role="button" routerLink="/product/edit/{{product.id}}" style="background: none"><i class="fa-solid fa-pen-to-square" style="color: #57cb74;"></i></a></td>
     <td><button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
-                (click)="getProduct(product.id)">Delete
-    </button></td>
+                (click)="getProduct(product.id)" style="background: none"><i class="fa-solid fa-trash" style="color: #d41616;"></i></button></td>
     <td><button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modelIdView"
-                (click)="getProduct(product.id)">View
-    </button></td>
+                (click)="getProduct(product.id)" style="background: none"><i class="fa-solid fa-circle-info" style="color: #145ddb;"></i></button></td>
   </tr>
 </table>
-<h1 *ngIf="mgs">Không có kết quả</h1>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<h1 *ngIf="mgs" style="text-align: center; font-weight: bold">Không có kết quả</h1>
+<pagination-controls (pageChange)="p = $event" previousLabel="Trước"
+                     nextLabel="Sau"></pagination-controls>
 
 <!-- Modal delete -->
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"

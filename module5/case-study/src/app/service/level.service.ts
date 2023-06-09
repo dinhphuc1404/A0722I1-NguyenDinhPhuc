@@ -1,28 +1,18 @@
 import { Injectable } from '@angular/core';
 import {Level} from '../model/level';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LevelService {
-  levels: Level[] = [{
-    idLevel: 1,
-    nameLevel: 'Trung cấp',
-  }, {
-    idLevel: 2,
-    nameLevel: 'Cao đẳng'
-  }, {
-    idLevel: 3,
-    nameLevel: 'Đại học'
-  }, {
-    idLevel: 4,
-    nameLevel: 'Sau đại học'
-  }];
-  constructor() { }
-  getAllLevel() {
-    return this.levels;
+  API = ' http://localhost:3000/levels';
+  constructor(private httpClient: HttpClient) { }
+  getAllLevel(): Observable<Level[]> {
+    return this.httpClient.get<Level[]>(this.API);
   }
-  findById(id: number) {
-    return this.levels.find(level => level.idLevel === id);
+  findById(id: number): Observable<Level> {
+    return this.httpClient.get<Level>(this.API + '/' + id);
   }
 }

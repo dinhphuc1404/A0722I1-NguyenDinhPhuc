@@ -17,7 +17,7 @@
         <label >Vị trí</label>
         <select class="form-control" formControlName="viTriEmployee">
           <option [ngValue]="null" disabled>Choose...</option>
-          <option *ngFor="let p of positions" value="{{p.idPosition}}">{{p.namePositon}}</option>
+          <option *ngFor="let p of positions" value="{{p.id}}">{{p.namePositon}}</option>
           <!--          <option value="1">Phục vụ</option>-->
           <!--          <option value="2">Chuyên viên</option>-->
           <!--          <option value="3">Giám sát</option>-->
@@ -31,7 +31,7 @@
         <label >Trình độ</label>
         <select class="form-control" formControlName="trinhDoEmployee">
           <option >Choose...</option>
-          <option *ngFor="let l of levels" value="{{l.idLevel}}">{{l.nameLevel}}</option>
+          <option *ngFor="let l of levels" value="{{l.id}}">{{l.nameLevel}}</option>
           <!--          <option value="1">Cao đẳng</option>-->
           <!--          <option value="2">Đại học</option>-->
           <!--          <option value="3">Sau đại học</option>-->
@@ -43,7 +43,7 @@
         <label >Bộ phận</label>
         <select class="form-control" formControlName="boPhanEmployee">
           <option >Choose...</option>
-          <option *ngFor="let part of parts" value="{{part.idPart}}">{{part.namePart}}</option>
+          <option *ngFor="let part of parts" value="{{part.id}}">{{part.namePart}}</option>
           <!--          <option value="1">Hành Chính</option>-->
           <!--          <option value="2">Phục vụ</option>-->
           <!--          <option value="3">Quản lý</option>-->

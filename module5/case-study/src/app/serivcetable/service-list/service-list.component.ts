@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../service/service.service';
-import {RentalType} from '../../model/rentalType';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {RentalTypeService} from '../../service/rental-type.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -13,59 +11,39 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./service-list.component.css']
 })
 export class ServiceListComponent implements OnInit {
-  services: Service[] = [];
-  id: string;
-  rentalType: RentalType[] = [];
+  services: Service[];
   service: Service;
-  serviceForm: FormGroup;
-  constructor(private serviceService: ServiceService, private rentalTypeService: RentalTypeService,
-              private router: Router, private activateRoute: ActivatedRoute) {
-    this.activateRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = paramMap.get('id');
-    });
+  p = 1;
+  mgs = false;
+  constructor(private serviceService: ServiceService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    // const service: Service = this.getService(this.id);
-    // this.serviceForm = new FormGroup({
-    //   idService: new FormControl(service?.idService),
-    //   nameService: new FormControl(service?.nameService),
-    //   dienTichService: new FormControl(service?.dienTichService),
-    //   soTangService: new FormControl(service?.soTangService),
-    //   soNguoiToiDa: new FormControl(service?.soNguoiToiDa),
-    //   chiPhiThue: new FormControl(service?.chiPhiThue),
-    //   rentalType: new FormControl(service?.rentalType.idRentalType),
-    //   trangThai: new FormControl(service?.trangThai)
-    // });
-    this.getAllRentalType();
     this.getALl();
   }
   getALl() {
-    this.services = this.serviceService.getAll();
+    this.serviceService.getAll().subscribe(data => {
+      this.services = data;
+    });
   }
 
-  update(id: string) {
-    const service = this.serviceForm.value;
-    service.rentalType = this.rentalTypeService.findById(+service.rentalType);
-    this.serviceService.updateService(id, service);
-    this.router.navigateByUrl('/service/list');
+  getService(id: number) {
+    this.serviceService.findById(id).subscribe(data => {
+      this.service = data;
+    });
   }
 
-  private getAllRentalType() {
-    this.rentalType = this.rentalTypeService.getAllRentalType();
-  }
-
-  getService(id: string) {
-    this.service = this.serviceService.findById(id);
-    this.serviceForm = new FormGroup({
-      idService: new FormControl(this.service?.idService),
-      nameService: new FormControl(this.service?.nameService),
-      dienTichService: new FormControl(this.service?.dienTichService),
-      soTangService: new FormControl(this.service?.soTangService),
-      soNguoiToiDa: new FormControl(this.service?.soNguoiToiDa),
-      chiPhiThue: new FormControl(this.service?.chiPhiThue),
-      rentalType: new FormControl(this.service?.rentalType.idRentalType),
-      trangThai: new FormControl(this.service?.trangThai)
+  delete() {
+    this.serviceService.deleteService(this.service.id).subscribe(() => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Xóa thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.getALl();
     });
   }
 }

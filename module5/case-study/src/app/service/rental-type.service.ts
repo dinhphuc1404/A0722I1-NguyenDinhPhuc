@@ -1,29 +1,20 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {RentalType} from '../model/rentalType';
+import {CustomerType} from '../model/customer-type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RentalTypeService {
-  rentalTypes: RentalType[] = [{
-    idRentalType: 1,
-    nameRentalType: 'Ngày',
-    cost: 1000000
-  }, {
-    idRentalType: 2,
-    nameRentalType: 'Tháng',
-    cost: 10000000
-  }, {
-    idRentalType: 1,
-    nameRentalType: 'Năm',
-    cost: 100000000
-  }];
-  constructor() { }
-  getAllRentalType() {
-    return this.rentalTypes;
+  API = 'http://localhost:3000/rentalTypes';
+  constructor(private httpClient: HttpClient) { }
+  getAllRentalType(): Observable<RentalType[]> {
+    return this.httpClient.get<RentalType[]>(this.API);
   }
 
-  findById(id: number) {
-    return this.rentalTypes.find(rentalType => rentalType.idRentalType === id);
+  findById(id: number): Observable<RentalType> {
+   return this.httpClient.get<CustomerType>(this.API + '/' + id);
   }
 }

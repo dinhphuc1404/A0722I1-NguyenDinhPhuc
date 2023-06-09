@@ -8,7 +8,7 @@ import {LevelService} from '../../service/level.service';
 import {Position} from '../../model/position';
 import {Part} from '../../model/part';
 import {Level} from '../../model/level';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee-create',
@@ -16,9 +16,9 @@ import {Level} from '../../model/level';
   styleUrls: ['./employee-create.component.css']
 })
 export class EmployeeCreateComponent implements OnInit {
-  positions: Position[] = [];
-  parts: Part[] = [];
-  levels: Level[] = [];
+  positions: Position[];
+  parts: Part[];
+  levels: Level[];
   employeeForm: FormGroup = new FormGroup({
     idEmployee: new FormControl(),
     nameEmployee: new FormControl(),
@@ -58,12 +58,18 @@ export class EmployeeCreateComponent implements OnInit {
 
   submit() {
     const employee = this.employeeForm.value;
-    employee.viTriEmployee = this.positionService.findById(+employee.viTriEmployee);
-    employee.trinhDoEmployee = this.levelService.findById(+employee.trinhDoEmployee);
-    employee.boPhanEmployee = this.partService.findById(+employee.boPhanEmployee);
-    this.employeeService.saveEmployee(employee);
-    this.employeeForm.reset();
-    this.router.navigateByUrl('/employee/list');
+    this.employeeService.saveEmployee(employee).subscribe(data => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thêm mới thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.employeeForm.reset();
+      this.router.navigateByUrl('/employee/list');
+    });
+
   }
 
   reset() {
@@ -71,12 +77,18 @@ export class EmployeeCreateComponent implements OnInit {
   this.router.navigateByUrl('/employee/create');
   }
   getAllPosition() {
-    this.positions = this.positionService.getAllPosition();
+    this.positionService.getAllPosition().subscribe(data => {
+      this.positions = data;
+    });
   }
   getAllPart() {
-    this.parts = this.partService.getAllPart();
+    this.partService.getAllPart().subscribe(data => {
+      this.parts = data;
+    });
   }
   getAllLevel() {
-    this.levels = this.levelService.getAllLevel();
+    this.levelService.getAllLevel().subscribe(data => {
+      this.levels = data;
+    });
   }
 }

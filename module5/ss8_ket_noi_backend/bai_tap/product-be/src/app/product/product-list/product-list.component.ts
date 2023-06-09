@@ -49,7 +49,7 @@ export class ProductListComponent implements OnInit {
 
   search(inputSerach: HTMLInputElement) {
     if (inputSerach.value === '') {
-      this.mgs = true;
+      Swal.fire('Vui lòng nhập');
     } else {
       this.productService.search(inputSerach.value).subscribe(next => {
         this.products = next;

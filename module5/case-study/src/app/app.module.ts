@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ContentComponent } from './content/content.component';
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,9 @@ import { CustomerTypeListComponent } from './customer-type/customer-type-list/cu
 import { ServiceCreateComponent } from './serivcetable/service-create/service-create.component';
 import { ServiceEditComponent } from './serivcetable/service-edit/service-edit.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
+import { ContractListComponent } from './contract/contract-list/contract-list.component';
 
 
 
@@ -43,16 +46,20 @@ import {HttpClientModule} from '@angular/common/http';
     ServiceListComponent,
     CustomerTypeListComponent,
     ServiceCreateComponent,
-    ServiceEditComponent
+    ServiceEditComponent,
+    ContractCreateComponent,
+    ContractListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatPaginatorModule,
+        HttpClientModule,
+        NgxPaginationModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
