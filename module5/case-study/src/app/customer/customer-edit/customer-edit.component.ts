@@ -33,7 +33,6 @@ export class CustomerEditComponent implements OnInit {
       this.id = +paramMap.get('id');
     });
   }
-
   ngOnInit(): void {
     this.customerService.findById(this.id).subscribe(customer => {
       this.customerForm = new FormGroup({

@@ -1,0 +1,95 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Điện thoại"
+    },
+    {
+      "id": 2,
+      "categoryName": "Laptop"
+    },
+    {
+      "id": 3,
+      "categoryName": "Phụ kiện"
+    }
+  ],
+  "products": [
+    {
+      "name": "Iphone 8 plus",
+      "price": 5000000,
+      "ngayRaMat": "2019-08-08",
+      "ngayNgungSanXuat": "2023-08-08",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      },
+      "id": 1
+    },
+    {
+      "name": "Laptop gaming",
+      "price": 5000000,
+      "ngayRaMat": "2023-06-01",
+      "ngayNgungSanXuat": "2023-06-10",
+      "category": {
+        "id": 2,
+        "categoryName": "Laptop"
+      },
+      "id": 2
+    },
+    {
+      "name": "Chuột không dây",
+      "price": 50000,
+      "ngayRaMat": "2023-06-01",
+      "ngayNgungSanXuat": "2023-06-15",
+      "category": {
+        "id": 3,
+        "categoryName": "Phụ kiện"
+      },
+      "id": 3
+    },
+    {
+      "name": "Iphone XsMax",
+      "price": 6000000,
+      "ngayRaMat": "2023-06-01",
+      "ngayNgungSanXuat": "2023-06-06",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      },
+      "id": 4
+    },
+    {
+      "name": "Iphone 11",
+      "price": 7000000,
+      "ngayRaMat": "2023-05-31",
+      "ngayNgungSanXuat": "2023-06-02",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      },
+      "id": 5
+    },
+    {
+      "name": "Iphone 14",
+      "price": 17000000,
+      "ngayRaMat": "2023-06-02",
+      "ngayNgungSanXuat": "2023-06-05",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      },
+      "id": 6
+    },
+    {
+      "name": "abc",
+      "price": 50000,
+      "ngayRaMat": "2023-06-24",
+      "ngayNgungSanXuat": "2023-06-30",
+      "category": {
+        "id": 1,
+        "categoryName": "Điện thoại"
+      },
+      "id": 7
+    }
+  ]
+}

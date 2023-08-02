@@ -58,12 +58,12 @@ public class StudentController {
         return "redirect:/student/list";
     }
 
-//    @GetMapping("/view/{student_id}")
-//    public String viewStudent(@PathVariable("student_id") String id, Model model) {
-//        Student student = service.findById(id);
-//        model.addAttribute("student", student);
-//        return "/student/view";
-//    }
+    @GetMapping("/view/{student_id}")
+    public String viewStudent(@PathVariable("student_id") String id, Model model) {
+        Student student = service.findById(id);
+        model.addAttribute("student", student);
+        return "/student/view";
+    }
 
     // Dùng formatter
     @GetMapping("/view/{student_id}")

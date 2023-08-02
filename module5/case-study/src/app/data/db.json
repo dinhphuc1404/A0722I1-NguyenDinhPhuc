@@ -23,21 +23,6 @@
   ],
   "customers": [
     {
-      "id": 1,
-      "idCustomer": "KH-1111",
-      "nameCustomer": "Nguyễn Đình Phúc",
-      "dateCustomer": "2001-04-14",
-      "genderCustomer": 0,
-      "idCardCustomer": 206306357,
-      "phoneCustomer": "+84935338475",
-      "emailCustomer": "dinhphuc14042001@gmail.com",
-      "typeCustomer": {
-        "id": 1,
-        "nameCustomerType": "Diamond"
-      },
-      "addressCustomer": "Quảng Nam"
-    },
-    {
       "id": 2,
       "idCustomer": "KH-1112",
       "nameCustomer": "Nguyễn Văn A",
@@ -150,7 +135,7 @@
       "genderCustomer": "1",
       "idCardCustomer": 123456789,
       "phoneCustomer": "+84123456789",
-      "emailCustomer": "dinhphuc14042001@gmail.com",
+      "emailCustomer": "vansung@gmail.com",
       "typeCustomer": {
         "id": 5,
         "nameCustomerType": "Member"

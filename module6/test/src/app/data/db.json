@@ -1,0 +1,31 @@
+{
+  "vatTus" : [{
+    "id": 1,
+    "maVatTu": "VT01",
+    "name": "ABC",
+    "soLuong": 15,
+    "donGia": 20000,
+    "chon": false
+  }, {
+    "id": 2,
+    "maVatTu": "VT02",
+    "name": "DBA",
+    "soLuong": 15,
+    "donGia": 20000,
+    "chon": false
+  }, {
+    "id": 3,
+    "maVatTu": "VT03",
+    "name": "Hihi",
+    "soLuong": 15,
+    "donGia": 20000,
+    "chon": false
+  }, {
+    "id": 4,
+    "maVatTu": "VT04",
+    "name": "Haha",
+    "soLuong": 15,
+    "donGia": 20000,
+    "chon": false
+  }]
+}

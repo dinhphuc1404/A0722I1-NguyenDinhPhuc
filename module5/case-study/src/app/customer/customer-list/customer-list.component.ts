@@ -52,7 +52,7 @@ export class CustomerListComponent implements OnInit {
 
   search(inputSerach: HTMLInputElement) {
     if (inputSerach.value === '') {
-      Swal.fire('Vui lòng nhập từ khóa cần tìm kiếm');
+      this.getAll();
     } else {
       this.customerSerivice.search(inputSerach.value).subscribe(next => {
         this.customers = next;

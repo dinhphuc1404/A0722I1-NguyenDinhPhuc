@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Bán Hàng</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+            <h2>Quản Lý Bán Hàng</h2>
+        </div>
+        <div class="staff">
+            <label for=""> 
+                Nhân Viên: 
+                <span> Phạm Hòa</span>
+                
+            </label>
+            <label for="">
+                Ngày làm Việc: 
+                <span>21/02/2010</span>
+                
+            </label>
+        </div>
+        <div class="bill">
+            <div class="bill_title">
+                <h5><i class='bx bx-calendar-edit'></i> Hóa đơn</h5>
+            </div>
+            <div class="bill_content">
+
+                <label for="">
+                    Mã hóa đơn: 
+                    <input type="text" id="bill_code">
+                </label>
+                <label for="">
+                    Ngày lập: 
+                    <input type="text" id="bill_date">
+                </label>
+                <label for="">
+                    Người thực hiện: 
+                    <select id="bill_performer">
+                        <option value="Phạm Hòa">Phạm Hòa</option>
+                        <option value="Nguyễn Minh">Nguyễn Minh</option>
+                        <option value="Trần An">Trần An</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="user">
+            <div class="user_title">
+                <h5>Khách hàng</h5>
+            </div>
+            <div class="user_content">
+                <div class="user_id">
+                    <label for="">
+                        Mã KH: 
+                        <input type="text" id="user_ma">
+                    </label>
+                    <label for="">
+                        Địa chỉ: 
+                        <input type="text" id="user_dc">
+                    </label>
+                </div>
+                <div class="user_name">
+                    <label for="">
+                       Tên khách hàng: 
+                        <input type="text" id="user_ma">
+                    </label>
+                    <label for="">
+                        Số điện thoại: 
+                        <input type="text" id="user_dc">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

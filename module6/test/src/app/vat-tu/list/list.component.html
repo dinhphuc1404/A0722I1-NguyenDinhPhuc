@@ -1,0 +1,27 @@
+<table>
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Vật tư</th>
+    <th>Số lượng</th>
+    <th>Thành tiền</th>
+    <th>Ghi chú</th>
+    <th>Chọn</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container>
+  <tr  *ngFor="let v of vatTus | paginate: { itemsPerPage: 2, currentPage: p }; index as i">
+    <td>{{ i+1 }}</td>
+    <td>{{ v.name }}</td>
+    <td> <input type="number" [(ngModel)]="v.soLuong"></td>
+    <td>{{ v.donGia * v.soLuong}}</td>
+    <td> <input type="text" [(ngModel)]="v.ghiChu"></td>
+    <input type="checkbox" [(ngModel)]="v.chon" (change)="chonChekBox(v)">
+  </tr>
+  </ng-container>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event" previousLabel="Trước"
+                     nextLabel="Sau" style="text-align: center"></pagination-controls>
+<button (click)="them()" [disabled]="vatTuService.selectedVatTu?.length === 0" >Thêm</button>

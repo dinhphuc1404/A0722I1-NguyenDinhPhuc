@@ -1,0 +1,125 @@
+<br>
+<div style="text-align: center">
+  <a routerLink="/product/create">
+    <button type="button" class="btn btn-primary">Thêm mới sản phẩm</button></a>
+</div>
+<br>
+<div style="text-align: center">
+  <input #start type="date">
+  <input #end  type="date" >
+  <button type="submit" (click)="searchDate(start,end)">Search</button>
+</div>
+<br>
+<div style="text-align: center">
+  <input #name type="text" id="searchName" aria-describedby="helpId" placeholder="name">
+  <button type="submit" (click)="searchName(name)">Search</button>
+</div>
+
+<h1 style="text-align: center; color: blue">Danh sách sản phẩm</h1>
+<div>
+  <table  style="margin: 0 auto" class="table table-striped table-hover ">
+    <tr>
+      <td>STT</td>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Ngày sản xuất</td>
+      <td>Ngày ngừng sản xuất</td>
+      <td>Category</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let p of products | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+      <td>{{i+1}}</td>
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.ngayRaMat}}</td>
+      <td>{{p.ngayNgungSanXuat}}</td>
+      <td>{{p.category.categoryName}}</td>
+      <td><a routerLink="/product/edit/{{p.id}}" class="btn btn-primary" style="background: none"><i class="fa-solid fa-pen-to-square" style="color: #57cb74;"></i></a></td>
+      <td><a class=" btn btn-primary" data-toggle="modal" data-target="#delete" (click)=getProduct(p.id)  style="background: none"><i class="fa-solid fa-trash" style="color: #d41616;"></i></a></td>
+      <td><a type="button" class="btn btn-primary" data-toggle="modal" (click)=getProduct(p.id) data-target="#view" style="background: none"><i class="fa-solid fa-circle-info" style="color: #145ddb;"></i></a></td>
+    </tr>
+  </table>
+  <h1 *ngIf="mgs" style="text-align: center; font-weight: bold">Không có kết quả</h1>
+  <pagination-controls (pageChange)="p = $event" previousLabel="Trước"
+                       nextLabel="Sau" style="text-align: center"></pagination-controls>
+</div>
+
+
+
+<!-- Modal delete-->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger" id="exampleModalLabel" >Bạn có muốn xóa sản phẩm này?</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <tr>
+            <td>Id:</td>
+            <td>{{product?.id}}</td>
+          </tr>
+          <tr>
+            <td>Tên:</td>
+            <td>{{product?.name}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">Xác nhận xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal view-->
+<div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color: blue">Thông tin chi tiết sản phẩm</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">Đóng</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-hover ">
+          <tr>
+            <td>Id:</td>
+            <td>{{product?.id}}</td>
+          </tr>
+          <tr>
+            <td>Tên:</td>
+            <td>{{product?.name}}</td>
+          </tr>
+          <tr>
+            <td>Giá</td>
+            <td>{{product?.price}}</td>
+          </tr>
+          <tr>
+            <td>Ngày ra mắt:</td>
+            <td >{{product?.ngayRaMat}}</td>
+          </tr>
+          <tr>
+            <td>Ngày ngừng sản xuất:</td>
+            <td>{{product?.ngayNgungSanXuat}}</td>
+          </tr>
+          <tr>
+            <td>Category:</td>
+            <td>{{product?.category.categoryName}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

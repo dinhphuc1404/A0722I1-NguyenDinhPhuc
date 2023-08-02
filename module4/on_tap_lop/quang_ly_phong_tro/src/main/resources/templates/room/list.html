@@ -68,12 +68,12 @@
             <tbody th:each="st, iterStat: ${motelRooms}">
             <tr th:object="${st}">
                 <td th:text="${iterStat.count}"></td>
-                <td th:text="*{getId()}"></td>
-                <td th:text="*{getName()}"></td>
+                <td th:text="*{id}"></td>
+                <td th:text="*{name}"></td>
                 <td th:text="*{phoneNumber}"></td>
                 <td th:text="*{sex ? 'Nam' : 'Nữ'}"></td>
                 <td th:text="*{firstDay}"></td>
-                <td th:text="*{getPayName.getPayName}"></td>
+                <td th:text="*{payName.payName}"></td>
                 <td th:text="*{getNote}"></td>
                 <td>
                     <a th:href="@{/room/update/{id}(id=*{id})}">Update</a>

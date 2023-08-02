@@ -29,7 +29,7 @@
       <div class="form-group col-md-6">
         <label >Trình độ</label>
         <select class="form-control" formControlName="trinhDoEmployee">
-          <option >Choose...</option>
+          <option selected [value]="null" disabled>Choose...</option>
           <option *ngFor="let l of levels" [ngValue]="l">{{l.nameLevel}}</option>
         </select>
         <p class="text-danger" *ngIf="employeeForm.controls.trinhDoEmployee?.touched &&

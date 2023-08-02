@@ -1,0 +1,80 @@
+<div #htmlContent style="width: 100%">
+<a type="button" class=" btn-primary" routerLink="/vatTu/list">Thêm</a>
+<table>
+  <thead>
+  <tr>
+    <th>Tên mã vật tư</th>
+    <th>Vật tư</th>
+    <th>Số lượng</th>
+    <th>Đơn vị</th>
+    <th>Đơn giá</th>
+    <th>Thành tiền</th>
+    <th>Ghi chú</th>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of vatTuService.selectedVatTu">
+    <td>{{item.maVatTu}}</td>
+    <td><a routerLink="/select/update/{{item.id}}">{{item.name}}</a></td>
+    <td>{{item.soLuong}}</td>
+    <td>{{item.donVi}}</td>
+    <td>{{item.donGia}}</td>
+    <td>{{item.soLuong*item.donGia}}</td>
+    <td>{{item.ghiChu}}</td>
+    <td> <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
+                 (click)="getProduct(item.id)">Delete
+    </button></td>
+  </tr>
+  </tbody>
+</table>
+<p>Tổng tiền: {{ calculateTotalPrice() }}</p>
+<button (click)="printPDF()">Print PDF</button>
+</div>
+
+<!-- Modal delete -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete" style="color: red">Xác nhận xóa</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure delete: {{vatTu?.name}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="removeProduct()">Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modelId">-->
+<!--  <button (click)="printPDF()">Print PDF</button>-->
+<!--</button>-->
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleId"></h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Body
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

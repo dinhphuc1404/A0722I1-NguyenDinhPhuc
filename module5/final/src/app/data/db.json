@@ -1,0 +1,48 @@
+{
+  "benhAns": [
+    {
+      "maBenhAn": "BA-002",
+      "maBenhNhan": "BN-002",
+      "tenBenhNhan": "Nguyen Van B ",
+      "ngayNhapVien": "2023-08-01",
+      "ngayRaVien": "2023-08-07",
+      "liDoNhapVien": "Tai nạn",
+      "phuongPhapDieuTri": "Băng bó",
+      "bacSiDieuTri": "Le Van B",
+      "id": 2
+    },
+    {
+      "maBenhAn": "BA-003",
+      "maBenhNhan": "BN-003",
+      "tenBenhNhan": "Nguyen Van C ",
+      "ngayNhapVien": "2023-08-08",
+      "ngayRaVien": "2023-08-17",
+      "liDoNhapVien": "Covid 2019",
+      "phuongPhapDieuTri": "Cách ly",
+      "bacSiDieuTri": "Le Van B",
+      "id": 3
+    },
+    {
+      "maBenhAn": "BA-004",
+      "maBenhNhan": "BN-004",
+      "tenBenhNhan": "Nguyen Van D ",
+      "ngayNhapVien": "2023-08-07",
+      "ngayRaVien": "2023-08-10",
+      "liDoNhapVien": "Suy thận",
+      "phuongPhapDieuTri": "Chạy thận",
+      "bacSiDieuTri": "Le Van C",
+      "id": 4
+    },
+    {
+      "maBenhAn": "BA-004",
+      "maBenhNhan": "BN-004",
+      "tenBenhNhan": "Nguyen Van H",
+      "ngayNhapVien": "2023-07-31",
+      "ngayRaVien": "2023-08-10",
+      "liDoNhapVien": "Gãy chân",
+      "phuongPhapDieuTri": "Bó bột",
+      "bacSiDieuTri": "Le Van E",
+      "id": 8
+    }
+  ]
+}

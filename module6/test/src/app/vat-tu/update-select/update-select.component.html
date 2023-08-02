@@ -1,0 +1,20 @@
+<form action="" [formGroup]="vatTutForm" (ngSubmit)="updateVatTu(id)">
+  <table>
+    <tr>
+      <td>Tên :</td>
+      <td><input type="text" formControlName="name" readonly></td>
+    </tr>
+    <tr>
+      <td>Số lượng</td>
+      <td><input type="number" formControlName="soLuong"></td>
+    </tr>
+    <tr>
+      <td>Ghi chú</td>
+      <td><input type="text" formControlName="ghiChu"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Cập nhật</button></td>
+    </tr>
+  </table>
+</form>

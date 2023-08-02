@@ -56,69 +56,25 @@
       }
     },
     {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
+      "id": 10,
+      "code": "P10",
+      "name": "Chuột",
+      "price": 50000,
       "description": "Mới",
       "category": {
-        "id": 2,
-        "categoryName": "Laptop"
+        "id": 3,
+        "categoryName": "Phụ kiện"
       }
     },
     {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
+      "id": 11,
+      "code": "P8",
+      "name": "Sạc không dây",
+      "price": 100000,
       "description": "Mới",
       "category": {
-        "id": 2,
-        "categoryName": "Laptop"
-      }
-    },
-    {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
-      "description": "Mới",
-      "category": {
-        "id": 2,
-        "categoryName": "Laptop"
-      }
-    },
-    {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
-      "description": "Mới",
-      "category": {
-        "id": 2,
-        "categoryName": "Laptop"
-      }
-    },
-    {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
-      "description": "Mới",
-      "category": {
-        "id": 2,
-        "categoryName": "Laptop"
-      }
-    },
-    {
-      "id": 9,
-      "code": "P2",
-      "name": "Laptop dell Gaming",
-      "price": 20000000,
-      "description": "Mới",
-      "category": {
-        "id": 2,
-        "categoryName": "Laptop"
+        "id": 3,
+        "categoryName": "Phụ kiện"
       }
     }
   ],
