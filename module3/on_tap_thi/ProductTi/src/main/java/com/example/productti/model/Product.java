@@ -19,6 +19,12 @@ public class Product {
         this.idCategory = idCategory;
         this.nameCategory = nameCategory;
     }
+    public Product(int id, String name, Date day, int idCategory) {
+        this.id = id;
+        this.name = name;
+        this.day = day;
+        this.idCategory = idCategory;
+    }
     public Product(String name, Date day, int idCategory) {
         this.name = name;
         this.day = day;

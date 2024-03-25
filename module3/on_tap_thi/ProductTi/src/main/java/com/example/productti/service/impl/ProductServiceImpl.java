@@ -17,4 +17,14 @@ public class ProductServiceImpl implements IProductService {
     public void addProduct(Product product) {
         productRepository.addProduct(product);
     }
+
+    @Override
+    public Product findById(int id) {
+        return productRepository.findById(id);
+    }
+
+    @Override
+    public void updateProduct(Product product) {
+        productRepository.updateProduct(product);
+    }
 }

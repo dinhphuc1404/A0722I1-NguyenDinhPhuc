@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.ParseException;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet", value = "/product")
@@ -32,7 +31,19 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 showCreate(req, resp);
                 break;
+            case "update":
+                showUpdate(req, resp);
+                break;
         }
+    }
+
+    private void showUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryService.findAllCategory();
+        req.setAttribute("categories", categories);
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product product = productService.findById(id);
+        req.setAttribute("product", product);
+        req.getRequestDispatcher("/product/update.jsp").forward(req, resp);
     }
 
     private void showCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,7 +65,20 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 create(req, resp);
                 break;
+            case "update":
+                update(req, resp);
+                break;
         }
+    }
+
+    private void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        Date day = Date.valueOf(req.getParameter("day"));
+        int idCategory = Integer.parseInt(req.getParameter("idCategory"));
+        Product product = new Product(id, name, day, idCategory);
+        productService.updateProduct(product);
+        showList(req, resp);
     }
 
     private void create(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

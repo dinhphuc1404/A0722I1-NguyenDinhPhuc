@@ -24,6 +24,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Day</th>
                         <th scope="col">Category name</th>
+                        <th scope="col">Update</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,12 @@
                             <td>${l.name}</td>
                             <td>${l.day}</td>
                             <td>${l.nameCategory}</td>
+                            <td>
+                                <a href="/product?action=update&id=${l.id}"  type="button"
+                                   class="btn btn-primary">
+                                    <i class="far fa-edit fa-lg"></i>
+                                </a>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>
