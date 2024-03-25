@@ -34,7 +34,7 @@ public class BookController {
     }
 
     @GetMapping("list")
-    public String showListBook(@RequestParam(name = "nameBook", required = false) String name, Model model) {
+    public String showListMay(@RequestParam(name = "nameBook", required = false) String name, Model model) {
         if (name != null && !name.isEmpty()) {
             model.addAttribute("books", bookService.findByName(name));
         } else {

@@ -12,9 +12,6 @@ import java.util.Scanner;
 public class QuanLiTaiKhoan {
     static Scanner scanner = new Scanner(System.in);
     static int count = 0;
-    public static List<TaiKhoanTietKiem> taiKhoanTietKiemList = new ArrayList<>();
-    public static List<TaiKhoanThanhToan> taiKhoanThanhToanList = new ArrayList<>();
-
 
     public void displayTietKiem() throws IOException {
         List<TaiKhoanTietKiem> taiKhoanTietKiemList = thi.until.ReadAndWrite.ReadtaiKhoanTietKiems();

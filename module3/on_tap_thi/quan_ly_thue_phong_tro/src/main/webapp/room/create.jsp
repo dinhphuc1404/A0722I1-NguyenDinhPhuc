@@ -16,6 +16,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/bootstrap4/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/static/datatables/css/jquery.dataTables.css">
 </head>
 <body>
 <c:if test="${mess!=null}">

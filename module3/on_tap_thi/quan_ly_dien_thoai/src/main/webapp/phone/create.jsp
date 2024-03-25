@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Dinh Phuc
-  Date: 16/02/2023
-  Time: 9:39 SA
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,7 +13,12 @@
     <p>Price</p>
     <input type="text" placeholder="price" name="price">
     <p>Type</p>
-    <input type="text" placeholder="id_danh_muc" name="id_danh_muc">
+    <select id="tenDichVu" class="form-control" name="id_danh_muc">
+        <option>Chọn dịch vụ......</option>
+        <c:forEach items="${categories}" var="c">
+            <option value="${c.id}">${c.name}</option>
+        </c:forEach>
+    </select>
     <input type="submit" value="Thêm Mới">
 </form>
 </body>

@@ -2,6 +2,7 @@ package com.example.quan_ly_dien_thoai.controller;
 
 import com.example.quan_ly_dien_thoai.model.Category;
 import com.example.quan_ly_dien_thoai.model.Phone;
+import com.example.quan_ly_dien_thoai.service.CategoryServiceImpl;
 import com.example.quan_ly_dien_thoai.service.PhoneServiceImpl;
 
 import javax.servlet.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @WebServlet(name = "PhoneServlet", value = "/phone")
 public class PhoneServlet extends HttpServlet {
     private PhoneServiceImpl phoneService = new PhoneServiceImpl();
+    private CategoryServiceImpl categoryService = new CategoryServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -48,8 +50,10 @@ public class PhoneServlet extends HttpServlet {
         showList(request,response);
     }
 
-    private void showCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("/phone/create.jsp");
+    private void showCreate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        List<Category> categories = categoryService.findAllCategory();
+        request.setAttribute("categories", categories);
+        request.getRequestDispatcher("/phone/create.jsp").forward(request, response);
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
