@@ -5,7 +5,7 @@ import {Customer} from '../../model/customer';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerType} from '../../model/customer-type';
 import {CustomerTypeService} from '../../service/customer-type.service';
-import Swal from 'sweetalert2';
+  import Swal from 'sweetalert2';
 @Component({
   selector: 'app-customer-edit',
   templateUrl: './customer-edit.component.html',

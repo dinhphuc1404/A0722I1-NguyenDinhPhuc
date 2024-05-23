@@ -27,4 +27,9 @@ public class ProductServiceImpl implements IProductService {
     public void updateProduct(Product product) {
         productRepository.updateProduct(product);
     }
+
+    @Override
+    public List<Product> search(int category) {
+        return productRepository.search(category);
+    }
 }

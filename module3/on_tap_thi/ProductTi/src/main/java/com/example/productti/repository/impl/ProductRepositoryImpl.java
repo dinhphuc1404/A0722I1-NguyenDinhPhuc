@@ -14,6 +14,8 @@ public class ProductRepositoryImpl implements IProductRepository {
     private static final String ADD_PRODUCT = "insert into product(name, day, category_id) values (?, ?, ?)";
     private static final String SELECT_FINDBYID = "select * from product where id = ?";
     private static final String UPDATE_PRODUCT = "update product set name = ?, day = ?, category_id = ? where id = ?";
+
+    private static final String SEARCH = "select * from product where category_id = ?";
     @Override
     public List<Product> findAllProduct() {
         List<Product> products = new ArrayList<>();
@@ -78,5 +80,26 @@ public class ProductRepositoryImpl implements IProductRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Product> search(int category) {
+        List<Product> products = new ArrayList<>();
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH)) {
+            preparedStatement.setInt(1,  category);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Date day = rs.getDate("day");
+                category = rs.getInt("category_id");
+                Product product = new Product(id, name, day, category);
+                products.add(product);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return products;
     }
 }

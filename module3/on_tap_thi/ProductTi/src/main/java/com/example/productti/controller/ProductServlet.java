@@ -34,7 +34,19 @@ public class ProductServlet extends HttpServlet {
             case "update":
                 showUpdate(req, resp);
                 break;
+            case "search":
+                search(req, resp);
+                break;
         }
+    }
+
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryService.findAllCategory();
+        req.setAttribute("categories", categories);
+        int cateGoryId = Integer.parseInt(req.getParameter("categoryId"));
+        List<Product> products = productService.search(cateGoryId);
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/product/list.jsp").forward(req, resp);
     }
 
     private void showUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,6 +65,8 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryService.findAllCategory();
+        req.setAttribute("categories", categories);
         List<Product> products = productService.findAllProduct();
         req.setAttribute("products", products);
         req.getRequestDispatcher("/product/list.jsp").forward(req, resp);

@@ -14,6 +14,25 @@
             <a href="/product?action=create">Thêm mới</a>
         </div>
     </div>
+
+    <form action="/product" method="get">
+        <div class="row">
+            <div class="col-sm-10 pl-0">
+                <div class="form-group">
+                    <input hidden name="action" value="search">
+                    <select  class="form-control" name="categoryId">
+                        <option>Chọn category.....</option>
+                        <c:forEach items="${categories}" var="c">
+                            <option value="${c.idCategory}">${c.idCategory}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-success" type="submit">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
     <div class="row">
         <div class="col-sm">
             <c:if test="${!empty products}">

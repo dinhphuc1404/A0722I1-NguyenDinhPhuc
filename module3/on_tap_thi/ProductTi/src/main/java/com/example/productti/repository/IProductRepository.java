@@ -9,4 +9,5 @@ public interface IProductRepository {
     void addProduct(Product product);
     Product findById(int id);
     void updateProduct(Product product);
+    List<Product> search(int category);
 }
